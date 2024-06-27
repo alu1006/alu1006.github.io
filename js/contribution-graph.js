@@ -1,8 +1,9 @@
 // source/js/contribution-graph.js
 
 document.addEventListener('DOMContentLoaded', function() {
-    const posts = window.HexoData.posts;
 
+    const posts = window.HexoData.posts;
+    console.log(posts)
     const formattedData = posts.reduce((acc, post) => {
         const date = post.date;
         acc[date] = (acc[date] || 0) + 1;

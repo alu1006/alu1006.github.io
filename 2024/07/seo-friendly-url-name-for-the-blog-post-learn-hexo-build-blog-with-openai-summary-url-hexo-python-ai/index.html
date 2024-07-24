@@ -16,28 +16,28 @@
   <meta name="author" content="阿盧">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Notion寫作，Hexo展示，實現寫部落格自由1. 在Hexo展示部落格的優點Hexo是一個基於Node.js的快速、簡單且高效的靜態部落格框架，擁有以下幾個優點：  高效性能：Hexo生成的網站是靜態的，速度非常快，對伺服器的負載也很小。  高度靈活：Hexo支援多種主題和插件，可以輕鬆自訂部落格的外觀和功能。  容易部署：只需要幾個指令就能將部落格部署到GitHub Pages、Netlif">
+    <meta name="description" content="使用Hexo架設部落格後，本來只是想簡單紀錄教學與日常。但總會想到一些問題來折騰自己。 趁颱風天，測試使用OpenAI 的API，做了兩件事情：一為用OpenAI撰寫整篇文章的總結，一為調整文章網址 都為了增加網站的SEO，也為了自己的好玩拉，有沒有做沒什麼差。 用OpenAI撰寫整篇文章的總結想法是「寫完文章後」→「Python與OpenAI API總結文章」→「generate的時候用JS加入">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Notion寫作，Hexo展示，實現寫部落格自由">
-<meta property="og:url" content="https://alu1006.github.io/2024/07/seo-friendly-url-name-for-blog-post-notion-hexo-showcase-write-blog-freedom-hexo-python-automation/index.html">
+<meta property="og:title" content="紀錄學習-使用Hexo架設部落格 (3) 使用OpenAI輔助總結與網址">
+<meta property="og:url" content="https://alu1006.github.io/2024/07/seo-friendly-url-name-for-the-blog-post-learn-hexo-build-blog-with-openai-summary-url-hexo-python-ai/index.html">
 <meta property="og:site_name" content="阿盧老師Coding嚕">
-<meta property="og:description" content="Notion寫作，Hexo展示，實現寫部落格自由1. 在Hexo展示部落格的優點Hexo是一個基於Node.js的快速、簡單且高效的靜態部落格框架，擁有以下幾個優點：  高效性能：Hexo生成的網站是靜態的，速度非常快，對伺服器的負載也很小。  高度靈活：Hexo支援多種主題和插件，可以輕鬆自訂部落格的外觀和功能。  容易部署：只需要幾個指令就能將部落格部署到GitHub Pages、Netlif">
+<meta property="og:description" content="使用Hexo架設部落格後，本來只是想簡單紀錄教學與日常。但總會想到一些問題來折騰自己。 趁颱風天，測試使用OpenAI 的API，做了兩件事情：一為用OpenAI撰寫整篇文章的總結，一為調整文章網址 都為了增加網站的SEO，也為了自己的好玩拉，有沒有做沒什麼差。 用OpenAI撰寫整篇文章的總結想法是「寫完文章後」→「Python與OpenAI API總結文章」→「generate的時候用JS加入">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://alu1006.github.io/img/Notion%E5%AF%AB%E4%BD%9C%EF%BC%8CHexo%E5%B1%95%E7%A4%BA%EF%BC%8C%E5%AF%A6%E7%8F%BE%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC%E8%87%AA%E7%94%B1_index.jpg">
-<meta property="article:published_time" content="2024-07-24T07:14:00.423Z">
-<meta property="article:modified_time" content="2024-07-24T07:14:14.322Z">
+<meta property="og:image" content="https://alu1006.github.io/img/%E7%B4%80%E9%8C%84%E5%AD%B8%E7%BF%92-%E4%BD%BF%E7%94%A8Hexo%E6%9E%B6%E8%A8%AD%E9%83%A8%E8%90%BD%E6%A0%BC_(3)_%E4%BD%BF%E7%94%A8OpenAI%E8%BC%94%E5%8A%A9%E7%B8%BD%E7%B5%90%E8%88%87%E7%B6%B2%E5%9D%80_index.jpg">
+<meta property="article:published_time" content="2024-07-24T14:15:45.888Z">
+<meta property="article:modified_time" content="2024-07-24T14:16:47.626Z">
 <meta property="article:author" content="阿盧">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="python">
-<meta property="article:tag" content="自動化">
+<meta property="article:tag" content="AI">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://alu1006.github.io/img/Notion%E5%AF%AB%E4%BD%9C%EF%BC%8CHexo%E5%B1%95%E7%A4%BA%EF%BC%8C%E5%AF%A6%E7%8F%BE%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC%E8%87%AA%E7%94%B1_index.jpg">
+<meta name="twitter:image" content="https://alu1006.github.io/img/%E7%B4%80%E9%8C%84%E5%AD%B8%E7%BF%92-%E4%BD%BF%E7%94%A8Hexo%E6%9E%B6%E8%A8%AD%E9%83%A8%E8%90%BD%E6%A0%BC_(3)_%E4%BD%BF%E7%94%A8OpenAI%E8%BC%94%E5%8A%A9%E7%B8%BD%E7%B5%90%E8%88%87%E7%B6%B2%E5%9D%80_index.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Notion寫作，Hexo展示，實現寫部落格自由 - 阿盧老師Coding嚕</title>
+  <title>紀錄學習-使用Hexo架設部落格 (3) 使用OpenAI輔助總結與網址 - 阿盧老師Coding嚕</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -224,13 +224,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/Notion%E5%AF%AB%E4%BD%9C%EF%BC%8CHexo%E5%B1%95%E7%A4%BA%EF%BC%8C%E5%AF%A6%E7%8F%BE%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC%E8%87%AA%E7%94%B1_index.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/img/%E7%B4%80%E9%8C%84%E5%AD%B8%E7%BF%92-%E4%BD%BF%E7%94%A8Hexo%E6%9E%B6%E8%A8%AD%E9%83%A8%E8%90%BD%E6%A0%BC_(3)_%E4%BD%BF%E7%94%A8OpenAI%E8%BC%94%E5%8A%A9%E7%B8%BD%E7%B5%90%E8%88%87%E7%B6%B2%E5%9D%80_index.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Notion寫作，Hexo展示，實現寫部落格自由"></span>
+            <span id="subtitle" data-typed-text="紀錄學習-使用Hexo架設部落格 (3) 使用OpenAI輔助總結與網址"></span>
           
         </div>
 
@@ -241,8 +241,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-07-24 15:14" pubdate>
-          2024年7月24日 下午
+        <time datetime="2024-07-24 22:15" pubdate>
+          2024年7月24日 晚上
         </time>
       </span>
     
@@ -253,7 +253,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.3k 字
+          816 字
         
       </span>
     
@@ -264,7 +264,7 @@
         
         
         
-          11 分鐘
+          7 分鐘
         
       </span>
     
@@ -302,13 +302,13 @@
                     <div id="board">
                         <article class="post-content mx-auto">
                             <h1 id="seo-header">
-                                Notion寫作，Hexo展示，實現寫部落格自由
+                                紀錄學習-使用Hexo架設部落格 (3) 使用OpenAI輔助總結與網址
                             </h1>
                             <!-- 改動開始：顯示文章摘要 -->
                             
                                 <div class="post-summary">
                                     <p>
-                                        用Hexo部落格展示快速又彈性，喜歡Theme及Markdown支援。但換到Notion寫作，容易割裂感。用Notion寫作方便圖片處理，但部落格展示有限制。圖片轉換到Hexo有點麻煩。透過Python轉換自動化，包含meta-data。下一步擬自動上傳，還在研究中。若有幫助，歡迎到GitHub推個讚！
+                                        使用Hexo架部落格只是為了記錄，卻陷入問題中。趁颱風天用OpenAI測試API，撰寫文章總結與調整網址以增加SEO效果。透過Python與JS實現兩種功能，提升網站互動性並解決網址中文問題。AI輔助功能提供更多創意，便宜又好用，讓部落格更有趣！
                                     </p>
                                 </div>
                                 
@@ -317,54 +317,29 @@
                                             
                                                                     <div class="markdown-body">
                                                                         
-                                                                            <h2 id="Notion寫作，Hexo展示，實現寫部落格自由"><a href="#Notion寫作，Hexo展示，實現寫部落格自由" class="headerlink" title="Notion寫作，Hexo展示，實現寫部落格自由"></a>Notion寫作，Hexo展示，實現寫部落格自由</h2><h3 id="1-在Hexo展示部落格的優點"><a href="#1-在Hexo展示部落格的優點" class="headerlink" title="1. 在Hexo展示部落格的優點"></a>1. 在Hexo展示部落格的優點</h3><p>Hexo是一個基於Node.js的快速、簡單且高效的靜態部落格框架，擁有以下幾個優點：</p>
+                                                                            <p>使用Hexo架設部落格後，本來只是想簡單紀錄教學與日常。但總會想到一些問題來折騰自己。</p>
+<p>趁颱風天，測試使用OpenAI 的API，做了兩件事情：一為用OpenAI撰寫整篇文章的總結，一為調整文章網址</p>
+<p>都為了增加網站的SEO，也為了自己的好玩拉，有沒有做沒什麼差。</p>
+<h2 id="用OpenAI撰寫整篇文章的總結"><a href="#用OpenAI撰寫整篇文章的總結" class="headerlink" title="用OpenAI撰寫整篇文章的總結"></a>用OpenAI撰寫整篇文章的總結</h2><p>想法是「寫完文章後」→「Python與OpenAI API總結文章」→「generate的時候用JS加入到文章的excerpt中」</p>
 <ul>
-<li><p>高效性能：Hexo生成的網站是靜態的，速度非常快，對伺服器的負載也很小。</p>
-</li>
-<li><p>高度靈活：Hexo支援多種主題和插件，可以輕鬆自訂部落格的外觀和功能。</p>
-</li>
-<li><p>容易部署：只需要幾個指令就能將部落格部署到GitHub Pages、Netlify等平台。</p>
-</li>
-<li><p>Markdown支援：Hexo完全支援Markdown語法，寫作體驗流暢。</p>
-</li>
+<li>Python與OpenAI API總結文章</li>
 </ul>
-<p>最喜歡的還是Theme很簡潔跟支援Markdown，同時又想保留一點自有空間，所以沒選擇HackMD</p>
-<h3 id="2-用Hexo寫作的困難點"><a href="#2-用Hexo寫作的困難點" class="headerlink" title="2. 用Hexo寫作的困難點"></a>2. 用Hexo寫作的困難點</h3><p>最大的困難也最討厭的是「割裂感」，以純用VS Code來寫作來說，要先處理圖片，儲存後再貼連結到文章內，在寫作過程中頻繁切換導致思緒不連貫，非常阿雜。</p>
-<p>所有想說是否能使用能夠整合多個功能的平台或工具，減少在不同應用程式之間切換的需求。第一個想到的就是本來就很常使用的Notion</p>
-<p>Google一下的確也有人類似這樣做過：<a target="_blank" rel="noopener" href="https://github.com/kaedea/notion-down">https://github.com/kaedea/notion-down</a></p>
-<h3 id="3-用Notion寫作的優點"><a href="#3-用Notion寫作的優點" class="headerlink" title="3. 用Notion寫作的優點"></a>3. 用Notion寫作的優點</h3><p>Notion是一個功能強大的筆記和知識管理工具，支援同步以外，最方便是用複製就可以把圖片給快速貼上，已經用了三四年了。</p>
-<h3 id="4-在Notion中展示部落格的困難點"><a href="#4-在Notion中展示部落格的困難點" class="headerlink" title="4. 在Notion中展示部落格的困難點"></a>4. 在Notion中展示部落格的困難點</h3><p>雖然Notion是一個強大的工具，但將其用作部落格平台仍存在一些挑戰：</p>
+<p>以下是Python程式碼， 路徑為.&#x2F;source&#x2F;_scripts&#x2F;summarize_post.py</p>
 <ul>
-<li><p>缺乏自訂選項：Notion的外觀和佈局選項較少，無法像Hexo那樣自由定制。</p>
-</li>
-<li><p>SEO限制：使用Notion公開分享頁面時，SEO效果較差，不利於搜尋引擎優化。</p>
-</li>
-<li><p>URL結構：Notion生成的URL較為複雜，不如Hexo的靜態網址友好。</p>
-</li>
+<li>generate的時候用JS加入到文章的excerpt中</li>
 </ul>
-<p>除此之外，如果要讓Notion轉成Markdown來匯入Hexo還是有點麻煩</p>
-<h3 id="5-在Notion中轉換Markdown的麻煩點"><a href="#5-在Notion中轉換Markdown的麻煩點" class="headerlink" title="5. 在Notion中轉換Markdown的麻煩點"></a>5. 在Notion中轉換Markdown的麻煩點</h3><p>在Notion中寫作時，將筆記轉換為Markdown格式可能會遇到以下問題：</p>
-<ul>
-<li>圖片處理：Notion中的圖片需要額外處理，才能正確顯示在Hexo中。</li>
-</ul>
-<h3 id="6-利用Python進行轉換與自動化"><a href="#6-利用Python進行轉換與自動化" class="headerlink" title="6. 利用Python進行轉換與自動化"></a>6. 利用Python進行轉換與自動化</h3><p>因此，我解決的步驟的流程如下：</p>
-<ul>
-<li><p>參考了一個寫部落格的範本，資料庫分成幾類，最重要是「正在寫」、「待發佈」、「已發佈」。要推上去的文章放在待發佈。</p>
-</li>
-<li><p>文章裡面包含寫部落格的各種meta-data比如：tags、categories…</p>
-</li>
-<li><p>範本連結如下：<br><a target="_blank" rel="noopener" href="https://alu1006.notion.site/b33fff93cf744bc9917edd7e4199ace3?v=54c0a75c6d3647a0a16ed107da398ac0&pvs=4">https://alu1006.notion.site/b33fff93cf744bc9917edd7e4199ace3?v=54c0a75c6d3647a0a16ed107da398ac0&amp;pvs=4</a></p>
-</li>
-<li><p>寫完後利用python 搭配 Notion API取出md檔，將檔案與圖片放到hexo的位置後，將文章移到「已發佈」</p>
-</li>
-<li><p>程式碼如下：<br><a target="_blank" rel="noopener" href="https://github.com/alu1006/notion2hexo/blob/main/main.py">https://github.com/alu1006/notion2hexo/blob/main/main.py</a></p>
-</li>
-<li><p>目前是手動 Hexo g d</p>
-</li>
-</ul>
-<h3 id="7-下一步…"><a href="#7-下一步…" class="headerlink" title="7. 下一步…"></a>7. 下一步…</h3><p>也不用手動，寫完可以自動就上傳…但對github action還在研究中</p>
-<p>折騰半天，如果有用的話，幫我github按個讚，得到小快樂！</p>
-<p><img src="/2024/07/seo-friendly-url-name-for-blog-post-notion-hexo-showcase-write-blog-freedom-hexo-python-automation/bfc21f95-dcef-4ea9-84bd-7f7b2c765f33.jpg" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p>JS程式碼，路徑放在.&#x2F;scripts&#x2F;generate_summary.js </p>
+<p>透過execSync執行前面的Python檔案取得data.summary</p>
+<p>也是在做讀檔寫檔（還好有GPT）</p>
+<p>在主題中的post要加入這個函式，路徑為.&#x2F;themes&#x2F;fluid&#x2F;layout&#x2F;post.ejs ，如果還沒產生總結，就開一個區塊來放。</p>
+<h2 id="用OpenAI調整網址幫助SEO與美觀"><a href="#用OpenAI調整網址幫助SEO與美觀" class="headerlink" title="用OpenAI調整網址幫助SEO與美觀"></a>用OpenAI調整網址幫助SEO與美觀</h2><p>這邊是了一陣子發現網址(permalink)的設定，在_config.yml中預設為</p>
+<p>可參考文件：<a target="_blank" rel="noopener" href="https://hexo.io/zh-tw/docs/permalinks">https://hexo.io/zh-tw/docs/permalinks</a></p>
+<p>但因為title都是中文，也不能直接寫permalink: 字串 這點我給差評</p>
+<p>解法是下載hexo-abbrlink 這個外掛</p>
+<p>然後修改permalink為</p>
+<p>再做meta-data的修改即可，修改方式如下</p>
+<p>因為這是後來與Notion同步時寫的，所以寫在Python當中，路徑為.&#x2F;main.py </p>
+<p>以上為兩個AI輔助的功能，目前使用3.5-turbo，因為很便宜，測試時狂摳猛摳，大概50次只要0.02美。</p>
 
                                                                                 
                                                                     </div>
@@ -402,7 +377,7 @@
       
         <a href="/tags/python/" class="print-no-link">#python</a>
       
-        <a href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96/" class="print-no-link">#自動化</a>
+        <a href="/tags/AI/" class="print-no-link">#AI</a>
       
     </div>
   
@@ -416,18 +391,12 @@
                                                                                             <article class="post-prev col-6">
                                                                                                 
                                                                                                     
-                                                                                                        <a href="/2024/07/seo-friendly-url-name-for-the-blog-post-learn-hexo-build-blog-with-openai-summary-url-hexo-python-ai/" title="紀錄學習-使用Hexo架設部落格 (3) 使用OpenAI輔助總結與網址">
-                                                                                                            <i class="iconfont icon-arrowleft"></i>
-                                                                                                            <span class="hidden-mobile">紀錄學習-使用Hexo架設部落格 (3) 使用OpenAI輔助總結與網址</span>
-                                                                                                            <span class="visible-mobile">上一篇</span>
-                                                                                                        </a>
-                                                                                                        
                                                                                             </article>
                                                                                             <article class="post-next col-6">
                                                                                                 
                                                                                                     
-                                                                                                        <a href="/2024/07/undefined/" title="河內五天四夜">
-                                                                                                            <span class="hidden-mobile">河內五天四夜</span>
+                                                                                                        <a href="/2024/07/seo-friendly-url-name-for-blog-post-notion-hexo-showcase-write-blog-freedom-hexo-python-automation/" title="Notion寫作，Hexo展示，實現寫部落格自由">
+                                                                                                            <span class="hidden-mobile">Notion寫作，Hexo展示，實現寫部落格自由</span>
                                                                                                             <span class="visible-mobile">下一篇</span>
                                                                                                             <i class="iconfont icon-arrowright"></i>
                                                                                                         </a>

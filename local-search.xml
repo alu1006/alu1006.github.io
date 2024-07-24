@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>紀錄學習-使用Hexo架設部落格 (3) 使用OpenAI輔助總結與網址</title>
+    <link href="/2024/07/seo-friendly-url-name-for-the-blog-post-learn-hexo-build-blog-with-openai-summary-url-hexo-python-ai/"/>
+    <url>/2024/07/seo-friendly-url-name-for-the-blog-post-learn-hexo-build-blog-with-openai-summary-url-hexo-python-ai/</url>
+    
+    <content type="html"><![CDATA[<p>使用Hexo架設部落格後，本來只是想簡單紀錄教學與日常。但總會想到一些問題來折騰自己。</p><p>趁颱風天，測試使用OpenAI 的API，做了兩件事情：一為用OpenAI撰寫整篇文章的總結，一為調整文章網址</p><p>都為了增加網站的SEO，也為了自己的好玩拉，有沒有做沒什麼差。</p><h2 id="用OpenAI撰寫整篇文章的總結"><a href="#用OpenAI撰寫整篇文章的總結" class="headerlink" title="用OpenAI撰寫整篇文章的總結"></a>用OpenAI撰寫整篇文章的總結</h2><p>想法是「寫完文章後」→「Python與OpenAI API總結文章」→「generate的時候用JS加入到文章的excerpt中」</p><ul><li>Python與OpenAI API總結文章</li></ul><p>以下是Python程式碼， 路徑為.&#x2F;source&#x2F;_scripts&#x2F;summarize_post.py</p><ul><li>generate的時候用JS加入到文章的excerpt中</li></ul><p>JS程式碼，路徑放在.&#x2F;scripts&#x2F;generate_summary.js </p><p>透過execSync執行前面的Python檔案取得data.summary</p><p>也是在做讀檔寫檔（還好有GPT）</p><p>在主題中的post要加入這個函式，路徑為.&#x2F;themes&#x2F;fluid&#x2F;layout&#x2F;post.ejs ，如果還沒產生總結，就開一個區塊來放。</p><h2 id="用OpenAI調整網址幫助SEO與美觀"><a href="#用OpenAI調整網址幫助SEO與美觀" class="headerlink" title="用OpenAI調整網址幫助SEO與美觀"></a>用OpenAI調整網址幫助SEO與美觀</h2><p>這邊是了一陣子發現網址(permalink)的設定，在_config.yml中預設為</p><p>可參考文件：<a href="https://hexo.io/zh-tw/docs/permalinks">https://hexo.io/zh-tw/docs/permalinks</a></p><p>但因為title都是中文，也不能直接寫permalink: 字串 這點我給差評</p><p>解法是下載hexo-abbrlink 這個外掛</p><p>然後修改permalink為</p><p>再做meta-data的修改即可，修改方式如下</p><p>因為這是後來與Notion同步時寫的，所以寫在Python當中，路徑為.&#x2F;main.py </p><p>以上為兩個AI輔助的功能，目前使用3.5-turbo，因為很便宜，測試時狂摳猛摳，大概50次只要0.02美。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>部落格建置</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>hexo</tag>
+      
+      <tag>python</tag>
+      
+      <tag>AI</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Notion寫作，Hexo展示，實現寫部落格自由</title>
     <link href="/2024/07/seo-friendly-url-name-for-blog-post-notion-hexo-showcase-write-blog-freedom-hexo-python-automation/"/>
     <url>/2024/07/seo-friendly-url-name-for-blog-post-notion-hexo-showcase-write-blog-freedom-hexo-python-automation/</url>

@@ -2181,12 +2181,43 @@ input[type=checkbox] {
   font-style: italic; /* 斜体 */
 }
 .read-more {
-  background-color: #f39c12;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
+  border: 2px solid #000; /* 默认粗黑外框 */
+  color: #000; /* 默认字体颜色为黑色 */
+  padding: 5px 10px;
+  text-decoration: none; /* 无下划线 */
+  display: inline-block;
+  margin-top: 10px;
 }
 .read-more:hover {
-  background-color: #e67e22;
+  border-color: #000; /* 默认保持外框颜色 */
+  background-color: transparent; /* 默认无底色 */
+}
+@media (prefers-color-scheme: light) {
+  .read-more {
+    border: 2px solid #000;
+    color: #000;
+  }
+  .read-more:hover {
+    border-color: #000;
+    background-color: transparent;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .read-more {
+    border: 2px solid #fff; /* 更改为白色外框 */
+    color: #fff; /* 更改为白色字体 */
+  }
+  .read-more:hover {
+    border-color: #fff; /* 更改为白色外框 */
+    background-color: transparent; /* 保持无底色 */
+  }
+}
+.index-info {
+  display: flex;
+  flex-direction: column;
+}
+.index-btm {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>資料科學與人工智慧課程簡介</title>
+    <link href="/2024/07/seo-friendly-url-name-for-blog-post-%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E8%88%87%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7%E8%AA%B2%E7%A8%8B%E7%B0%A1%E4%BB%8B-python-ai-%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8/"/>
+    <url>/2024/07/seo-friendly-url-name-for-blog-post-%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E8%88%87%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7%E8%AA%B2%E7%A8%8B%E7%B0%A1%E4%BB%8B-python-ai-%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8/</url>
+    
+    <content type="html"><![CDATA[<h2 id="本學期專題課重點"><a href="#本學期專題課重點" class="headerlink" title="本學期專題課重點"></a>本學期專題課重點</h2><p><img src="/2024/07/seo-friendly-url-name-for-blog-post-%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E8%88%87%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7%E8%AA%B2%E7%A8%8B%E7%B0%A1%E4%BB%8B-python-ai-%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8/565f443e-f371-424b-a2f3-f83dc7c8c4dd.webp" alt="Image"></p><p>開場用2024年的輝達股價，震驚全場。不同於2016年談AI就是圍棋專長的AlphaGo，近年人工智慧更貼近所有人的日常。</p><p>隨著時間，會有更多的人問，「AI這麼會繪圖，是不是唸美術的要失業了」、「AI這麼會寫程式，是不是唸資訊的要失業了」。</p><p>我希望上完這堂專題，你可以明白什麼是「打不贏就加入」的硬道理。包括這個專題課程，也是藉由這波浪潮，加把勁把他趕出來的。</p><p>此課程會希望更希望在「實作」之前，以高中生能懂的數學，講解人工智慧的「理論」。知道人工智慧的模樣（理論），除了可以在實作時更知道自己在幹嘛以外，在未來更有機會可以深入探究，並且優化模型；而知道怎麼實作，才能將人工智慧的所學應用在自己感興趣的議題上，兩者是相輔相成的。</p><p>估計上下學期會各有14週，每週四堂課。上學期以案例方式學習，接近下學期以分組方式開始完成專案。</p><p>不介意使用ChatGPT來生成程式碼，但前面會手打程式碼並詳細介紹，讓各位更清楚生成的內容到底代表什麼。</p><p>第一週</p><ul><li><p>人工智慧介紹-什麼是人工智慧、機器學習、深度學習和生成式學習，什麼是資料科學</p></li><li><p>開發環境介紹-Python 與 Colab</p></li><li><p>Numpy使用-延續基礎程式設計串列List的內容，使用資料科學必學的Numpy套件</p></li></ul><p>第二週</p><ul><li><p>Pandas使用-什麼是Dataframe、網路爬蟲取得資料</p></li><li><p>資料前處理-資料觀察與篩選、資料刪除與補缺失、資料轉換</p></li><li><p>探索性資料分析(Exploratory Data Analysis)-條件式選取、計算最大最小平均總和與標準差、新增與選取欄位</p></li></ul><p>第三週</p><ul><li><p>Matplotlib與seaborn-將EDA進行繪圖分析(折線圖、長條圖、圓餅圖、直方圖、散布圖、熱力圖…)</p></li><li><p>經典範例實作-鐵達尼號生還預測分析、Iris花種分類分析</p></li></ul><p>第四週</p><ul><li><p>探索性資料分析日常範例實作-台灣房地產趨勢分析</p></li><li><p>探索性資料分析日常範例實作-台灣犯罪率分析</p></li><li><p>專題講解-第一個方向(分析資料)</p></li></ul><p>第五週</p><ul><li><p>機器學習介紹-什麼是監督式，什麼是非監督式學習</p></li><li><p>監督式學習理論介紹-線性迴歸、KNN(K Nearest Neighbor)、K-means</p></li><li><p>使用線性迴歸做第一個模型-以Iris為例</p></li><li><p>認識混淆矩陣與預測如何交叉驗證</p></li></ul><p>使用Streamlit快速建立外連網站； 使用LineBot建立可用的Agent</p><p>第六週</p><ul><li><p>以KNN實作模型</p></li><li><p>以K-means實作模型</p></li></ul><p>第七週</p><ul><li><p>gymnasium套件</p></li><li><p>生活實例：捷運流量與客群分析</p></li><li><p>專題講解-第二個方向(資料預測)</p></li></ul><p>第八週</p><ul><li><p>深度學習介紹-全連接神經網路、卷積神經網路…</p></li><li><p>經典範例-手寫辨識實作</p></li></ul><p>第九週</p><ul><li><p>視覺化深度學習- Teachable Mechine應用</p></li><li><p>深度學習應用-OpenCV 偵測人臉與Emotion AI</p></li></ul><p>第十週</p><ul><li>深度學習應用-NLP進行分詞與商業分析</li></ul><p>第十一週</p><ul><li>強化學習-建立遊戲訓練模型，以貪食蛇為例</li></ul><p>第十二週</p><ul><li><p>生成式學習介紹-生成對抗網路的架構</p></li><li><p>OpenAI API使用</p></li></ul><p>第十三週、第十四週</p><ul><li><p>OpenAI模型微調介紹</p></li><li><p>期末報告彈性應用</p></li></ul><p>之後會再補上課程連結，持續更新中</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>資料科學, 人工智慧</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>python</tag>
+      
+      <tag>AI</tag>
+      
+      <tag>資料科學</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Notion Hexo 利用Python進行圖片轉檔，增進SEO</title>
     <link href="/2024/07/seo-friendly-url-name-for-the-blog-post-notion-hexo-using-python-for-image-conversion-improving-seo-hexo-python-seo/"/>
     <url>/2024/07/seo-friendly-url-name-for-the-blog-post-notion-hexo-using-python-for-image-conversion-improving-seo-hexo-python-seo/</url>

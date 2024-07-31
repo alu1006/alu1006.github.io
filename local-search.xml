@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>第一週-資料科學介紹</title>
+    <link href="/2024/07/week-1-introduction-to-data-science-python-ai-data-science/"/>
+    <url>/2024/07/week-1-introduction-to-data-science-python-ai-data-science/</url>
+    
+    <content type="html"><![CDATA[<h2 id="人工智慧介紹-什麼是人工智慧、機器學習、深度學習和生成式學習，什麼是資料科學"><a href="#人工智慧介紹-什麼是人工智慧、機器學習、深度學習和生成式學習，什麼是資料科學" class="headerlink" title="人工智慧介紹-什麼是人工智慧、機器學習、深度學習和生成式學習，什麼是資料科學"></a>人工智慧介紹-什麼是人工智慧、機器學習、深度學習和生成式學習，什麼是資料科學</h2><h2 id="資料科學"><a href="#資料科學" class="headerlink" title="資料科學"></a>資料科學</h2><h3 id="資料、資訊、知識與智慧"><a href="#資料、資訊、知識與智慧" class="headerlink" title="資料、資訊、知識與智慧"></a>資料、資訊、知識與智慧</h3><p>可以先了解一下，「資料」、「資訊」、「知識」和「智慧」四者之間的差別。</p><ul><li><p>資料是未經處理的事實或數字，它們是零散的、沒有上下文的原始數據。例如：搜集每天天氣</p></li><li><p>資訊是對「資料」進行整理和處理後的結果，它通常包含了上下文或結構，使數據變得有意義。裡如：將資料計算出平均氣溫</p></li><li><p>知識是從「資訊」中提煉出的理解或洞見，是對資訊的解釋、理解和應用。例如：知道對應的氣溫要穿什麼衣服；例如經過大量數據分析後，每個禮拜運動三次、每次心跳130以上，是曾經的健康指標</p></li><li><p>智慧是運用「知識」作出明智決定的能力，它涉及到批判性思維、經驗和判斷力。例如：對知識做出洞見，比如29度，會帶著陽傘遮陽。</p></li></ul><p>而資料科學就是嘗試將資料轉化成智慧的科學方式。其中過程可參考以下模式：</p><h3 id="資料科學的過程"><a href="#資料科學的過程" class="headerlink" title="資料科學的過程"></a>資料科學的過程</h3><p>找到感興趣的主題→取得相關資料→進行資料前處理與清洗得到資訊→進行探索性分析→利用人工智慧(選擇適當的方式或模型)進行資料之間的相關性與預測→畫出資料並給予解釋→作出決策</p><p>而數據再進行分析的時候可以分成「描述性分析」、「診斷性分析」、「預測性分析」、「指示性分析」與「自動性分析」：</p><ul><li><p>描述性分析-發生了什麼？可以從數據檢視環境發生過什麼事情，並透過資料視覺化進行敘述。例如台灣年降雨量分析：</p></li><li><p>高雄歷年在暑假的降雨量最多。</p></li></ul><p><img src="/2024/07/week-1-introduction-to-data-science-python-ai-data-science/efe576d5-875f-4428-8cea-f80e15b3e68d.webp" alt="Image"></p><ul><li>一個月最多下900毫米，2024年7月25日一天降雨量550毫米。</li></ul><p><img src="/2024/07/week-1-introduction-to-data-science-python-ai-data-science/7c48b2bf-eb96-4747-bc05-68e2e94fdbe7.webp" alt="Image"></p><p><img src="/2024/07/week-1-introduction-to-data-science-python-ai-data-science/a1730292-07a0-4d72-9209-29443e5c298e.webp" alt="Image"></p><ul><li><p>診斷性分析-為什麼發生？經過數據調查</p></li><li><p>犯罪率在下雨天時比較低：<a href="https://academic.oup.com/qopen/article/3/1/qoac033/6849576">戶外活動減少</a>、<a href="https://minds.wisconsin.edu/bitstream/handle/1793/78481/Martin%20Reichhoff%20Thesis.pdf?sequence=1#:~:text=">天氣對情緒和行為的影響</a>、巡邏員警增加…</p></li><li><p>尿布和啤酒的銷售量是正向關係(晚間購物時間段內，疲憊的父母同時購買尿布和啤酒。然而，也有<a href="https://canworksmart.com/diapers-beer-retail-predictive-analytics/">研究未能找到顯著的關聯</a>，這讓人質疑這個故事的普遍適用性。)<br>Ref:<a href="https://medium.com/@eggpig12/%E5%A4%A7%E6%95%B8%E6%93%9A%E6%AF%94%E4%BD%A0%E6%9B%B4%E4%BA%86%E8%A7%A3%E4%BD%A0%E8%87%AA%E5%B7%B1-%E6%89%8D%E6%80%AA-%E8%B2%B7%E5%95%A4%E9%85%92%E6%89%8D%E4%B8%8D%E6%9C%83%E9%A0%86%E4%BE%BF%E8%B2%B7%E5%B0%BF%E5%B8%83-da5432a59d0a">https:&#x2F;&#x2F;medium.com&#x2F;@eggpig12&#x2F;大數據比你更了解你自己-才怪-買啤酒才不會順便買尿布-da5432a59d0a</a></p></li><li><p>預測性分析-未來會怎樣？</p></li><li><p>淹水預測：<a href="https://dmap.ncdr.nat.gov.tw/1109/map/">https://dmap.ncdr.nat.gov.tw/1109/map/</a></p></li><li><p>指示性分析-提供具體的行動建議</p></li><li><p>金融服務：台灣的銀行和金融機構利用預測性分析來進行風險管理和信用評估。透過分析客戶的交易歷史和信用記錄來預測未來的違約風險，從而做出貸款和信用卡申請的決策。</p></li><li><p>零售業：台灣的零售商使用預測性分析來預測銷售趨勢和消費者行為。例如，分析過去的銷售數據來預測特定商品的需求高峰期，並提前備貨。</p></li><li><p>自動性分析-<a href="https://coresignal.com/blog/predictive-prescriptive-analytics/">自動給予最佳行動計劃</a></p></li></ul><p>總結來說，資料科學幫助我們從理解過去到計劃未來，這五個層次的數據分析各有其價值。從事後諸葛到洞燭先機，難度也從簡單到複雜。</p><p><img src="/2024/07/week-1-introduction-to-data-science-python-ai-data-science/24b0cdce-0cfe-41c0-aa1e-880770f38f4b.webp" alt="Image"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Python課程, 資料科學</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>python</tag>
+      
+      <tag>AI</tag>
+      
+      <tag>資料科學</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>資料科學與人工智慧課程簡介</title>
     <link href="/2024/07/seo-friendly-url-name-for-blog-post-%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E8%88%87%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7%E8%AA%B2%E7%A8%8B%E7%B0%A1%E4%BB%8B-python-ai-%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8/"/>
     <url>/2024/07/seo-friendly-url-name-for-blog-post-%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E8%88%87%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7%E8%AA%B2%E7%A8%8B%E7%B0%A1%E4%BB%8B-python-ai-%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8/</url>

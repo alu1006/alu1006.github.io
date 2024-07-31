@@ -24,8 +24,8 @@
 <meta property="og:description" content="人工智慧介紹-什麼是人工智慧、機器學習、深度學習和生成式學習，什麼是資料科學資料科學資料、資訊、知識與智慧可以先了解一下，「資料」、「資訊」、「知識」和「智慧」四者之間的差別。  資料是未經處理的事實或數字，它們是零散的、沒有上下文的原始數據。例如：搜集每天天氣  資訊是對「資料」進行整理和處理後的結果，它通常包含了上下文或結構，使數據變得有意義。裡如：將資料計算出平均氣溫  知識是從「資訊」中提">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://alu1006.github.io/img/%E7%AC%AC%E4%B8%80%E9%80%B1-%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E4%BB%8B%E7%B4%B9_index.webp">
-<meta property="article:published_time" content="2024-07-31T03:43:30.097Z">
-<meta property="article:modified_time" content="2024-07-31T03:43:42.104Z">
+<meta property="article:published_time" content="2024-07-31T03:54:54.534Z">
+<meta property="article:modified_time" content="2024-07-31T03:55:07.108Z">
 <meta property="article:author" content="阿盧">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="AI">
@@ -241,7 +241,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-07-31 11:43" pubdate>
+        <time datetime="2024-07-31 11:54" pubdate>
           2024年7月31日 中午
         </time>
       </span>
@@ -308,7 +308,7 @@
                             
                                 <div class="post-summary">
                                     <p>
-                                        資料科學解析數據，由資料至智慧。資訊轉化知識，智慧作決策。數據分析有描述、診斷、預測、指示、自動性。例如大雨降溫翻一看，妙用預測分析風險評試。從街巷到商業，資料科學助你超前規劃。盼你展開數據科學之旅！
+                                        探索人工智慧、資料科學和數據分析的世界！從資料到智慧的轉換，資料科學用四個層次解剖：資料→資訊→知識→智慧。進行過程如演義般：主題→數據前處理→探索分析→人工智慧與預測→結果演繹→決策。質問數據：描述、診斷、預測、指示、自動。了解過去、預測未來，資料科學助你洞悉智慧轉換之道。
                                     </p>
                                 </div>
                                 
@@ -333,32 +333,40 @@
 <p>而數據再進行分析的時候可以分成「描述性分析」、「診斷性分析」、「預測性分析」、「指示性分析」與「自動性分析」：</p>
 <ul>
 <li><p>描述性分析-發生了什麼？可以從數據檢視環境發生過什麼事情，並透過資料視覺化進行敘述。例如台灣年降雨量分析：</p>
-</li>
-<li><p>高雄歷年在暑假的降雨量最多。</p>
+<ul>
+<li>高雄歷年在暑假的降雨量最多。</li>
+</ul>
 </li>
 </ul>
 <p><img src="/2024/07/week-1-introduction-to-data-science-python-ai-data-science/efe576d5-875f-4428-8cea-f80e15b3e68d.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
-<ul>
-<li>一個月最多下900毫米，2024年7月25日一天降雨量550毫米。</li>
-</ul>
+<pre><code class="hljs">- 一個月最多下900毫米，2024年7月25日一天降雨量550毫米。
+</code></pre>
 <p><img src="/2024/07/week-1-introduction-to-data-science-python-ai-data-science/7c48b2bf-eb96-4747-bc05-68e2e94fdbe7.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
 <p><img src="/2024/07/week-1-introduction-to-data-science-python-ai-data-science/a1730292-07a0-4d72-9209-29443e5c298e.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
 <ul>
 <li><p>診斷性分析-為什麼發生？經過數據調查</p>
-</li>
+<ul>
 <li><p>犯罪率在下雨天時比較低：<a target="_blank" rel="noopener" href="https://academic.oup.com/qopen/article/3/1/qoac033/6849576">戶外活動減少</a>、<a target="_blank" rel="noopener" href="https://minds.wisconsin.edu/bitstream/handle/1793/78481/Martin%20Reichhoff%20Thesis.pdf?sequence=1#:~:text=">天氣對情緒和行為的影響</a>、巡邏員警增加…</p>
 </li>
-<li><p>尿布和啤酒的銷售量是正向關係(晚間購物時間段內，疲憊的父母同時購買尿布和啤酒。然而，也有<a target="_blank" rel="noopener" href="https://canworksmart.com/diapers-beer-retail-predictive-analytics/">研究未能找到顯著的關聯</a>，這讓人質疑這個故事的普遍適用性。)<br>Ref:<a target="_blank" rel="noopener" href="https://medium.com/@eggpig12/%E5%A4%A7%E6%95%B8%E6%93%9A%E6%AF%94%E4%BD%A0%E6%9B%B4%E4%BA%86%E8%A7%A3%E4%BD%A0%E8%87%AA%E5%B7%B1-%E6%89%8D%E6%80%AA-%E8%B2%B7%E5%95%A4%E9%85%92%E6%89%8D%E4%B8%8D%E6%9C%83%E9%A0%86%E4%BE%BF%E8%B2%B7%E5%B0%BF%E5%B8%83-da5432a59d0a">https:&#x2F;&#x2F;medium.com&#x2F;@eggpig12&#x2F;大數據比你更了解你自己-才怪-買啤酒才不會順便買尿布-da5432a59d0a</a></p>
+<li><p>尿布和啤酒的銷售量是正向關係(晚間購物時間段內，疲憊的父母同時購買尿布和啤酒。然而，也有<a target="_blank" rel="noopener" href="https://canworksmart.com/diapers-beer-retail-predictive-analytics/">研究未能找到顯著的關聯</a>，這讓人質疑這個故事的普遍適用性。)</p>
 </li>
+</ul>
+</li>
+</ul>
+<p>Ref:<a target="_blank" rel="noopener" href="https://medium.com/@eggpig12/%E5%A4%A7%E6%95%B8%E6%93%9A%E6%AF%94%E4%BD%A0%E6%9B%B4%E4%BA%86%E8%A7%A3%E4%BD%A0%E8%87%AA%E5%B7%B1-%E6%89%8D%E6%80%AA-%E8%B2%B7%E5%95%A4%E9%85%92%E6%89%8D%E4%B8%8D%E6%9C%83%E9%A0%86%E4%BE%BF%E8%B2%B7%E5%B0%BF%E5%B8%83-da5432a59d0a">https:&#x2F;&#x2F;medium.com&#x2F;@eggpig12&#x2F;大數據比你更了解你自己-才怪-買啤酒才不會順便買尿布-da5432a59d0a</a></p>
+<ul>
 <li><p>預測性分析-未來會怎樣？</p>
-</li>
-<li><p>淹水預測：<a target="_blank" rel="noopener" href="https://dmap.ncdr.nat.gov.tw/1109/map/">https://dmap.ncdr.nat.gov.tw/1109/map/</a></p>
+<ul>
+<li>淹水預測：<a target="_blank" rel="noopener" href="https://dmap.ncdr.nat.gov.tw/1109/map/">https://dmap.ncdr.nat.gov.tw/1109/map/</a></li>
+</ul>
 </li>
 <li><p>指示性分析-提供具體的行動建議</p>
-</li>
+<ul>
 <li><p>金融服務：台灣的銀行和金融機構利用預測性分析來進行風險管理和信用評估。透過分析客戶的交易歷史和信用記錄來預測未來的違約風險，從而做出貸款和信用卡申請的決策。</p>
 </li>
 <li><p>零售業：台灣的零售商使用預測性分析來預測銷售趨勢和消費者行為。例如，分析過去的銷售數據來預測特定商品的需求高峰期，並提前備貨。</p>
+</li>
+</ul>
 </li>
 <li><p>自動性分析-<a target="_blank" rel="noopener" href="https://coresignal.com/blog/predictive-prescriptive-analytics/">自動給予最佳行動計劃</a></p>
 </li>

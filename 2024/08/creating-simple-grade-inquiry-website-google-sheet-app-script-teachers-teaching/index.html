@@ -19,13 +19,13 @@
     <meta name="description" content="開學了！和大家分享讓班上學生自行查詢課堂成績的方式。 根據國民小學及國民中學學生成績評量準則，學校得公告說明學生分數之分布情形。但不得公開呈現個別學生在班級及學校排名。 我用這個方式一個學期了，目前感覺還不錯。在介面上選擇班級後輸入學號與密碼，即可得知自己的成績。 如果你喜歡，可以透過下面留言信箱，我會盡快傳送連結。 這是用Google Sheet作為簡單的資料庫，並用App Script搜索與呈">
 <meta property="og:type" content="article">
 <meta property="og:title" content="利用Google Sheet 和 App Script 製作簡易成績查詢網站">
-<meta property="og:url" content="https://alu1006.github.io/2024/08/simple-grade-inquiry-website-google-sheet-app-script-teachers-teaching/index.html">
+<meta property="og:url" content="https://alu1006.github.io/2024/08/creating-simple-grade-inquiry-website-google-sheet-app-script-teachers-teaching/index.html">
 <meta property="og:site_name" content="阿盧老師Coding嚕">
 <meta property="og:description" content="開學了！和大家分享讓班上學生自行查詢課堂成績的方式。 根據國民小學及國民中學學生成績評量準則，學校得公告說明學生分數之分布情形。但不得公開呈現個別學生在班級及學校排名。 我用這個方式一個學期了，目前感覺還不錯。在介面上選擇班級後輸入學號與密碼，即可得知自己的成績。 如果你喜歡，可以透過下面留言信箱，我會盡快傳送連結。 這是用Google Sheet作為簡單的資料庫，並用App Script搜索與呈">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://alu1006.github.io/img/%E5%88%A9%E7%94%A8Google_Sheet_%E5%92%8C_App_Script_%E8%A3%BD%E4%BD%9C%E7%B0%A1%E6%98%93%E6%88%90%E7%B8%BE%E6%9F%A5%E8%A9%A2%E7%B6%B2%E7%AB%99_index.webp">
-<meta property="article:published_time" content="2024-08-30T03:05:33.146Z">
-<meta property="article:modified_time" content="2024-08-30T03:14:47.697Z">
+<meta property="article:published_time" content="2024-08-30T03:39:28.621Z">
+<meta property="article:modified_time" content="2024-08-30T03:40:30.634Z">
 <meta property="article:author" content="阿盧">
 <meta property="article:tag" content="教師與教學">
 <meta name="twitter:card" content="summary_large_image">
@@ -73,7 +73,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"alu1006.github.io","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"alu1006.github.io","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -239,8 +239,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-08-30 11:05" pubdate>
-          2024年8月30日 上午
+        <time datetime="2024-08-30 11:39" pubdate>
+          2024年8月30日 中午
         </time>
       </span>
     
@@ -262,7 +262,7 @@
         
         
         
-          5 分鐘
+          3 分鐘
         
       </span>
     
@@ -306,7 +306,7 @@
                             
                                 <div class="post-summary">
                                     <p>
-                                        「超Easy！自己查成績！📚」這篇文章分享了用Google Sheet和App Script讓學生自行查課堂成績的方法。只需輸入學號與密碼，就能快速查詢成績，方便又私密。只要按照指示建立副本、開啟App Script、修改程式碼，就能輕鬆完成設置。希望大家開學順利，掰掰！👋🏼【縮網址：bit.ly/113成績】
+                                        開學啦！透過Google Sheet製作查詢成績小工具，學生只需輸入學號與密碼即可查看成績，方便又有趣。建立副本、修改程式碼、部署，簡單四步驟就完成啦！想要試試看？留言給我，我會傳送連結給你。祝大家學業進步，開學愉快！
                                     </p>
                                 </div>
                                 
@@ -322,14 +322,14 @@
 <p>這是用Google Sheet作為簡單的資料庫，並用App Script搜索與呈現網頁的方式來製作。</p>
 <h3 id="步驟一、建立副本"><a href="#步驟一、建立副本" class="headerlink" title="步驟一、建立副本"></a>步驟一、建立副本</h3><p>可以在左上角按建立副本，在新的副本中，你可以輸入學號、班級、考號、姓名與密碼，學生接下來會以學號與密碼做查詢（密碼學生可自行再做更改）。</p>
 <h3 id="步驟二、開啟App-Script"><a href="#步驟二、開啟App-Script" class="headerlink" title="步驟二、開啟App Script"></a>步驟二、開啟App Script</h3><p>點選右上方擴充功能點選App Script。如果沒有的話，可以從取得擴充功能開啟。</p>
-<p><img src="/d664de98-1b47-4b70-a7c4-7c233d29afff.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p><img src="/2024/08/creating-simple-grade-inquiry-website-google-sheet-app-script-teachers-teaching/d664de98-1b47-4b70-a7c4-7c233d29afff.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
 <h3 id="步驟三、修改程式碼、部署"><a href="#步驟三、修改程式碼、部署" class="headerlink" title="步驟三、修改程式碼、部署"></a>步驟三、修改程式碼、部署</h3><p>打開App Script後，修改忘記密碼時，學校的信箱後綴。</p>
-<p><img src="/5d795baf-4d98-457f-9e6c-f3e871a1f808.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p><img src="/2024/08/creating-simple-grade-inquiry-website-google-sheet-app-script-teachers-teaching/5d795baf-4d98-457f-9e6c-f3e871a1f808.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
 <p>再按右上角部署的新增部署作業。</p>
-<p><img src="/5ec352a4-bcee-4350-a3a2-b5773712d3b1.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p><img src="/2024/08/creating-simple-grade-inquiry-website-google-sheet-app-script-teachers-teaching/5ec352a4-bcee-4350-a3a2-b5773712d3b1.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
 <p>選擇這個網址要公開的對象後，比如只對同個網域的人開放，按部署後，網站就公開囉。</p>
 <p>如果有多個班，複製多個分頁即可解決。</p>
-<p><img src="/1389756a-8192-4191-9c84-0286e724d715.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p><img src="/2024/08/creating-simple-grade-inquiry-website-google-sheet-app-script-teachers-teaching/1389756a-8192-4191-9c84-0286e724d715.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
 <h3 id="步驟四、短網址設置"><a href="#步驟四、短網址設置" class="headerlink" title="步驟四、短網址設置"></a>步驟四、短網址設置</h3><p>你可以把網址貼在classroom，我是使用bit.ly進行縮網址，並可以設定客製化網址比如：<a target="_blank" rel="noopener" href="http://bit.ly/113%E6%88%90%E7%B8%BE">bit.ly&#x2F;113成績</a></p>
 <p>希望大家開學順利，大家掰掰。</p>
 

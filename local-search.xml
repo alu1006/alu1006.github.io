@@ -4,6 +4,56 @@
   
   
   <entry>
+    <title>Python 基礎課程1-程式語言介紹、環境建置</title>
+    <link href="/2024/09/python-1-enviroment-setting/"/>
+    <url>/2024/09/python-1-enviroment-setting/</url>
+    
+    <content type="html"><![CDATA[<h2 id="什麼是程式"><a href="#什麼是程式" class="headerlink" title="什麼是程式"></a>什麼是程式</h2><p>撰寫一系列的指令(指令有特定的語法)，而這些指令告訴電腦如何執行工作。</p><p>電腦則是透過程式碼的指令，經由「輸入（input）→處理（processing）→輸出（output）」的流程(數位課本第一章)</p><p><img src="/2024/09/python-1-enviroment-setting/6a856360-f2a3-4445-853a-d125d9ba166e.webp" alt="Image"></p><h2 id="學程式能做什麼"><a href="#學程式能做什麼" class="headerlink" title="學程式能做什麼"></a>學程式能做什麼</h2><h3 id="金融業"><a href="#金融業" class="headerlink" title="金融業"></a>金融業</h3><p>保險業：保險精算、保單管理、理賠處理</p><p>銀行：財富管理、巨量資料分析、無實體通路之行動商務服務</p><p>證券：量化交易、人工智能選股、交易系統</p><p><img src="/2024/09/python-1-enviroment-setting/55e1b0fb-2143-4a3e-90ba-41b613dae9a2.webp" alt="Image"></p><p><img src="/2024/09/python-1-enviroment-setting/1e8f177e-b889-4d6e-8534-ef07ac39fe79.webp" alt="Image"></p><h3 id="醫療業"><a href="#醫療業" class="headerlink" title="醫療業"></a>醫療業</h3><p>醫療系統(掛號、門診、繳費到領藥)、電子病歷</p><p>新型態雲端醫療服務：自行在家量測→雲端紀錄病歷資料，降低人力成本</p><p><img src="/2024/09/python-1-enviroment-setting/32fdf89d-99cc-4bad-91fb-39e8da71b87b.webp" alt="Image"></p><h3 id="工業"><a href="#工業" class="headerlink" title="工業"></a>工業</h3><p>工業4.0：透過人工智慧整合機械手臂、物聯網等工具改善工業流程與效率。</p><p>當然本課程只在基本功能介紹，我將完美呈現「師父領進門，修行在個人」</p><p>對產業只是稍作介紹，也可以追蹤一些新知識</p><p><a href="https://www.dcard.tw/@markreadfintech">https:&#x2F;&#x2F;www.dcard.tw&#x2F;@markreadfintech</a></p><h2 id="為什麼選Python"><a href="#為什麼選Python" class="headerlink" title="為什麼選Python"></a>為什麼選Python</h2><p>Python程式語言特色如下：</p><p>1.開放原始碼：無須費用</p><p>2.可擴充性：具有豐富的庫，可做擴充，你想要做視覺辨識？有！想做數據分析？有！想連結Google應用程式？也沒問題！因為在整合相當便捷，Python又叫做膠水語言</p><p>根據stackoverflow(程式人的知識+)統計，2022最常使用語言：</p><p><img src="/2024/09/python-1-enviroment-setting/d85e8bad-0544-40d6-bb6d-dd987bd528a9.webp" alt="Image"></p><p>2024最常使用語言：</p><p><img src="/2024/09/python-1-enviroment-setting/03312f89-b7ba-4c1b-a5df-85b8fd1a09dd.webp" alt="Image"></p><p>Google Trend搜尋</p><p><a href="https://trends.google.com.tw/trends/">https://trends.google.com.tw/trends/</a></p><p><img src="/2024/09/python-1-enviroment-setting/ecf739bc-2904-481a-836e-bf7c171c7d33.webp" alt="Image"></p><h2 id="課堂作業"><a href="#課堂作業" class="headerlink" title="課堂作業"></a>課堂作業</h2><p>本課程使用虎科大程式平台，進行練習與考試評分：<a href="https://goclass.tw/">https://goclass.tw/</a></p><p><img src="/2024/09/python-1-enviroment-setting/6c07053b-2d53-4f1a-b2fc-bcfee8e9673a.webp" alt="Image"></p><p><img src="/2024/09/python-1-enviroment-setting/70c0e4f4-7c1b-408f-861d-ce47ad24cb64.webp" alt="Image"></p><p><img src="/2024/09/python-1-enviroment-setting/9bb9b469-de8f-4544-b64f-f3e28a57edcd.webp" alt="Image"></p><p>代號：DS411</p><p>輸入課程認證代碼後，點選註冊班級</p><p><img src="/2024/09/python-1-enviroment-setting/34f0ba76-f1a2-4bdb-afd4-ca588f4a142e.webp" alt="Image"></p><p>課堂作業會使用GoClass來進行撰寫，而在練習之外，我們會在我們的電腦安裝Python，下面看看怎麼安裝吧。</p><h2 id="環境安裝"><a href="#環境安裝" class="headerlink" title="環境安裝"></a>環境安裝</h2><p>Python下載網址：<a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a></p><p><img src="/2024/09/python-1-enviroment-setting/48d07090-7e54-48a2-8f18-d3e4beca1aba.webp" alt="Image"></p><p>整合開發環境(IDE)是輔助程式人員開發系統的應用軟體。</p><h3 id="Visual-Studio-Code"><a href="#Visual-Studio-Code" class="headerlink" title="Visual Studio Code"></a>Visual Studio Code</h3><p>下載網址：<a href="https://code.visualstudio.com/download">https://code.visualstudio.com/download</a></p><p>左邊欄位可以做檔案管理、外掛管理</p><p><img src="/2024/09/python-1-enviroment-setting/4a680e7b-6865-430a-b6e0-d668e173a40a.webp" alt="Image"></p><p>透過開啟資料夾選擇要儲存檔案的地方</p><p><img src="/2024/09/python-1-enviroment-setting/151fede2-8319-4c98-9184-bb5862517025.webp" alt="Image"></p><p>新增檔案，python的副檔名為.py</p><p><img src="/2024/09/python-1-enviroment-setting/f38b06a1-94f5-4a2e-93b3-6ec4263790b3.webp" alt="Image"></p><p>執行程式</p><p><img src="/2024/09/python-1-enviroment-setting/447e6983-17e1-4e5a-8289-69d4308771ac.webp" alt="Image"></p><h3 id="Colab編輯器"><a href="#Colab編輯器" class="headerlink" title="Colab編輯器"></a>Colab編輯器</h3><p>使用線上編輯器Colab：<a href="https://colab.research.google.com/">https://colab.research.google.com/</a></p><p>好處：資料放在雲端，容易保存，並且可做筆記本使用(在家也可輕易使用，有網路就可以)</p><p><img src="/2024/09/python-1-enviroment-setting/1d8eba49-d73d-48fa-a317-bbc291f6b32e.webp" alt="Image"></p><p><img src="/2024/09/python-1-enviroment-setting/0d524c19-4768-4369-8d4f-247e14ca9161.webp" alt="Image"></p><p><img src="/2024/09/python-1-enviroment-setting/8440b94e-12bf-4dcc-b44d-e23bc45e9d9a.webp" alt="Image"></p><p>預期成果：</p><p><img src="/2024/09/python-1-enviroment-setting/8d4d4379-4220-4bf9-864c-2e29cf538b65.webp" alt="Image"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Python課程</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>python</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Python 基礎課程0-什麼是程式, 什麼是演算法, 什麼是流程圖</title>
+    <link href="/2024/09/python0-programming-algorithm-flowchart/"/>
+    <url>/2024/09/python0-programming-algorithm-flowchart/</url>
+    
+    <content type="html"><![CDATA[<h2 id="這堂課你要學會"><a href="#這堂課你要學會" class="headerlink" title="這堂課你要學會-"></a>這堂課你要學會-</h2><ol><li><p>解釋什麼是低階語言、什麼是高階語言？</p></li><li><p>什麼是演算法？演算法中的有效、有限、明確代表什麼意思？</p></li><li><p>什麼是流程圖，並會畫流程圖</p></li></ol><h2 id="低階語言-vs-高階語言"><a href="#低階語言-vs-高階語言" class="headerlink" title="低階語言 vs 高階語言"></a>低階語言 vs 高階語言</h2><p>在程式語言的世界裡，我們通常將語言分為低階語言（Low-Level Language）和高階語言（High-Level Language）。這兩者之間的主要差別並不是誰比較優越，而是在於語言的抽象層次和接近硬體的程度。</p><p><img src="/2024/09/python0-programming-algorithm-flowchart/68d2fac1-eb92-459b-87d5-aec3dcda9bc7.webp" alt="Image"></p><h3 id="低階語言"><a href="#低階語言" class="headerlink" title="低階語言"></a>低階語言</h3><p>低階語言是接近計算機硬體的語言，通常與特定的計算機架構密切相關。它們主要包括機器語言（Machine Language）和組合語言（Assembly Language）。這些語言的特點是：</p><ul><li><p>效率高：低階語言允許程式直接與硬體互動，對記憶體、處理器等資源進行操作，相較速度更快。</p></li><li><p>可攜性低：也因為程式直接與硬體互動，換平台時，容易因架構不同，如x86架構(Intel, AMD)、ARM架構(Apple, Samsung…)，  而需要重寫或改寫程式。</p></li><li><p>維護性低：程式碼不易閱讀導致在維護時較為不易。</p></li></ul><p>以下是一個簡單的機器語言範例，展示如何用二進制（0和1）表示一個簡單的指令：</p><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-symbol">10110000 </span><span class="hljs-number">01100001</span><br></code></pre></td></tr></table></figure><p>以下是一個簡單的組合語言示例，展示如何將兩個數字相加：</p><figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs x86asm"><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">AX</span>, <span class="hljs-number">5</span>    <span class="hljs-comment">; 將數字 5 移動到 AX 寄存器</span><br><span class="hljs-keyword">MOV</span> <span class="hljs-built_in">BX</span>, <span class="hljs-number">3</span>    <span class="hljs-comment">; 將數字 3 移動到 BX 寄存器</span><br><span class="hljs-keyword">ADD</span> <span class="hljs-built_in">AX</span>, <span class="hljs-built_in">BX</span>   <span class="hljs-comment">; 將 AX 和 BX 中的值相加，結果存儲在 AX 中</span><br></code></pre></td></tr></table></figure><h3 id="高階語言"><a href="#高階語言" class="headerlink" title="高階語言"></a>高階語言</h3><p>高階語言則是抽象程度較高的語言，這些語言遠離硬體層面，更接近人類語言。常見的高階語言包括Python、Java、C++等。其特點包括：</p><ul><li><p>易用但效率相對較低：高階語言提供了許多抽象方法，讓開發者可以專注於解決問題本身，而不必關心底層硬體的細節。</p></li><li><p>可攜性高：高階語言通常與特定的硬體架構無關，程式可以在不同的平台上運行。</p></li><li><p>維護性高：由於語言結構更接近人類語言，高階語言相對容易學習，程式碼也更容易理解和維護。</p></li></ul><p>以下是一個簡單的高階語言(Python)示例，展示了如何將兩個數字相加：</p><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">a</span> = <span class="hljs-number">3</span> + <span class="hljs-number">5</span><br></code></pre></td></tr></table></figure><h2 id="演算法是什麼？"><a href="#演算法是什麼？" class="headerlink" title="演算法是什麼？"></a>演算法是什麼？</h2><p>演算法是一連串明確定義的指令，用來完成特定任務或解決特定問題。無論是在程式設計中，還是在日常生活中，我們都無時無刻不在使用演算法。</p><p>以下以日常洗衣服為例：</p><ul><li>洗衣服的步驟：將衣物分類 → 選擇適當的水溫和洗衣劑 → 放入洗衣機 → 設定洗衣程序 → 啟動洗衣機 → 晾曬或烘乾。</li></ul><p>這些日常生活中的例子都符合演算法的特徵：它們都是有效的（可以完成特定任務），有限的（有明確的結束點），以及明確的（步驟清晰，沒有歧義）。</p><h3 id="演算法的五個特徵"><a href="#演算法的五個特徵" class="headerlink" title="演算法的五個特徵"></a>演算法的五個特徵</h3><ol><li><p>輸入(input)</p></li><li><p>輸出(output)</p></li><li><p>有效性（Effectiveness）：指演算法中的每一步都能夠被具體(有限的時間內完成)的計算與執行。</p></li><li><p>有限性（Finiteness）：這意味著演算法必須在有限的步驟內完成，不能無限執行。換句話說，演算法必須有一個明確的終止條件，並在執行完成後給出結果。</p></li><li><p>明確性（Definiteness）：演算法的每一步驟必須是明確的，沒有歧義。這意味著同樣的輸入會產生同樣的輸出。</p></li></ol><h2 id="流程圖及其使用"><a href="#流程圖及其使用" class="headerlink" title="流程圖及其使用"></a>流程圖及其使用</h2><h3 id="流程圖是什麼？"><a href="#流程圖是什麼？" class="headerlink" title="流程圖是什麼？"></a>流程圖是什麼？</h3><p>流程圖（Flowchart）是一種圖形表示法。它使用不同的圖形符號來代表不同的操作步驟，並用箭頭來指示步驟之間的流向，適合用來視覺化演算法。</p><p>透過視覺化更好「發現問題」也更「便於溝通」。</p><h3 id="流程圖的基本符號"><a href="#流程圖的基本符號" class="headerlink" title="流程圖的基本符號"></a>流程圖的基本符號</h3><ul><li><p>橢圓形：表示開始或結束。</p></li><li><p>矩形：表示過程或操作步驟。</p></li><li><p>菱形：表示決策點，需要做出選擇。</p></li><li><p>箭頭：表示流程的方向，指示步驟之間的順序。</p></li></ul><h3 id="流程圖線上畫"><a href="#流程圖線上畫" class="headerlink" title="流程圖線上畫"></a>流程圖線上畫</h3><p><a href="http://draw.io/">draw.io</a></p><p>除了用手一個一個拖曳以外，你可以試試用AI的方式，請在<a href="https://chateverywhere.app/zh#">ChatEverywhere</a>輸入下面這段話與你的流程步驟</p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">你是一名程式設計師，你幫我用mermaid撰寫從左到右呈現的流程圖，步驟如下：<br></code></pre></td></tr></table></figure><p>再利用Draw.io裡面的匯入功能，減少畫圖的時間。</p><p><img src="/2024/09/python0-programming-algorithm-flowchart/baec7eb0-d99c-4bc1-bfeb-f6b3f706dc0d.webp" alt="Image"></p><h3 id="流程圖的範例"><a href="#流程圖的範例" class="headerlink" title="流程圖的範例"></a>流程圖的範例</h3><p>假設我們要設計一個簡單的流程圖，描述如何判斷一個數字是奇數還是偶數，流程圖如下：</p><ol><li><p>開始：流程從”開始”橢圓形開始。</p></li><li><p>輸入數字：使用者輸入一個數字。</p></li><li><p>判斷：使用菱形表示的決策點來判斷該數字是否能被2整除。</p><ul><li><p>是：如果能被整除，則進入下一步驟。</p></li><li><p>否：如果不能被整除，則進入另一個步驟。</p></li></ul></li><li><p>輸出結果：根據判斷結果輸出”偶數”或”奇數”。</p></li><li><p>結束：流程以”結束”橢圓形結束。</p></li></ol><p><img src="/2024/09/python0-programming-algorithm-flowchart/40f961f7-6e3e-4c1a-8f3f-154859d860e4.webp" alt="Image"></p><p>額外補充-科技新知Neuralink，未來的世界：</p><p><a href="https://www.instagram.com/reel/C-VAr6CSEwe/?igsh=cG9reG5jaHpzeXJj">Embedded Content</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Python課程</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>python</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>11308持續更新-小論文特優全收錄</title>
     <link href="/2024/08/best-issue/"/>
     <url>/2024/08/best-issue/</url>

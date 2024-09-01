@@ -1,0 +1,716 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="阿盧">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="什麼是程式撰寫一系列的指令(指令有特定的語法)，而這些指令告訴電腦如何執行工作。 電腦則是透過程式碼的指令，經由「輸入（input）→處理（processing）→輸出（output）」的流程(數位課本第一章)  學程式能做什麼金融業保險業：保險精算、保單管理、理賠處理 銀行：財富管理、巨量資料分析、無實體通路之行動商務服務 證券：量化交易、人工智能選股、交易系統   醫療業醫療系統(掛號、門診、">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 基礎課程1-程式語言介紹、環境建置">
+<meta property="og:url" content="https://alu1006.github.io/2024/09/python-1-enviroment-setting/index.html">
+<meta property="og:site_name" content="阿盧老師Coding嚕">
+<meta property="og:description" content="什麼是程式撰寫一系列的指令(指令有特定的語法)，而這些指令告訴電腦如何執行工作。 電腦則是透過程式碼的指令，經由「輸入（input）→處理（processing）→輸出（output）」的流程(數位課本第一章)  學程式能做什麼金融業保險業：保險精算、保單管理、理賠處理 銀行：財富管理、巨量資料分析、無實體通路之行動商務服務 證券：量化交易、人工智能選股、交易系統   醫療業醫療系統(掛號、門診、">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://alu1006.github.io/img/Python_%E5%9F%BA%E7%A4%8E%E8%AA%B2%E7%A8%8B1-%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80%E4%BB%8B%E7%B4%B9%E3%80%81%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE_index.webp">
+<meta property="article:published_time" content="2024-09-01T23:10:59.967Z">
+<meta property="article:modified_time" content="2024-09-01T23:11:32.939Z">
+<meta property="article:author" content="阿盧">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://alu1006.github.io/img/Python_%E5%9F%BA%E7%A4%8E%E8%AA%B2%E7%A8%8B1-%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80%E4%BB%8B%E7%B4%B9%E3%80%81%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE_index.webp">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Python 基礎課程1-程式語言介紹、環境建置 - 阿盧老師Coding嚕</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"alu1006.github.io","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>阿盧老師Coding嚕</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首頁</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>歸檔</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分類</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>標籤</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>關於</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/Python_%E5%9F%BA%E7%A4%8E%E8%AA%B2%E7%A8%8B1-%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80%E4%BB%8B%E7%B4%B9%E3%80%81%E7%92%B0%E5%A2%83%E5%BB%BA%E7%BD%AE_index.webp') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Python 基礎課程1-程式語言介紹、環境建置"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-09-02 07:10" pubdate>
+          2024年9月2日 早上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          6 分鐘
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+    <div class="container-fluid nopadding-x">
+        <div class="row nomargin-x">
+            <div class="side-col d-none d-lg-block col-lg-2">
+                
+
+            </div>
+
+            <div class="col-lg-8 nopadding-x-md">
+                <div class="container nopadding-x-md" id="board-ctn">
+                    <div id="board">
+                        <article class="post-content mx-auto">
+                            <h1 id="seo-header">
+                                Python 基礎課程1-程式語言介紹、環境建置
+                            </h1>
+                            <!-- 改動開始：顯示文章摘要 -->
+                            
+                                <div class="post-summary">
+                                    <p>
+                                        程式是一系列指令告訴電腦如何工作。學習程式可以在金融、醫療、工業領域發揮作用。Python是開放原始碼且擴充性強的程式語言，被廣泛使用。課程包括使用虎科大程式平台進行學習，推薦安裝Python和Visual Studio Code。線上編輯器Colab也是方便的工具。要掌握程式，修行在個人！
+                                    </p>
+                                </div>
+                                
+                                    <!-- 改動結束 -->
+                                    
+                                            
+                                                                    <div class="markdown-body">
+                                                                        
+                                                                            <h2 id="什麼是程式"><a href="#什麼是程式" class="headerlink" title="什麼是程式"></a>什麼是程式</h2><p>撰寫一系列的指令(指令有特定的語法)，而這些指令告訴電腦如何執行工作。</p>
+<p>電腦則是透過程式碼的指令，經由「輸入（input）→處理（processing）→輸出（output）」的流程(數位課本第一章)</p>
+<p><img src="/2024/09/python-1-enviroment-setting/6a856360-f2a3-4445-853a-d125d9ba166e.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<h2 id="學程式能做什麼"><a href="#學程式能做什麼" class="headerlink" title="學程式能做什麼"></a>學程式能做什麼</h2><h3 id="金融業"><a href="#金融業" class="headerlink" title="金融業"></a>金融業</h3><p>保險業：保險精算、保單管理、理賠處理</p>
+<p>銀行：財富管理、巨量資料分析、無實體通路之行動商務服務</p>
+<p>證券：量化交易、人工智能選股、交易系統</p>
+<p><img src="/2024/09/python-1-enviroment-setting/55e1b0fb-2143-4a3e-90ba-41b613dae9a2.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p><img src="/2024/09/python-1-enviroment-setting/1e8f177e-b889-4d6e-8534-ef07ac39fe79.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<h3 id="醫療業"><a href="#醫療業" class="headerlink" title="醫療業"></a>醫療業</h3><p>醫療系統(掛號、門診、繳費到領藥)、電子病歷</p>
+<p>新型態雲端醫療服務：自行在家量測→雲端紀錄病歷資料，降低人力成本</p>
+<p><img src="/2024/09/python-1-enviroment-setting/32fdf89d-99cc-4bad-91fb-39e8da71b87b.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<h3 id="工業"><a href="#工業" class="headerlink" title="工業"></a>工業</h3><p>工業4.0：透過人工智慧整合機械手臂、物聯網等工具改善工業流程與效率。</p>
+<p>當然本課程只在基本功能介紹，我將完美呈現「師父領進門，修行在個人」</p>
+<p>對產業只是稍作介紹，也可以追蹤一些新知識</p>
+<p><a target="_blank" rel="noopener" href="https://www.dcard.tw/@markreadfintech">https:&#x2F;&#x2F;www.dcard.tw&#x2F;@markreadfintech</a></p>
+<h2 id="為什麼選Python"><a href="#為什麼選Python" class="headerlink" title="為什麼選Python"></a>為什麼選Python</h2><p>Python程式語言特色如下：</p>
+<p>1.開放原始碼：無須費用</p>
+<p>2.可擴充性：具有豐富的庫，可做擴充，你想要做視覺辨識？有！想做數據分析？有！想連結Google應用程式？也沒問題！因為在整合相當便捷，Python又叫做膠水語言</p>
+<p>根據stackoverflow(程式人的知識+)統計，2022最常使用語言：</p>
+<p><img src="/2024/09/python-1-enviroment-setting/d85e8bad-0544-40d6-bb6d-dd987bd528a9.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p>2024最常使用語言：</p>
+<p><img src="/2024/09/python-1-enviroment-setting/03312f89-b7ba-4c1b-a5df-85b8fd1a09dd.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p>Google Trend搜尋</p>
+<p><a target="_blank" rel="noopener" href="https://trends.google.com.tw/trends/">https://trends.google.com.tw/trends/</a></p>
+<p><img src="/2024/09/python-1-enviroment-setting/ecf739bc-2904-481a-836e-bf7c171c7d33.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<h2 id="課堂作業"><a href="#課堂作業" class="headerlink" title="課堂作業"></a>課堂作業</h2><p>本課程使用虎科大程式平台，進行練習與考試評分：<a target="_blank" rel="noopener" href="https://goclass.tw/">https://goclass.tw/</a></p>
+<p><img src="/2024/09/python-1-enviroment-setting/6c07053b-2d53-4f1a-b2fc-bcfee8e9673a.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p><img src="/2024/09/python-1-enviroment-setting/70c0e4f4-7c1b-408f-861d-ce47ad24cb64.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p><img src="/2024/09/python-1-enviroment-setting/9bb9b469-de8f-4544-b64f-f3e28a57edcd.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p>代號：DS411</p>
+<p>輸入課程認證代碼後，點選註冊班級</p>
+<p><img src="/2024/09/python-1-enviroment-setting/34f0ba76-f1a2-4bdb-afd4-ca588f4a142e.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p>課堂作業會使用GoClass來進行撰寫，而在練習之外，我們會在我們的電腦安裝Python，下面看看怎麼安裝吧。</p>
+<h2 id="環境安裝"><a href="#環境安裝" class="headerlink" title="環境安裝"></a>環境安裝</h2><p>Python下載網址：<a target="_blank" rel="noopener" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a></p>
+<p><img src="/2024/09/python-1-enviroment-setting/48d07090-7e54-48a2-8f18-d3e4beca1aba.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p>整合開發環境(IDE)是輔助程式人員開發系統的應用軟體。</p>
+<h3 id="Visual-Studio-Code"><a href="#Visual-Studio-Code" class="headerlink" title="Visual Studio Code"></a>Visual Studio Code</h3><p>下載網址：<a target="_blank" rel="noopener" href="https://code.visualstudio.com/download">https://code.visualstudio.com/download</a></p>
+<p>左邊欄位可以做檔案管理、外掛管理</p>
+<p><img src="/2024/09/python-1-enviroment-setting/4a680e7b-6865-430a-b6e0-d668e173a40a.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p>透過開啟資料夾選擇要儲存檔案的地方</p>
+<p><img src="/2024/09/python-1-enviroment-setting/151fede2-8319-4c98-9184-bb5862517025.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p>新增檔案，python的副檔名為.py</p>
+<p><img src="/2024/09/python-1-enviroment-setting/f38b06a1-94f5-4a2e-93b3-6ec4263790b3.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p>執行程式</p>
+<p><img src="/2024/09/python-1-enviroment-setting/447e6983-17e1-4e5a-8289-69d4308771ac.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<h3 id="Colab編輯器"><a href="#Colab編輯器" class="headerlink" title="Colab編輯器"></a>Colab編輯器</h3><p>使用線上編輯器Colab：<a target="_blank" rel="noopener" href="https://colab.research.google.com/">https://colab.research.google.com/</a></p>
+<p>好處：資料放在雲端，容易保存，並且可做筆記本使用(在家也可輕易使用，有網路就可以)</p>
+<p><img src="/2024/09/python-1-enviroment-setting/1d8eba49-d73d-48fa-a317-bbc291f6b32e.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p><img src="/2024/09/python-1-enviroment-setting/0d524c19-4768-4369-8d4f-247e14ca9161.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p><img src="/2024/09/python-1-enviroment-setting/8440b94e-12bf-4dcc-b44d-e23bc45e9d9a.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p>預期成果：</p>
+<p><img src="/2024/09/python-1-enviroment-setting/8d4d4379-4220-4bf9-864c-2e29cf538b65.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+
+                                                                                
+                                                                    </div>
+                                                                    
+                                                                        <hr/>
+                                                                        <div>
+                                                                            <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Python%E8%AA%B2%E7%A8%8B/" class="category-chain-item">Python課程</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/python/" class="print-no-link">#python</a>
+      
+    </div>
+  
+</div>
+
+
+                                                                                
+
+                                                                                    
+                                                                                        <div class="post-prevnext my-3">
+                                                                                            <article class="post-prev col-6">
+                                                                                                
+                                                                                                    
+                                                                                            </article>
+                                                                                            <article class="post-next col-6">
+                                                                                                
+                                                                                                    
+                                                                                                        <a href="/2024/09/python0-programming-algorithm-flowchart/" title="Python 基礎課程0-什麼是程式, 什麼是演算法, 什麼是流程圖">
+                                                                                                            <span class="hidden-mobile">Python 基礎課程0-什麼是程式, 什麼是演算法, 什麼是流程圖</span>
+                                                                                                            <span class="visible-mobile">下一篇</span>
+                                                                                                            <i class="iconfont icon-arrowright"></i>
+                                                                                                        </a>
+                                                                                                        
+                                                                                            </article>
+                                                                                        </div>
+                                                                                        
+                                                                        </div>
+
+                                                                        
+                        </article>
+                    </div>
+                </div>
+            </div>
+
+            <div class="side-col d-none d-lg-block col-lg-2">
+                
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目錄</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+            </div>
+        </div>
+    </div>
+
+    
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+        
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="mailto:luwei1006@gmail.com" target="_blank" rel="nofollow noopener"><span>Produced by ALU &copy; 2023</span></a>
+<a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        總訪問量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        總訪客數 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允許 JavaScript 運行的環境下瀏覽效果更佳</div>
+  </noscript>
+</body>
+</html>

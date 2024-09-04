@@ -24,8 +24,8 @@
 <meta property="og:description" content="在這部分課程中，我們將學習如何使用 Pandas 進行數據分析。可將 Pandas 想像成Python版的 Excel，它具有更多的功能。(當然，我們之後可以用Excel來確認看看)以下順序學習內容概念：  如何建立DataFrames  讀取資料(csv, excel, html, json…)  處理缺失數據 (Missing Data)  函式操作 (Operatioins)  對資料進行分">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://alu1006.github.io/img/%E7%AC%AC%E4%BA%8C%E9%80%B1%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8-Pandas%E6%96%B0%E5%A2%9E%E3%80%81%E5%88%AA%E9%99%A4%E3%80%81%E7%AF%A9%E9%81%B8_index.webp">
-<meta property="article:published_time" content="2024-09-04T20:43:08.360Z">
-<meta property="article:modified_time" content="2024-09-04T20:43:11.965Z">
+<meta property="article:published_time" content="2024-09-04T23:07:41.731Z">
+<meta property="article:modified_time" content="2024-09-04T23:07:58.791Z">
 <meta property="article:author" content="阿盧">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="AI">
@@ -241,8 +241,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-09-05 04:43" pubdate>
-          2024年9月5日 凌晨
+        <time datetime="2024-09-05 07:07" pubdate>
+          2024年9月5日 早上
         </time>
       </span>
     
@@ -308,7 +308,7 @@
                             
                                 <div class="post-summary">
                                     <p>
-                                        這篇文章介紹了如何使用Pandas進行數據分析，就像Python版的Excel一樣。從建立DataFrames到處理缺失數據、函式操作、分組等，涵蓋了許多實用知識。還學習了如何建立Series以及如何下載安裝Pandas。透過範例表格，清楚展示了如何新增、刪除欄位，設定索引，進行條件篩選等操作，讓數據分析更方便快速。
+                                        這篇部落格教你如何用Pandas進行數據分析，就像Python版的Excel一樣，包含建立DataFrames、讀取資料、處理缺失數據、函式操作、分組和輸入輸出數據的技巧。透過簡單示例，你能學會如何建立Series和DataFrames，以及新增、刪除欄位和列，進行條件篩選和選取特定資料。加油！
                                     </p>
                                 </div>
                                 
@@ -418,13 +418,18 @@
 <h3 id="新增列"><a href="#新增列" class="headerlink" title="新增列"></a>新增列</h3><p>請問我可以新增列嗎？每個地區的平均所得，當然可以！</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">df<span class="hljs-selector-class">.loc</span><span class="hljs-selector-attr">[<span class="hljs-string">&#x27;地區平均所得&#x27;</span>]</span> = df<span class="hljs-selector-class">.mean</span>(axis=<span class="hljs-number">0</span>)<br>df<br></code></pre></td></tr></table></figure>
 
+<h3 id="區域選取"><a href="#區域選取" class="headerlink" title="區域選取"></a>區域選取</h3><p>在dataframe中，loc的用法[要取的範圍列,要取的範圍欄]</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">#選取特定列<br>df<span class="hljs-selector-class">.loc</span><span class="hljs-selector-attr">[<span class="hljs-string">&#x27;地區平均所得&#x27;</span>]</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs prolog">#選定桃園市的資料「桃園市-元」、「全台平均所得」與所有列<br>df.loc[:,[<span class="hljs-string">&#x27;桃園市-元&#x27;</span>,<span class="hljs-string">&#x27;平均所得&#x27;</span>]]<br></code></pre></td></tr></table></figure>
+
 <h3 id="條件篩選-欄"><a href="#條件篩選-欄" class="headerlink" title="條件篩選-欄"></a>條件篩選-欄</h3><p>類似Excel中的篩選，我們試著取得該年度平均，有高於100萬的年度<br>對欄的條件篩選</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">df</span>[<span class="hljs-string">&#x27;平均所得&#x27;</span>]<br><span class="hljs-built_in">df</span>[<span class="hljs-string">&#x27;平均所得&#x27;</span>]&gt;1000000<br>high_year = <span class="hljs-built_in">df</span>[<span class="hljs-built_in">df</span>[<span class="hljs-string">&#x27;平均所得&#x27;</span>]&gt;1000000]<br>high_year<br></code></pre></td></tr></table></figure>
 
-<h3 id="條件篩選-列"><a href="#條件篩選-列" class="headerlink" title="條件篩選-列"></a>條件篩選-列</h3><p>列出這十幾年來，地區平均所得，達到百萬以上的地區<br>先測試一下loc的用法[要取的範圍列,要取的範圍欄]，[:,列]</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stylus">df<span class="hljs-selector-class">.loc</span><span class="hljs-selector-attr">[[1998,1999]</span>,<span class="hljs-string">&#x27;平均所得&#x27;</span>]<br>df<span class="hljs-selector-class">.loc</span><span class="hljs-selector-attr">[:,<span class="hljs-string">&#x27;平均所得&#x27;</span>]</span><br><br>df<span class="hljs-selector-class">.loc</span><span class="hljs-selector-attr">[:,<span class="hljs-string">&#x27;平均所得&#x27;</span>]</span>&gt;<span class="hljs-number">1000000</span><br></code></pre></td></tr></table></figure>
+<h3 id="條件篩選-列"><a href="#條件篩選-列" class="headerlink" title="條件篩選-列"></a>條件篩選-列</h3><p>列出這十幾年來，地區平均所得，達到百萬以上的地區</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">df_filter = df<span class="hljs-selector-class">.loc</span><span class="hljs-selector-attr">[<span class="hljs-string">&#x27;地區平均所得&#x27;</span>]</span><br>df_filter<span class="hljs-selector-attr">[df_filter&gt;1000000]</span><br></code></pre></td></tr></table></figure>
 
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-comment">#第二個參數其實並沒有直接給出欄位名稱，而是根據條件篩選出符合條件的欄位。</span><br><span class="hljs-attribute">high_income_regions</span> = df.loc[:, df.loc[<span class="hljs-string">&#x27;地區平均所得&#x27;</span>] &gt; <span class="hljs-number">1000000</span>]<br>high_income_regions<br></code></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">df<span class="hljs-selector-class">.loc</span><span class="hljs-selector-attr">[:,df_filter.index]</span><br></code></pre></td></tr></table></figure>
 
 <p>延伸閱讀：<a target="_blank" rel="noopener" href="https://ticyyang.medium.com/python%E8%B3%87%E6%96%99%E5%88%86%E6%9E%90-pandas%E7%9A%84-loc%E8%88%87iloc%E4%B9%8B%E7%95%B0%E5%90%8C-bf7d62541676">https://ticyyang.medium.com/python資料分析-pandas的-loc與iloc之異同-bf7d62541676</a></p>
 

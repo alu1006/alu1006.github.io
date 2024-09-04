@@ -24,8 +24,8 @@
 <meta property="og:description" content="在這部分課程中，我們將學習如何使用 Pandas 進行數據分析。可將 Pandas 想像成Python版的 Excel，它具有更多的功能。(當然，我們之後可以用Excel來確認看看)以下順序學習內容概念：  如何建立DataFrames  讀取資料(csv, excel, html, json…)  處理缺失數據 (Missing Data)  函式操作 (Operatioins)  對資料進行分">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://alu1006.github.io/img/%E7%AC%AC%E4%BA%8C%E9%80%B1%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8-Pandas%E6%96%B0%E5%A2%9E%E3%80%81%E5%88%AA%E9%99%A4%E3%80%81%E7%AF%A9%E9%81%B8_index.webp">
-<meta property="article:published_time" content="2024-09-04T19:44:14.068Z">
-<meta property="article:modified_time" content="2024-09-04T19:44:27.579Z">
+<meta property="article:published_time" content="2024-09-04T20:43:08.360Z">
+<meta property="article:modified_time" content="2024-09-04T20:43:11.965Z">
 <meta property="article:author" content="阿盧">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="AI">
@@ -241,7 +241,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-09-05 03:44" pubdate>
+        <time datetime="2024-09-05 04:43" pubdate>
           2024年9月5日 凌晨
         </time>
       </span>
@@ -253,7 +253,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          7.3k 字
+          7.5k 字
         
       </span>
     
@@ -264,7 +264,7 @@
         
         
         
-          37 分鐘
+          38 分鐘
         
       </span>
     
@@ -308,7 +308,7 @@
                             
                                 <div class="post-summary">
                                     <p>
-                                        這篇文章講解了如何用 Pandas 進行數據分析，就像 Python 的 Excel。學習建立 DataFrames、讀取不同資料格式、處理缺失數據、函式操作、分組以及合併連接。以建立高度資料為例，介紹了建立、命名欄位、選取、刪除和新增欄位、列，以及條件篩選。總結文章提供了使用 Pandas 處理數據的基本操作及相關技巧。
+                                        這篇文章介紹了如何使用Pandas進行數據分析，就像Python版的Excel一樣。從建立DataFrames到處理缺失數據、函式操作、分組等，涵蓋了許多實用知識。還學習了如何建立Series以及如何下載安裝Pandas。透過範例表格，清楚展示了如何新增、刪除欄位，設定索引，進行條件篩選等操作，讓數據分析更方便快速。
                                     </p>
                                 </div>
                                 
@@ -349,6 +349,45 @@
 <figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elm"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd<br></code></pre></td></tr></table></figure>
 
 <h3 id="以各國的山的高度為例"><a href="#以各國的山的高度為例" class="headerlink" title="以各國的山的高度為例"></a>以各國的山的高度為例</h3><p>第一列(row)為所謂的「欄名」(column name)， 第一欄(column)為編號(index)</p>
+<table>
+<thead>
+<tr>
+<th>高度 (米)</th>
+<th>山的名稱</th>
+<th>國家</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>8,849</td>
+<td>珠穆朗瑪峰 (Mount Everest)</td>
+<td>尼泊爾&#x2F;中國</td>
+</tr>
+<tr>
+<td>8,611</td>
+<td>喬戈里峰 (K2)</td>
+<td>巴基斯坦&#x2F;中國</td>
+</tr>
+<tr>
+<td>8,586</td>
+<td>干城章嘉峰 (Kangchenjunga)</td>
+<td>尼泊爾&#x2F;印度</td>
+</tr>
+<tr>
+<td>7,546</td>
+<td>切拉蒙巴山 (Kangkar Punsum)</td>
+<td>不丹</td>
+</tr>
+<tr>
+<td>6,190</td>
+<td>德納利山 (Denali)</td>
+<td>美國</td>
+</tr>
+<tr>
+<td>3,952</td>
+<td>玉山 (Yushan)</td>
+<td>台灣</td>
+</tr>
+</tbody></table>
 <figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs prolog">mountain_data = [<br>[<span class="hljs-number">8849</span>, <span class="hljs-string">&#x27;珠穆朗瑪峰 (Mount Everest)&#x27;</span>, <span class="hljs-string">&#x27;尼泊爾/中國&#x27;</span>],<br>[<span class="hljs-number">8611</span>, <span class="hljs-string">&#x27;喬戈里峰 (K2)&#x27;</span>, <span class="hljs-string">&#x27;巴基斯坦/中國&#x27;</span>],<br>[<span class="hljs-number">8586</span>, <span class="hljs-string">&#x27;干城章嘉峰 (Kangchenjunga)&#x27;</span>, <span class="hljs-string">&#x27;尼泊爾/印度&#x27;</span>],<br>[<span class="hljs-number">7546</span>, <span class="hljs-string">&#x27;切拉蒙巴山 (Kangkar Punsum)&#x27;</span>, <span class="hljs-string">&#x27;不丹&#x27;</span>],<br>[<span class="hljs-number">6190</span>, <span class="hljs-string">&#x27;德納利山 (Denali)&#x27;</span>, <span class="hljs-string">&#x27;美國&#x27;</span>],<br>[<span class="hljs-number">3952</span>, <span class="hljs-string">&#x27;玉山 (Yushan)&#x27;</span>, <span class="hljs-string">&#x27;台灣&#x27;</span>]<br>]<br>df = pd.<span class="hljs-symbol">DataFrame</span>(mountain_data) # 建立 <span class="hljs-symbol">DataFrame</span>，型態可以是 list 或 dict<br>df<br></code></pre></td></tr></table></figure>
 
 <h3 id="為欄位取名"><a href="#為欄位取名" class="headerlink" title="為欄位取名"></a>為欄位取名</h3><p>為欄位取名可以更好呼叫這個欄位，等等我們來看</p>

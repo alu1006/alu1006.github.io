@@ -4,6 +4,54 @@
   
   
   <entry>
+    <title>第三週資料科學-Pandas讀取資料</title>
+    <link href="/2024/09/pandas-read-data/"/>
+    <url>/2024/09/pandas-read-data/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Pandas-取得資料"><a href="#Pandas-取得資料" class="headerlink" title="Pandas 取得資料"></a>Pandas 取得資料</h1><p>我們會用簡單的方式在網路上取得資料，分別為讀取檔案(csv, excel)，讀取網站的表格(html)，讀取Open data網站的API(json檔)</p><h2 id="讀取csv檔案"><a href="#讀取csv檔案" class="headerlink" title="讀取csv檔案"></a>讀取csv檔案</h2><p>可以利用<code>pd.read_csv()</code>讀取csv檔案，<code>pd.read_excel()</code>讀取excel檔案</p><figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd<br><span class="hljs-class"><span class="hljs-keyword">data</span> = pd.read_csv(&#x27;<span class="hljs-type">Trending</span> <span class="hljs-type">Youtube</span> <span class="hljs-type">Videos</span> 2019 <span class="hljs-title">to</span> 2020.<span class="hljs-title">csv&#x27;</span>)</span><br><span class="hljs-title">df</span> = pd.<span class="hljs-type">DataFrame</span>(<span class="hljs-class"><span class="hljs-keyword">data</span>)</span><br><span class="hljs-title">df</span><br><br></code></pre></td></tr></table></figure><p><img src="/2024/09/pandas-read-data/a672d130-3958-4a6e-8544-09d41b53c7a9.webp" alt="Image"></p><h2 id="讀取網站的表格"><a href="#讀取網站的表格" class="headerlink" title="讀取網站的表格"></a>讀取網站的表格</h2><p>以本期的發票為例試試看，請進入網站：<a href="https://invoice.etax.nat.gov.tw/">https://invoice.etax.nat.gov.tw/</a><br>使用<code>pd.read_html()</code>可以讀取網站裡的所有表格。<br>適用於靜態表格的讀取，複雜的比較建議用beautifulsoup 或 selenium 進行爬取。</p><figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-class"><span class="hljs-keyword">data</span> = pd.read_html(&#x27;<span class="hljs-title">https</span>://<span class="hljs-title">zh</span>.<span class="hljs-title">wikipedia</span>.<span class="hljs-title">org</span>/<span class="hljs-title">zh</span>-<span class="hljs-title">tw</span>/%<span class="hljs-type">E5</span>%8D%97%<span class="hljs-type">E6</span>%9E%81%<span class="hljs-type">E6</span>%<span class="hljs-type">B4</span>%<span class="hljs-type">B2</span>&#x27;)</span><br><span class="hljs-class"><span class="hljs-keyword">data</span></span><br></code></pre></td></tr></table></figure><p><img src="/2024/09/pandas-read-data/64a2c219-ea2d-4483-811b-ba2a2fd3b298.webp" alt="Image"></p><p>可以用index來選擇要的表格做成Dataframe</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">df</span> = pd.DataFrame(data[1]) <span class="hljs-comment">#第2個表格</span><br><span class="hljs-built_in">df</span><br></code></pre></td></tr></table></figure><p><img src="/2024/09/pandas-read-data/5b17a7d2-fc68-405b-92b4-5c9caf3b64c1.webp" alt="Image"></p><h2 id="使用open-data的網站讀取API"><a href="#使用open-data的網站讀取API" class="headerlink" title="使用open data的網站讀取API"></a>使用open data的網站讀取API</h2><p>這會是我們課程中最常使用到的方式，課堂中盡量不花時間在資料擷取，因為擷取完還要做清理，分析…時間會花太長，同學可以自行上網練習。<br>我們以桃園的open data為例，使用即時自行車資料<br><a href="https://data.tycg.gov.tw/opendata/datalist/datasetMeta?oid=5ca2bfc7-9ace-4719-88ae-4034b9a5a55c">https://data.tycg.gov.tw/opendata/datalist/datasetMeta?oid=5ca2bfc7-9ace-4719-88ae-4034b9a5a55c</a><br>通常為json檔案，我們以<code>pd.read_json()</code>讀取。</p><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs maxima">data = pd.read_json(&#x27;http://data.tycg.gov.tw/api/v1/<span class="hljs-built_in">rest</span>/datastore/a1b4714b-<span class="hljs-number">3b75</span>-4ff8-a8f2-cc377e4eaa0f?format=json&amp;<span class="hljs-built_in">limit</span>=<span class="hljs-number">500</span>&#x27;)<br>data<br></code></pre></td></tr></table></figure><p><img src="/2024/09/pandas-read-data/d2203249-3224-4742-acd6-ea7627c7e669.webp" alt="Image"></p><p>透過Dataframe的格式更好解析資料結構，會發現桃園總共有162個站點，每個站點存在records這個欄位中，因此我們呼叫對應的欄位取出要的資料</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">df = pd<span class="hljs-selector-class">.DataFrame</span>(data<span class="hljs-selector-attr">[<span class="hljs-string">&#x27;result&#x27;</span>]</span><span class="hljs-selector-attr">[<span class="hljs-string">&#x27;records&#x27;</span>]</span>)<br>df<br></code></pre></td></tr></table></figure><p><img src="/2024/09/pandas-read-data/f1708d21-fee4-45cb-9be8-ca5b37cf0740.webp" alt="Image"></p><p>以上，簡單介紹這幾種可以讀取資料的方式。</p><p>這邊有個使用GPT的練習，仔細觀察你會發現上面出現的資料只有100筆而非meta data描述的162筆，為什麼？怎麼解決？</p><p>我們這次就到這邊吧，回家用GPT試看看，大家掰掰。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>python</tag>
+      
+      <tag>AI</tag>
+      
+      <tag>資料科學</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Python 基礎課程1-程式語言介紹、環境建置</title>
+    <link href="/2024/09/python-1-enviroment-setting/"/>
+    <url>/2024/09/python-1-enviroment-setting/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>不是統測考科，但極其重要  —忘記是誰說的</p></blockquote><h2 id="什麼是程式"><a href="#什麼是程式" class="headerlink" title="什麼是程式"></a>什麼是程式</h2><p>撰寫一系列的指令(指令有特定的語法)，而這些指令告訴電腦如何執行工作。</p><p>電腦則是透過程式碼的指令，經由「輸入（input）→處理（processing）→輸出（output）」的流程(數位課本第一章)</p><p><img src="/6a856360-f2a3-4445-853a-d125d9ba166e.webp" alt="Image"></p><h2 id="學程式能做什麼"><a href="#學程式能做什麼" class="headerlink" title="學程式能做什麼"></a>學程式能做什麼</h2><h3 id="金融業"><a href="#金融業" class="headerlink" title="金融業"></a>金融業</h3><p>保險業：保險精算、保單管理、理賠處理</p><p>銀行：財富管理、巨量資料分析、無實體通路之行動商務服務</p><p>證券：量化交易、人工智能選股、交易系統</p><p><img src="/55e1b0fb-2143-4a3e-90ba-41b613dae9a2.webp" alt="Image"></p><p><img src="/1e8f177e-b889-4d6e-8534-ef07ac39fe79.webp" alt="Image"></p><h3 id="醫療業"><a href="#醫療業" class="headerlink" title="醫療業"></a>醫療業</h3><p>醫療系統(掛號、門診、繳費到領藥)、電子病歷</p><p>新型態雲端醫療服務：自行在家量測→雲端紀錄病歷資料，降低人力成本</p><p><img src="/32fdf89d-99cc-4bad-91fb-39e8da71b87b.webp" alt="Image"></p><h3 id="工業"><a href="#工業" class="headerlink" title="工業"></a>工業</h3><p>工業4.0：透過人工智慧整合機械手臂、物聯網等工具改善工業流程與效率。</p><p>當然本課程只在基本功能介紹，我將完美呈現「師父領進門，修行在個人」</p><p>對產業只是稍作介紹，也可以追蹤一些新知識</p><p><a href="https://www.dcard.tw/@markreadfintech">https:&#x2F;&#x2F;www.dcard.tw&#x2F;@markreadfintech</a></p><h3 id="賺錢什麼太俗氣，還有一些好玩的理由"><a href="#賺錢什麼太俗氣，還有一些好玩的理由" class="headerlink" title="賺錢什麼太俗氣，還有一些好玩的理由"></a>賺錢什麼太俗氣，還有一些好玩的理由</h3><h2 id="為什麼選Python"><a href="#為什麼選Python" class="headerlink" title="為什麼選Python"></a>為什麼選Python</h2><p>Python程式語言特色如下：</p><p>1.開放原始碼：無須費用</p><p>2.可擴充性：具有豐富的庫，可做擴充，你想要做視覺辨識？有！想做數據分析？有！想連結Google應用程式？也沒問題！因為在整合相當便捷，Python又叫做膠水語言</p><p>根據stackoverflow(程式人的知識+)統計，2022最常使用語言：</p><p><img src="/d85e8bad-0544-40d6-bb6d-dd987bd528a9.webp" alt="Image"></p><p>2024最常使用語言：</p><p><img src="/03312f89-b7ba-4c1b-a5df-85b8fd1a09dd.webp" alt="Image"></p><p>Google Trend搜尋</p><p><a href="https://trends.google.com.tw/trends/">https://trends.google.com.tw/trends/</a></p><p><img src="/ecf739bc-2904-481a-836e-bf7c171c7d33.webp" alt="Image"></p><h2 id="課堂作業"><a href="#課堂作業" class="headerlink" title="課堂作業"></a>課堂作業</h2><p>本課程使用虎科大程式平台，進行練習與考試評分：<a href="https://goclass.tw/">https://goclass.tw/</a></p><blockquote><p>Step1. 註冊帳號與登入</p></blockquote><p><img src="/6c07053b-2d53-4f1a-b2fc-bcfee8e9673a.webp" alt="Image"></p><p><img src="/70c0e4f4-7c1b-408f-861d-ce47ad24cb64.webp" alt="Image"></p><p><img src="/9bb9b469-de8f-4544-b64f-f3e28a57edcd.webp" alt="Image"></p><blockquote><p>Step2. 加入課程</p></blockquote><p>代號：DS411</p><p>輸入課程認證代碼後，點選註冊班級</p><p><img src="/34f0ba76-f1a2-4bdb-afd4-ca588f4a142e.webp" alt="Image"></p><blockquote><p>Step3. 點擊題目，正式開始</p></blockquote><p>課堂作業會使用GoClass來進行撰寫，而在練習之外，我們會在我們的電腦安裝Python，下面看看怎麼安裝吧。</p><h2 id="環境安裝"><a href="#環境安裝" class="headerlink" title="環境安裝"></a>環境安裝</h2><p>Python下載網址：<a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a></p><blockquote><p>💡 重要提示： 安裝Python時，請確保勾選「Add Python to PATH」選項。這將大大簡化日後使用Python的過程。</p></blockquote><p><img src="/48d07090-7e54-48a2-8f18-d3e4beca1aba.webp" alt="Image"></p><p>整合開發環境(IDE)是輔助程式人員開發系統的應用軟體。</p><h3 id="Visual-Studio-Code"><a href="#Visual-Studio-Code" class="headerlink" title="Visual Studio Code"></a>Visual Studio Code</h3><p>下載網址：<a href="https://code.visualstudio.com/download">https://code.visualstudio.com/download</a></p><p>左邊欄位可以做檔案管理、外掛管理</p><p><img src="/4a680e7b-6865-430a-b6e0-d668e173a40a.webp" alt="Image"></p><p>透過開啟資料夾選擇要儲存檔案的地方</p><p><img src="/151fede2-8319-4c98-9184-bb5862517025.webp" alt="Image"></p><p>新增檔案，python的副檔名為.py</p><p><img src="/f38b06a1-94f5-4a2e-93b3-6ec4263790b3.webp" alt="Image"></p><p>執行程式</p><p><img src="/447e6983-17e1-4e5a-8289-69d4308771ac.webp" alt="Image"></p><h3 id="Colab編輯器"><a href="#Colab編輯器" class="headerlink" title="Colab編輯器"></a>Colab編輯器</h3><p>使用線上編輯器Colab：<a href="https://colab.research.google.com/">https://colab.research.google.com/</a></p><p>好處：資料放在雲端，容易保存，並且可做筆記本使用(在家也可輕易使用，有網路就可以)</p><blockquote><p>Step1. 開啟新檔案</p></blockquote><p><img src="/1d8eba49-d73d-48fa-a317-bbc291f6b32e.webp" alt="Image"></p><p><img src="/0d524c19-4768-4369-8d4f-247e14ca9161.webp" alt="Image"></p><blockquote><p>Step2. 新增儲存格</p></blockquote><p><img src="/8440b94e-12bf-4dcc-b44d-e23bc45e9d9a.webp" alt="Image"></p><blockquote><p>💡 練習：新增一檔案，檔案名稱為「第一堂課-學號姓名」，並新增一個文字儲存格、一個程式碼儲存格</p></blockquote><p>預期成果：</p><p><img src="/8d4d4379-4220-4bf9-864c-2e29cf538b65.webp" alt="Image"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Python課程</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>python</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>第二週資料科學-Pandas新增、刪除、篩選</title>
     <link href="/2024/09/data-science-pandas-create-update-drop-select-and-condition/"/>
     <url>/2024/09/data-science-pandas-create-update-drop-select-and-condition/</url>

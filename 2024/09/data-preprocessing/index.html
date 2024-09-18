@@ -16,28 +16,28 @@
   <meta name="author" content="阿盧">
   <meta name="keywords" content="">
   
-    <meta name="description" content="前言利用上兩週的操作，我們將在Kaggle下載一些資料集來進行實戰練習，以此篇為例我下載了「Spotify and Youtube」統計Spotify 藝人的前 10 首熱門歌曲以及他們在 YouTube 上的影片的統計數據。 你也可以試試看「2019年最流行的Youtube影片」 若想下載其他的，可在Dataset進行尋找  此外，建議可以搭配ChatGPT，完成自己想要的任務  資料匯入在Ka">
+    <meta name="description" content="以前面的資料為延續，繼續介紹幾個常用到的函式 超級好用的groupby()類似於Excel的樞紐分析，進行分組，先以性別試看看 1234df_grouped&#x3D;df.groupby(&#x27;性別&#x27;)df_grouped.mean()   1df_grouped[[&#x27;平均&#x27;,&#x27;第一次段考&#x27;,&#x27;期末考&#x27;]].mean()   女生">
 <meta property="og:type" content="article">
-<meta property="og:title" content="資料科學二三週實戰練習-你知道周杰倫最紅的歌是哪一首嗎？">
-<meta property="og:url" content="https://alu1006.github.io/2024/09/which-is-Jay-Chou-famous-song/index.html">
+<meta property="og:title" content="資料科學第四週-資料處理常用操作">
+<meta property="og:url" content="https://alu1006.github.io/2024/09/data-preprocessing/index.html">
 <meta property="og:site_name" content="阿盧老師Coding嚕">
-<meta property="og:description" content="前言利用上兩週的操作，我們將在Kaggle下載一些資料集來進行實戰練習，以此篇為例我下載了「Spotify and Youtube」統計Spotify 藝人的前 10 首熱門歌曲以及他們在 YouTube 上的影片的統計數據。 你也可以試試看「2019年最流行的Youtube影片」 若想下載其他的，可在Dataset進行尋找  此外，建議可以搭配ChatGPT，完成自己想要的任務  資料匯入在Ka">
+<meta property="og:description" content="以前面的資料為延續，繼續介紹幾個常用到的函式 超級好用的groupby()類似於Excel的樞紐分析，進行分組，先以性別試看看 1234df_grouped&#x3D;df.groupby(&#x27;性別&#x27;)df_grouped.mean()   1df_grouped[[&#x27;平均&#x27;,&#x27;第一次段考&#x27;,&#x27;期末考&#x27;]].mean()   女生">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://alu1006.github.io/img/%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E4%BA%8C%E4%B8%89%E9%80%B1%E5%AF%A6%E6%88%B0%E7%B7%B4%E7%BF%92-%E4%BD%A0%E7%9F%A5%E9%81%93%E5%91%A8%E6%9D%B0%E5%80%AB%E6%9C%80%E7%B4%85%E7%9A%84%E6%AD%8C%E6%98%AF%E5%93%AA%E4%B8%80%E9%A6%96%E5%97%8E%EF%BC%9F_index.webp">
-<meta property="article:published_time" content="2024-09-12T23:44:20.634Z">
-<meta property="article:modified_time" content="2024-09-12T23:44:52.461Z">
+<meta property="og:image" content="https://alu1006.github.io/img/%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E7%AC%AC%E5%9B%9B%E9%80%B1-%E8%B3%87%E6%96%99%E8%99%95%E7%90%86%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C_index.webp">
+<meta property="article:published_time" content="2024-09-18T12:09:47.350Z">
+<meta property="article:modified_time" content="2024-09-18T12:09:57.376Z">
 <meta property="article:author" content="阿盧">
 <meta property="article:tag" content="python">
-<meta property="article:tag" content="AI">
 <meta property="article:tag" content="資料科學">
+<meta property="article:tag" content="資料前處理">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://alu1006.github.io/img/%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E4%BA%8C%E4%B8%89%E9%80%B1%E5%AF%A6%E6%88%B0%E7%B7%B4%E7%BF%92-%E4%BD%A0%E7%9F%A5%E9%81%93%E5%91%A8%E6%9D%B0%E5%80%AB%E6%9C%80%E7%B4%85%E7%9A%84%E6%AD%8C%E6%98%AF%E5%93%AA%E4%B8%80%E9%A6%96%E5%97%8E%EF%BC%9F_index.webp">
+<meta name="twitter:image" content="https://alu1006.github.io/img/%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E7%AC%AC%E5%9B%9B%E9%80%B1-%E8%B3%87%E6%96%99%E8%99%95%E7%90%86%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C_index.webp">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>資料科學二三週實戰練習-你知道周杰倫最紅的歌是哪一首嗎？ - 阿盧老師Coding嚕</title>
+  <title>資料科學第四週-資料處理常用操作 - 阿盧老師Coding嚕</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -224,13 +224,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E4%BA%8C%E4%B8%89%E9%80%B1%E5%AF%A6%E6%88%B0%E7%B7%B4%E7%BF%92-%E4%BD%A0%E7%9F%A5%E9%81%93%E5%91%A8%E6%9D%B0%E5%80%AB%E6%9C%80%E7%B4%85%E7%9A%84%E6%AD%8C%E6%98%AF%E5%93%AA%E4%B8%80%E9%A6%96%E5%97%8E%EF%BC%9F_index.webp') no-repeat center center; background-size: cover;">
+     style="background: url('/img/%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E7%AC%AC%E5%9B%9B%E9%80%B1-%E8%B3%87%E6%96%99%E8%99%95%E7%90%86%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C_index.webp') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="資料科學二三週實戰練習-你知道周杰倫最紅的歌是哪一首嗎？"></span>
+            <span id="subtitle" data-typed-text="資料科學第四週-資料處理常用操作"></span>
           
         </div>
 
@@ -241,8 +241,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-09-13 07:44" pubdate>
-          2024年9月13日 早上
+        <time datetime="2024-09-18 20:09" pubdate>
+          2024年9月18日 晚上
         </time>
       </span>
     
@@ -253,7 +253,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2k 字
+          985 字
         
       </span>
     
@@ -264,7 +264,7 @@
         
         
         
-          10 分鐘
+          5 分鐘
         
       </span>
     
@@ -302,13 +302,13 @@
                     <div id="board">
                         <article class="post-content mx-auto">
                             <h1 id="seo-header">
-                                資料科學二三週實戰練習-你知道周杰倫最紅的歌是哪一首嗎？
+                                資料科學第四週-資料處理常用操作
                             </h1>
                             <!-- 改動開始：顯示文章摘要 -->
                             
                                 <div class="post-summary">
                                     <p>
-                                        在[Kaggle](https://www.kaggle.com/code/anzarwani2/spotify-youtube-top-music-songs-eda)上下載「Spotify and Youtube」資料集，利用Google Colab分析熱門歌曲數據，搭配ChatGPT處理文字編碼，探索分析資料特徵及處理方法，最後篩選觀看量超過10億的歌曲，發現數據驚人且探討周杰倫歌曲在全球的表現和挑戰。有趣的研究話題等著你！
+                                        這篇文章介紹資料處理的幾個常用函式：用groupby()可以按性別分組計算平均成績；sort_values()可以將成績由高到低排序；nlargest()可以取每欄前n大的值；使用apply()對每一列操作，進階且有趣。思考匿名函式lambda的應用，讓資料處理更有效率。
                                     </p>
                                 </div>
                                 
@@ -317,61 +317,43 @@
                                             
                                                                     <div class="markdown-body">
                                                                         
-                                                                            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>利用上兩週的操作，我們將在<a target="_blank" rel="noopener" href="https://www.kaggle.com/code/anzarwani2/spotify-youtube-top-music-songs-eda">Kaggle</a>下載一些資料集來進行實戰練習，以此篇為例我下載了「Spotify and Youtube」統計Spotify 藝人的前 10 首熱門歌曲以及他們在 YouTube 上的影片的統計數據。</p>
-<p>你也可以試試看<a target="_blank" rel="noopener" href="https://www.kaggle.com/datasets/akinduhiman/trending-youtube-videos-2019-to-2020">「2019年最流行的Youtube影片」</a></p>
-<p>若想下載其他的，可在Dataset進行尋找</p>
-<p><img src="/2024/09/which-is-Jay-Chou-famous-song/daad5c44-aba3-4851-a55b-c9832b063ba6.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
-<p>此外，建議可以搭配ChatGPT，完成自己想要的任務 </p>
-<h2 id="資料匯入"><a href="#資料匯入" class="headerlink" title="資料匯入"></a>資料匯入</h2><p>在Kaggle下載好資料集後，使用Google Colab 連接雲端資料夾</p>
-<p><img src="/2024/09/which-is-Jay-Chou-famous-song/59479235-5cb0-4223-88f1-5884f9c20784.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
-<p>使用<code>pd.read_csv()</code> 可以直接讀取csv檔，並轉換成Dataframe</p>
-<p>不過在這個資料集因為含有很多國家的歌手，在文字編碼各不相同(我的猜測)，所以我請ChatGPT做了額外的檔案處理</p>
-<p>因為我想保留資料是utf-8編碼(避免中文亂碼)，略過會發生錯誤的資料列</p>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver"><span class="hljs-comment">#載入pandas</span><br>import pandas <span class="hljs-keyword">as</span> pd<br><span class="hljs-comment">#載入雲端硬碟csv檔, read_csv()</span><br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;/content/drive/MyDrive/0714研習/Spotify_Youtube.csv&#x27;</span>, <span class="hljs-string">&#x27;r&#x27;</span>, encoding=<span class="hljs-string">&#x27;utf-8&#x27;</span>, errors=<span class="hljs-string">&#x27;ignore&#x27;</span>) <span class="hljs-keyword">as</span> <span class="hljs-built_in">file</span>:<br>    df = pd.read_csv(<span class="hljs-built_in">file</span>,on_bad_lines=<span class="hljs-string">&#x27;skip&#x27;</span>)<br>df<br></code></pre></td></tr></table></figure>
+                                                                            <p>以前面的資料為延續，繼續介紹幾個常用到的函式</p>
+<h2 id="超級好用的groupby"><a href="#超級好用的groupby" class="headerlink" title="超級好用的groupby()"></a>超級好用的groupby()</h2><p>類似於Excel的樞紐分析，進行分組，先以性別試看看</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs arcade">df_grouped=df.<span class="hljs-built_in">groupby</span>(<span class="hljs-string">&#x27;性別&#x27;</span>)<br><br>df_grouped.<span class="hljs-built_in">mean</span>()<br><br></code></pre></td></tr></table></figure>
 
-<p><img src="/2024/09/which-is-Jay-Chou-famous-song/a0a92a1d-e921-45d3-8740-55056be2fa71.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
-<h2 id="資料欄位分析"><a href="#資料欄位分析" class="headerlink" title="資料欄位分析"></a>資料欄位分析</h2><p>確定有些什麼欄位，還有欄位的格式，方便我之後運算</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">df.<span class="hljs-built_in">info</span>()<br></code></pre></td></tr></table></figure>
+<p><img src="/2024/09/data-preprocessing/1050d470-6cd6-8047-91f2-e5d5f214faf6.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs lua">df_grouped<span class="hljs-string">[[&#x27;平均&#x27;,&#x27;第一次段考&#x27;,&#x27;期末考&#x27;]]</span>.mean()<br></code></pre></td></tr></table></figure>
 
-<p><img src="/2024/09/which-is-Jay-Chou-famous-song/63d6f78f-d834-43dd-ae55-82bce2465f26.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
-<p>在Kaggle資料集也有對欄位的介紹，不過透過這可以看到，Views(Youtube的觀看數)的型態是Object，還有資料有26449筆，但Views只有25829筆</p>
-<h2 id="分析前處理"><a href="#分析前處理" class="headerlink" title="分析前處理"></a>分析前處理</h2><p>二三週還沒講到分析前的處理，但我偷跑讓資料更好分析，畢竟真實資料集通常會「髒髒的」</p>
-<h3 id="空資料刪除"><a href="#空資料刪除" class="headerlink" title="空資料刪除"></a>空資料刪除</h3><p>我初步想法是做跟觀看數有關的，於是我先把沒有觀看的資料列刪除，使用<code>dropna</code> ：</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros">df.dropna(<span class="hljs-attribute">inplace</span>=<span class="hljs-literal">True</span>)<br>df.<span class="hljs-built_in">info</span>()<br></code></pre></td></tr></table></figure>
+<p><img src="/2024/09/data-preprocessing/34103876-19c6-4b5f-92a1-47d950737ee2.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p>女生不論在平均成績、段考或期末考，平均都高於男生</p>
+<h2 id="成績由高到低排列sort-values"><a href="#成績由高到低排列sort-values" class="headerlink" title="成績由高到低排列sort_values()"></a>成績由高到低排列sort_values()</h2><p>將成績由高到低排列是常用的功能，其中參數<code>ascending</code>意思為是否遞增</p>
+<p>試著以學期成績做排序</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs lasso">df_sort = df.sort_values(<span class="hljs-keyword">by</span>=<span class="hljs-string">&#x27;學期成績&#x27;</span>,<span class="hljs-keyword">ascending</span>=<span class="hljs-literal">False</span>)<br>df_sort<br></code></pre></td></tr></table></figure>
 
-<p><img src="/2024/09/which-is-Jay-Chou-famous-song/e53c81a1-c7e3-4b53-b2a0-f5ad758f02a3.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
-<p>刪除完後可以看到資料變成24557筆</p>
-<h3 id="資料型態轉換"><a href="#資料型態轉換" class="headerlink" title="資料型態轉換"></a>資料型態轉換</h3><p>Views(Youtube的觀看數)的型態是Object，透過<code>astype(float)</code> 做轉換</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">df<span class="hljs-selector-attr">[<span class="hljs-string">&#x27;Views&#x27;</span>]</span> = df<span class="hljs-selector-attr">[<span class="hljs-string">&#x27;Views&#x27;</span>]</span><span class="hljs-selector-class">.astype</span>(<span class="hljs-attribute">float</span>)<br>df<span class="hljs-selector-attr">[<span class="hljs-string">&#x27;Views&#x27;</span>]</span><br></code></pre></td></tr></table></figure>
+<p><img src="/2024/09/data-preprocessing/1050d470-6cd6-801b-b2d3-ce66be510272.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<h2 id="取部分成績作平均"><a href="#取部分成績作平均" class="headerlink" title="取部分成績作平均"></a>取部分成績作平均</h2><p>因為整個學期會很很多次小考與作業，取部分成績的好處是，剔除極端低的數值，不要因為一兩次不認真，拖累到整體成績，跟剛才一樣先取出要計算的範圍</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">df_10</span> = df.iloc[:,<span class="hljs-number">2</span>:<span class="hljs-number">12</span>]<br><span class="hljs-attribute">df_10</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="/2024/09/which-is-Jay-Chou-famous-song/c81bd638-cac3-4be0-b7e8-a893766a0043.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
-<h2 id="資料分析-EDA"><a href="#資料分析-EDA" class="headerlink" title="資料分析(EDA)"></a>資料分析(EDA)</h2><p>EDA 是 Exploratory Data Analysis（探索性資料分析）的縮寫。它是一種初步分析資料集的方法，旨在通過視覺化、統計摘要和資料轉換等技術手段來發現資料的結構、模式、異常值和潛在的關聯。</p>
-<h3 id="抓取想要的欄位"><a href="#抓取想要的欄位" class="headerlink" title="抓取想要的欄位"></a>抓取想要的欄位</h3><p>我先將我要的資料列出來分別是「藝人」、「歌名」、「專輯」、「Youtube觀看」、「Spotify串流次數」，並存在另一個表中，避免我的原本的資料還有需要使用</p>
-<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs prolog">df_view = df[[<span class="hljs-string">&#x27;Artist&#x27;</span>,<span class="hljs-string">&#x27;Track&#x27;</span>,<span class="hljs-string">&#x27;Album&#x27;</span>,<span class="hljs-string">&#x27;Views&#x27;</span>,<span class="hljs-string">&#x27;Stream&#x27;</span>]]<br>df_view<br></code></pre></td></tr></table></figure>
+<p><img src="/2024/09/data-preprocessing/1050d470-6cd6-80d5-a417-e4165cbd4c97.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<h3 id="nlargest-取每欄前n大的值"><a href="#nlargest-取每欄前n大的值" class="headerlink" title="nlargest()取每欄前n大的值"></a>nlargest()取每欄前n大的值</h3><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scss">df_10<span class="hljs-selector-attr">[<span class="hljs-string">&#x27;1流程圖&#x27;</span>]</span><span class="hljs-selector-class">.nlargest</span>(<span class="hljs-number">10</span>)<br></code></pre></td></tr></table></figure>
 
-<p><img src="/2024/09/which-is-Jay-Chou-famous-song/ee555377-8f78-41b1-9c88-2067d922c36e.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
-<p>其中1.04e+09代表10的九次方也就是10.04億次收聽</p>
-<h3 id="流量排序"><a href="#流量排序" class="headerlink" title="流量排序"></a>流量排序</h3><p>這也還沒講，可以使用GPT試看看</p>
-<p>單純是因為我不知道篩選一首歌的流量，怎樣算是多？於是我把流量高到低進行排序</p>
-<p>使用<code>sort_values()</code>進行排序而裡面的<code>by</code>代表要排序的欄位，<code>ascending</code>代表是否要由小到大</p>
-<p>再使用<code>head()</code> 列出前100筆資料(預設為5筆)</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros">df_view.sort_values(<span class="hljs-attribute">by</span>=<span class="hljs-string">&#x27;Views&#x27;</span>, <span class="hljs-attribute">ascending</span>=<span class="hljs-literal">False</span>,inplace=True)<br>df_view.head(100)<br></code></pre></td></tr></table></figure>
+<p><img src="/2024/09/data-preprocessing/1050d470-6cd6-807c-b3d8-db1251e0e77e.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p>可以很輕易的取出流程圖這次作業前十高的分數，但是要怎麼取一個同學（一整列）的前十高分數呢？</p>
+<h2 id="進階：要怎麼取列，使用apply"><a href="#進階：要怎麼取列，使用apply" class="headerlink" title="進階：要怎麼取列，使用apply()"></a>進階：要怎麼取列，使用apply()</h2><p>有些函式並不支援直接對<code>axis=1</code>來做運算</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">df_10</span>.nlargest(<span class="hljs-number">10</span>,axis=<span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
 
-<p><img src="/2024/09/which-is-Jay-Chou-famous-song/1419053f-fa34-4513-baed-d937428dcc08.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
-<p>可以看出此資料集Youtube最高觀看80億(應該是2022或2023的資料)，Spotify串流有15億次收聽</p>
-<p>有趣的是Ed Sheeran串流30幾億但Youtube只有59億</p>
-<h2 id="資料篩選"><a href="#資料篩選" class="headerlink" title="資料篩選"></a>資料篩選</h2><p>最後我篩選出高於十億收看的歌曲，共有***首呢？</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-comment">#超過十億次觀看有幾首</span><br><span class="hljs-attribute">df_view</span>[df_view[&#x27;Views&#x27;]&gt;<span class="hljs-number">10</span>**<span class="hljs-number">9</span>]<br></code></pre></td></tr></table></figure>
+<p><img src="/2024/09/data-preprocessing/90d209a9-f78f-4bb3-bb49-bbb00d119c22.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p>可以使用<code>apply()</code>是對每一個axis，進行函式操作，順便也可以先了解一下python中的lambda是什麼？</p>
+<h3 id="lambda-是什麼"><a href="#lambda-是什麼" class="headerlink" title="lambda 是什麼"></a>lambda 是什麼</h3><figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs isbl"><span class="hljs-variable">def</span> <span class="hljs-function"><span class="hljs-title">f</span>(<span class="hljs-variable">x</span>):</span><br><span class="hljs-function">	<span class="hljs-variable">return</span> <span class="hljs-variable">x</span>**<span class="hljs-number">2</span></span><br><span class="hljs-function"></span><br><span class="hljs-function"><span class="hljs-title">print</span>(<span class="hljs-title">f</span>(<span class="hljs-number">3</span>))</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="/2024/09/which-is-Jay-Chou-famous-song/a067fc43-838c-46c3-ad39-2d3533e187d1.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
-<p>使用<code>len()</code> 看出列數，總共390首歌，這樣多嗎？</p>
-<h2 id="消費台灣"><a href="#消費台灣" class="headerlink" title="消費台灣"></a>消費台灣</h2><p>最後想到，那我們亞洲巨星周杰倫的歌在世界上如何呢？</p>
-<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs prolog">df_view[df_view[<span class="hljs-string">&#x27;Artist&#x27;</span>]==<span class="hljs-string">&#x27;Jay Chou&#x27;</span>]<br></code></pre></td></tr></table></figure>
+<p>上面是學過的定義函式<br>使用<code>lambda</code>可以更簡化只有簡單條件的函式，稱之為匿名函式</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-comment">#做出相等的匿名函式</span><br>f = lambda x:x*<span class="hljs-number">*2</span><br><span class="hljs-built_in">print</span>(f(3))<br></code></pre></td></tr></table></figure>
 
-<p><img src="/2024/09/which-is-Jay-Chou-famous-song/1454656e-303e-431b-ae4a-bb5e10bcf215.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
-<p>這首七年前（以2024年來說）的告白氣球，資料集是2.4億次觀看(2024年為2.5億次觀看)</p>
-<p>可以發現要達到10億是一個多了不起的數字啊</p>
-<p>但同時可以想想，前幾年有個新聞，如果一首歌它有1億觀看，真實性又有多少？(我沒有偷臭)可能是個好的研究議題，下週見吧XD</p>
+<h3 id="apply-與nlargest"><a href="#apply-與nlargest" class="headerlink" title="apply()與nlargest()"></a>apply()與nlargest()</h3><p><code>apply()</code>是對每一個axis，進行函式操作，以<code>axis=1</code> 來說，就是對一整列做事情</p>
+<p><img src="/2024/09/data-preprocessing/1050d470-6cd6-80da-a1e1-e34ac830dac7.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stylus">#每列的<span class="hljs-built_in">largest</span>(<span class="hljs-number">10</span>)取平均放入df<span class="hljs-selector-attr">[<span class="hljs-string">&#x27;平均&#x27;</span>]</span><br>df<span class="hljs-selector-attr">[<span class="hljs-string">&#x27;平均2&#x27;</span>]</span>=df_10<span class="hljs-selector-class">.apply</span>(lambda x:x<span class="hljs-selector-class">.nlargest</span>(<span class="hljs-number">10</span>)<span class="hljs-selector-class">.mean</span>(),axis=<span class="hljs-number">1</span>)<br>df<span class="hljs-selector-attr">[<span class="hljs-string">&#x27;平均2&#x27;</span>]</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/2024/09/data-preprocessing/1050d470-6cd6-8012-abec-c23d8b407252.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
 
                                                                                 
                                                                     </div>
@@ -407,9 +389,9 @@
       
         <a href="/tags/python/" class="print-no-link">#python</a>
       
-        <a href="/tags/AI/" class="print-no-link">#AI</a>
-      
         <a href="/tags/%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8/" class="print-no-link">#資料科學</a>
+      
+        <a href="/tags/%E8%B3%87%E6%96%99%E5%89%8D%E8%99%95%E7%90%86/" class="print-no-link">#資料前處理</a>
       
     </div>
   
@@ -423,9 +405,9 @@
                                                                                             <article class="post-prev col-6">
                                                                                                 
                                                                                                     
-                                                                                                        <a href="/2024/09/data-preprocessing/" title="資料科學第四週-資料處理常用操作">
+                                                                                                        <a href="/2024/09/data-preprocessing/" title="資料科學第四週-資料前處理">
                                                                                                             <i class="iconfont icon-arrowleft"></i>
-                                                                                                            <span class="hidden-mobile">資料科學第四週-資料處理常用操作</span>
+                                                                                                            <span class="hidden-mobile">資料科學第四週-資料前處理</span>
                                                                                                             <span class="visible-mobile">上一篇</span>
                                                                                                         </a>
                                                                                                         
@@ -433,8 +415,8 @@
                                                                                             <article class="post-next col-6">
                                                                                                 
                                                                                                     
-                                                                                                        <a href="/2024/09/pandas-read-data/" title="第三週資料科學-Pandas讀取資料">
-                                                                                                            <span class="hidden-mobile">第三週資料科學-Pandas讀取資料</span>
+                                                                                                        <a href="/2024/09/which-is-Jay-Chou-famous-song/" title="資料科學二三週實戰練習-你知道周杰倫最紅的歌是哪一首嗎？">
+                                                                                                            <span class="hidden-mobile">資料科學二三週實戰練習-你知道周杰倫最紅的歌是哪一首嗎？</span>
                                                                                                             <span class="visible-mobile">下一篇</span>
                                                                                                             <i class="iconfont icon-arrowright"></i>
                                                                                                         </a>

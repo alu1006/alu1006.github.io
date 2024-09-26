@@ -1,0 +1,784 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="阿盧">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="資料視覺化：讓數據說話的藝術在資料科學的世界中，資料視覺化扮演著至關重要的角色。它不僅能幫助我們更好地理解複雜的數據集，讓我們迅速發現數據中的模式、趨勢和異常。還能以直觀、吸引人的方式呈現分析結果。 圖型分類用圖說話，先以一張Kaggle大神的圖概括：  可根據要資料的「分佈」、「趨勢」或「關係」來繪圖： 分佈(Distribution)：圓餅圖、長條圖、核密圖(KDE) 趨勢(Trend)：折線">
+<meta property="og:type" content="article">
+<meta property="og:title" content="資料科學第五週-Colab中圖要怎麼有中文、資料視覺化圓餅圖">
+<meta property="og:url" content="https://alu1006.github.io/2024/09/colab-matplotlib-chinese-and-pie-chart/index.html">
+<meta property="og:site_name" content="阿盧老師Coding嚕">
+<meta property="og:description" content="資料視覺化：讓數據說話的藝術在資料科學的世界中，資料視覺化扮演著至關重要的角色。它不僅能幫助我們更好地理解複雜的數據集，讓我們迅速發現數據中的模式、趨勢和異常。還能以直觀、吸引人的方式呈現分析結果。 圖型分類用圖說話，先以一張Kaggle大神的圖概括：  可根據要資料的「分佈」、「趨勢」或「關係」來繪圖： 分佈(Distribution)：圓餅圖、長條圖、核密圖(KDE) 趨勢(Trend)：折線">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://alu1006.github.io/img/%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E7%AC%AC%E4%BA%94%E9%80%B1-Colab%E4%B8%AD%E5%9C%96%E8%A6%81%E6%80%8E%E9%BA%BC%E6%9C%89%E4%B8%AD%E6%96%87%E3%80%81%E8%B3%87%E6%96%99%E8%A6%96%E8%A6%BA%E5%8C%96%E5%9C%93%E9%A4%85%E5%9C%96_index.webp">
+<meta property="article:published_time" content="2024-09-26T02:50:25.163Z">
+<meta property="article:modified_time" content="2024-09-26T02:50:54.260Z">
+<meta property="article:author" content="阿盧">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="資料科學">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://alu1006.github.io/img/%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E7%AC%AC%E4%BA%94%E9%80%B1-Colab%E4%B8%AD%E5%9C%96%E8%A6%81%E6%80%8E%E9%BA%BC%E6%9C%89%E4%B8%AD%E6%96%87%E3%80%81%E8%B3%87%E6%96%99%E8%A6%96%E8%A6%BA%E5%8C%96%E5%9C%93%E9%A4%85%E5%9C%96_index.webp">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>資料科學第五週-Colab中圖要怎麼有中文、資料視覺化圓餅圖 - 阿盧老師Coding嚕</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"alu1006.github.io","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>阿盧老師Coding嚕</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首頁</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>歸檔</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分類</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>標籤</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>關於</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E7%AC%AC%E4%BA%94%E9%80%B1-Colab%E4%B8%AD%E5%9C%96%E8%A6%81%E6%80%8E%E9%BA%BC%E6%9C%89%E4%B8%AD%E6%96%87%E3%80%81%E8%B3%87%E6%96%99%E8%A6%96%E8%A6%BA%E5%8C%96%E5%9C%93%E9%A4%85%E5%9C%96_index.webp') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="資料科學第五週-Colab中圖要怎麼有中文、資料視覺化圓餅圖"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-09-26 10:50" pubdate>
+          2024年9月26日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          17 分鐘
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+    <div class="container-fluid nopadding-x">
+        <div class="row nomargin-x">
+            <div class="side-col d-none d-lg-block col-lg-2">
+                
+
+            </div>
+
+            <div class="col-lg-8 nopadding-x-md">
+                <div class="container nopadding-x-md" id="board-ctn">
+                    <div id="board">
+                        <article class="post-content mx-auto">
+                            <h1 id="seo-header">
+                                資料科學第五週-Colab中圖要怎麼有中文、資料視覺化圓餅圖
+                            </h1>
+                            <!-- 改動開始：顯示文章摘要 -->
+                            
+                                <div class="post-summary">
+                                    <p>
+                                        資料視覺化是資料科學中重要的技能，用圖表幫助我們理解數據，找出模式和趨勢。常見圖型有長條圖、圓餅圖、折線圖等，Python工具如Matplotlib、Seaborn、Plotly、Bokeh可協助製作圖表。以桃園廟宇為例，透過圓餅圖呈現拜神分佈。調整顏色和細節可增加圖表視覺效果。結合AI和Cheatsheet，創造出更有趣的成果！
+                                    </p>
+                                </div>
+                                
+                                    <!-- 改動結束 -->
+                                    
+                                            
+                                                                    <div class="markdown-body">
+                                                                        
+                                                                            <h1 id="資料視覺化：讓數據說話的藝術"><a href="#資料視覺化：讓數據說話的藝術" class="headerlink" title="資料視覺化：讓數據說話的藝術"></a>資料視覺化：讓數據說話的藝術</h1><p>在資料科學的世界中，資料視覺化扮演著至關重要的角色。它不僅能幫助我們更好地理解複雜的數據集，讓我們迅速發現數據中的模式、趨勢和異常。還能以直觀、吸引人的方式呈現分析結果。</p>
+<h2 id="圖型分類"><a href="#圖型分類" class="headerlink" title="圖型分類"></a>圖型分類</h2><p>用圖說話，先以一張Kaggle大神的圖概括：</p>
+<p><img src="/2024/09/colab-matplotlib-chinese-and-pie-chart/c172451b-8f62-47b9-bff9-d39528971607.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p>可根據要資料的「分佈」、「趨勢」或「關係」來繪圖：</p>
+<p>分佈(Distribution)：圓餅圖、長條圖、核密圖(KDE)</p>
+<p>趨勢(Trend)：折線圖、直方圖</p>
+<p>關係(Relationship)：散佈圖、熱圖、回歸圖</p>
+<h3 id="各個圖的簡單解釋："><a href="#各個圖的簡單解釋：" class="headerlink" title="各個圖的簡單解釋："></a>各個圖的簡單解釋：</h3><p>• 條形圖（Bar Chart）：用於比較不同組別之間的數量。</p>
+<p>• 直方圖（Histogram）：用於顯示數據的分佈。</p>
+<p>• 圓餅圖（Pie Chart）：用於顯示各部分佔總數的比例。</p>
+<p>• 折線圖（Line Chart）：用於顯示數據隨時間變化的趨勢。</p>
+<p>• 散佈圖（Scatter Plot）：用於顯示兩個變量之間的關係。</p>
+<p>• 箱形圖（Box Plot）：用於顯示數據的分佈特徵，如中位數、四分位數和異常值。</p>
+<h3 id="長條圖-Bar-Chart-和直方圖-Histogram"><a href="#長條圖-Bar-Chart-和直方圖-Histogram" class="headerlink" title="長條圖(Bar Chart)和直方圖(Histogram)"></a>長條圖(Bar Chart)和直方圖(Histogram)</h3><p>就比較常搞混的長條圖和直方圖做一下解釋：</p>
+<p>長條圖用於比較不同類別，直方圖用於展示連續數據的分佈。</p>
+<p>舉例：長條圖適合顯示不同品牌的銷售量，直方圖則適合展示學生成績的分佈。</p>
+<h2 id="Python中的資料視覺化工具"><a href="#Python中的資料視覺化工具" class="headerlink" title="Python中的資料視覺化工具"></a>Python中的資料視覺化工具</h2><p>Python提供了多種強大的視覺化庫，其中最常用的包括：</p>
+<ul>
+<li><p>Matplotlib：基礎繪圖庫，適合創建靜態、動畫和互動式圖表。</p>
+</li>
+<li><p>Seaborn：基於Matplotlib的統計繪圖庫，提供更美觀的默認樣式。</p>
+</li>
+<li><p>Plotly：用於創建互動式和可發布的圖表。</p>
+</li>
+<li><p>Bokeh：專注於創建交互式視覺化，特別適合網頁應用。</p>
+</li>
+</ul>
+<p>先知道有哪些工具，在使用AI協助畫圖生成時，可以任君挑選。</p>
+<h2 id="查看分佈-以桃園的廟為例"><a href="#查看分佈-以桃園的廟為例" class="headerlink" title="查看分佈-以桃園的廟為例"></a>查看分佈-以桃園的廟為例</h2><p>先讀取桃園區有登記的廟宇：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd<br><span class="hljs-class"><span class="hljs-keyword">data</span> = pd.read_json(&#x27;<span class="hljs-title">http</span>://<span class="hljs-title">data</span>.<span class="hljs-title">tycg</span>.<span class="hljs-title">gov</span>.<span class="hljs-title">tw</span>/<span class="hljs-title">api</span>/<span class="hljs-title">v1</span>/<span class="hljs-title">rest</span>/<span class="hljs-title">datastore</span>/<span class="hljs-title">b2247404</span>-3<span class="hljs-title">d92</span>-4829-9855-0<span class="hljs-title">cd5e71b92b3</span>?<span class="hljs-title">format</span>=<span class="hljs-title">json</span>&amp;<span class="hljs-title">limit</span>=500&#x27;)</span><br><span class="hljs-title">df</span> = pd.<span class="hljs-type">DataFrame</span>(<span class="hljs-class"><span class="hljs-keyword">data</span>[&#x27;result&#x27;][&#x27;records&#x27;])</span><br><span class="hljs-title">df</span>.head()<br></code></pre></td></tr></table></figure>
+
+<p><img src="/2024/09/colab-matplotlib-chinese-and-pie-chart/10c0d470-6cd6-8067-bbf8-c269533842f6.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p>一樣先檢查有無缺失值：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">df.<span class="hljs-built_in">info</span>()<br></code></pre></td></tr></table></figure>
+
+<p><img src="/2024/09/colab-matplotlib-chinese-and-pie-chart/10c0d470-6cd6-80c6-b773-fd02389f1563.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<h3 id="使用Unique，找一樣的神明"><a href="#使用Unique，找一樣的神明" class="headerlink" title="使用Unique，找一樣的神明"></a>使用Unique，找一樣的神明</h3><p>使用 <code>unique()</code> 函數可以找出一個資料欄中所有不重複的值。以下是使用方法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#有哪些神明，跟python中的set相同概念</span><br><span class="hljs-built_in">df</span>[<span class="hljs-string">&#x27;主祀神祇&#x27;</span>].unique()<br></code></pre></td></tr></table></figure>
+
+<p><img src="/2024/09/colab-matplotlib-chinese-and-pie-chart/3bfab0dc-04a5-4267-8c83-93265f3baf6a.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p>可以發現，三百多筆資料中，桃園所拜的主祀神祇非常廣泛，但還是有重複的廟宇</p>
+<h3 id="使用value-counts-，計算次數"><a href="#使用value-counts-，計算次數" class="headerlink" title="使用value_counts()，計算次數"></a>使用value_counts()，計算次數</h3><p>如果想要進一步分析，我們可以使用 <code>value_counts()</code> 函數來計算每個神祇出現的次數：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">df_count = df<span class="hljs-selector-attr">[<span class="hljs-string">&#x27;主祀神祇&#x27;</span>]</span><span class="hljs-selector-class">.value_counts</span>()<br>df_count<br></code></pre></td></tr></table></figure>
+
+<p><img src="/2024/09/colab-matplotlib-chinese-and-pie-chart/10c0d470-6cd6-8042-a583-d3bff979e630.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p>這會顯示每個神祇出現的次數，並按照次數由高到低排序。這有助於我們了解哪些神祇最常被主祀。</p>
+<p>接著，我們就可以用圖來呈現這樣的分佈。</p>
+<h2 id="視覺化前的設定"><a href="#視覺化前的設定" class="headerlink" title="視覺化前的設定"></a>視覺化前的設定</h2><h3 id="載入模組-matplotlib"><a href="#載入模組-matplotlib" class="headerlink" title="載入模組-matplotlib"></a>載入模組-matplotlib</h3><figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elm"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br></code></pre></td></tr></table></figure>
+
+<h3 id="要能在notebook-colab-jupyter-快速看圖型"><a href="#要能在notebook-colab-jupyter-快速看圖型" class="headerlink" title="要能在notebook(colab, jupyter)快速看圖型"></a>要能在notebook(colab, jupyter)快速看圖型</h3><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs haml"><span class="hljs-tag">%<span class="hljs-selector-tag">matplotlib</span></span> inline<br></code></pre></td></tr></table></figure>
+
+<h3 id="要能正常顯示中文需要使用plt-rc-這個函式"><a href="#要能正常顯示中文需要使用plt-rc-這個函式" class="headerlink" title="要能正常顯示中文需要使用plt.rc()這個函式"></a>要能正常顯示中文需要使用<code>plt.rc()</code>這個函式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">import matplotlib.font_manager as fm<br><span class="hljs-comment"># 如果是COLAB要先下載繁體中文字型</span><br>!wget -O TaipeiSansTCBeta-Regular.ttf https://drive.google.com/uc?<span class="hljs-built_in">id</span>=1eGAsTN1HBpJAkeVM57_C7ccp7hbgSz3_&amp;<span class="hljs-built_in">export</span>=download<br><span class="hljs-comment">#將字型加入，確認系統字型</span><br>fm.fontManager.addfont(<span class="hljs-string">&#x27;TaipeiSansTCBeta-Regular.ttf&#x27;</span>)<br><span class="hljs-comment">#列出所有字體</span><br>[f.name <span class="hljs-keyword">for</span> f <span class="hljs-keyword">in</span> fm.fontManager.ttflist]<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-comment">#全局參數設定 runtime configuration，字體設為可呈現中文的字體</span><br>plt.rc(<span class="hljs-string">&#x27;font&#x27;</span>, <span class="hljs-attribute">family</span>=<span class="hljs-string">&#x27;Taipei Sans TC Beta&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<h2 id="繪製圓餅圖"><a href="#繪製圓餅圖" class="headerlink" title="繪製圓餅圖"></a>繪製圓餅圖</h2><h3 id="設定圖框大小與標題"><a href="#設定圖框大小與標題" class="headerlink" title="設定圖框大小與標題"></a>設定圖框大小與標題</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">plt<span class="hljs-selector-class">.figure</span>(figsize=(<span class="hljs-number">6</span>, <span class="hljs-number">6</span>))<br>plt<span class="hljs-selector-class">.title</span>(<span class="hljs-string">&#x27;桃園市各廟宇主祀神祇比例&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p><img src="/2024/09/colab-matplotlib-chinese-and-pie-chart/10d0d470-6cd6-8059-af8f-e1922af53d66.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<h3 id="繪製圓餅圖-1"><a href="#繪製圓餅圖-1" class="headerlink" title="繪製圓餅圖"></a>繪製圓餅圖</h3><p>幾個關鍵參數</p>
+<p><code>x</code>:必填項，要計算的內容</p>
+<p><code>labels</code>:顯示圖表個比例項目的文字</p>
+<p><code>autopct</code>:顯示比例，</p>
+<p><code>autopct=&#39;%1.1f%%&#39;</code> 是用來設定圓餅圖中顯示百分比的格式。</p>
+<ul>
+<li><p><code>%</code>: 表示後面的數字是格式說明</p>
+</li>
+<li><p><code>1.1f</code>: 表示顯示一個浮點數，總寬度為1，小數點後保留1位</p>
+</li>
+<li><p><code>%%</code>: 在格式字符串中表示一個百分號符號</p>
+</li>
+</ul>
+<p>因此，<code>&#39;%1.1f%%&#39;</code> 會將數值格式化為如 “12.3%” 的形式。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">plt.pie(<span class="hljs-attribute">x</span>=df_count, <span class="hljs-attribute">labels</span>=df_count.index, <span class="hljs-attribute">autopct</span>=<span class="hljs-string">&#x27;%1.1f%%&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p><img src="/2024/09/colab-matplotlib-chinese-and-pie-chart/732349ba-a233-40d0-800e-832c62b01721.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p>如果繪的圖比原本更難判讀就失去圖的意義了，我們來調整一下</p>
+<h3 id="整理過小比例的資料"><a href="#整理過小比例的資料" class="headerlink" title="整理過小比例的資料"></a>整理過小比例的資料</h3><p>將比例較低的主祀神祇算在「其他」，這個圖主要可以凸顯桃園以哪位神明為大宗。</p>
+<p>計算每個的佔比，小於n則列在其他</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arcade">df_count.<span class="hljs-built_in">sum</span>()<br></code></pre></td></tr></table></figure>
+
+<p>計算比例</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs abnf">df_count_ratio <span class="hljs-operator">=</span> df_count / df_count.sum()<br>df_count_ratio<br></code></pre></td></tr></table></figure>
+
+<p><img src="/2024/09/colab-matplotlib-chinese-and-pie-chart/10d0d470-6cd6-800a-92f2-c9a85e66f6d0.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p>將小於0.3%的都算在其他項目，加總起來。這裡因為<code>df_count_ratio</code>是一個<code>Series</code>，可以直接對欄位進行操作</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">df_count_ratio<span class="hljs-selector-attr">[<span class="hljs-string">&#x27;其他&#x27;</span>]</span> = df_count_ratio<span class="hljs-selector-attr">[df_count_ratio &lt; 0.03]</span><span class="hljs-selector-class">.sum</span>()<br>df_count_ratio<br></code></pre></td></tr></table></figure>
+
+<p><img src="/2024/09/colab-matplotlib-chinese-and-pie-chart/97ea1992-658a-43a7-9bd6-7d7c759a9915.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<h3 id="篩選比例大於N的神明"><a href="#篩選比例大於N的神明" class="headerlink" title="篩選比例大於N的神明"></a>篩選比例大於N的神明</h3><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs abnf">df_count_ratio <span class="hljs-operator">=</span> df_count_ratio[df_count_ratio &gt;<span class="hljs-operator">=</span> <span class="hljs-number">0.03</span>]<br>df_count_ratio<br></code></pre></td></tr></table></figure>
+
+<p><img src="/2024/09/colab-matplotlib-chinese-and-pie-chart/10d0d470-6cd6-8079-af6b-d89604646a44.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<h3 id="重新繪圖"><a href="#重新繪圖" class="headerlink" title="重新繪圖"></a>重新繪圖</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><br>plt.title(<span class="hljs-string">&#x27;桃園市各廟宇主祀神祇比例&#x27;</span>, <span class="hljs-attribute">pad</span>=30)#pad為與下方圖的間距<br>plt.pie(df_count_ratio,labels = df_count_ratio.index, <span class="hljs-attribute">autopct</span>=<span class="hljs-string">&#x27;%1.1f%%&#x27;</span>)<br><br>plt.axis(<span class="hljs-string">&#x27;equal&#x27;</span>)  # 保持圓形，在Colab固定等比例，其他不一定可能變橢圓<br></code></pre></td></tr></table></figure>
+
+<p><img src="/2024/09/colab-matplotlib-chinese-and-pie-chart/10d0d470-6cd6-8017-b05b-e1d6578161cb.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>可以用圖表展示，讓人知道，在桃園常被拜的神明有哪些！</p>
+<h2 id="Cheat-Sheet"><a href="#Cheat-Sheet" class="headerlink" title="Cheat Sheet"></a>Cheat Sheet</h2><p>以下提供官方的作弊表，總之有很多可以調整的地方，沒有常用是背不起來的：</p>
+<p><img src="/2024/09/colab-matplotlib-chinese-and-pie-chart/a7a77547-665c-4b9b-9f0a-f278db7d8f1e.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p><img src="/2024/09/colab-matplotlib-chinese-and-pie-chart/10c0d470-6cd6-8015-a5c4-d9a9c1407e1a.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p>例如我看了Cheat Sheet後，使用<code>get_map()</code>裡面的顏色</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">plt<span class="hljs-selector-class">.get_cmap</span>(<span class="hljs-string">&#x27;twilight&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p><img src="/2024/09/colab-matplotlib-chinese-and-pie-chart/10d0d470-6cd6-80c9-97f8-d4ec41c5b56b.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p>根據現在<code>df_count_ratio</code> 需要的顏色(9個)來進行挑選</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><br><span class="hljs-comment"># 選擇一個 colormap</span><br>colormap = plt.get_cmap(<span class="hljs-string">&#x27;twilight&#x27;</span>)<br><br><span class="hljs-comment"># 根據 df_count_ratio 的長度來生成對應顏色，共把顏色分成9份</span><br>colors = [colormap(i / <span class="hljs-built_in">len</span>(df_count_ratio)) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(df_count_ratio))]<br>colors<br></code></pre></td></tr></table></figure>
+
+<p><img src="/2024/09/colab-matplotlib-chinese-and-pie-chart/aa2d707c-6484-40ae-b0fa-4bdd1aff4930.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p>繪圖時加入<code>colors</code> 這個參數，就調整完畢囉</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">plt.pie<span class="hljs-params">(df_count_ratio,<span class="hljs-attr">labels</span> = df_count_ratio.index, <span class="hljs-attr">autopct</span>=&#x27;%1.1f%%&#x27;,<span class="hljs-attr">colors</span>=colors)</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/2024/09/colab-matplotlib-chinese-and-pie-chart/10d0d470-6cd6-80bd-919e-cd69ddd10682.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p>所以除了自己常用的幾個方法，也可以透過AI和參考資料，跳出舒適圈，做出意想不到的效果喔！</p>
+
+                                                                                
+                                                                    </div>
+                                                                    
+                                                                        <hr/>
+                                                                        <div>
+                                                                            <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8/" class="category-chain-item">資料科學</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/python/" class="print-no-link">#python</a>
+      
+        <a href="/tags/%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8/" class="print-no-link">#資料科學</a>
+      
+    </div>
+  
+</div>
+
+
+                                                                                
+
+                                                                                    
+                                                                                        <div class="post-prevnext my-3">
+                                                                                            <article class="post-prev col-6">
+                                                                                                
+                                                                                                    
+                                                                                                        <a href="/2024/09/pivot-table-and-bar-chart/" title="資料科學第五週-樞紐分析、表資料視覺化長條圖">
+                                                                                                            <i class="iconfont icon-arrowleft"></i>
+                                                                                                            <span class="hidden-mobile">資料科學第五週-樞紐分析、表資料視覺化長條圖</span>
+                                                                                                            <span class="visible-mobile">上一篇</span>
+                                                                                                        </a>
+                                                                                                        
+                                                                                            </article>
+                                                                                            <article class="post-next col-6">
+                                                                                                
+                                                                                                    
+                                                                                                        <a href="/2024/09/data-process-groupby/" title="資料科學第四週-資料處理常用操作">
+                                                                                                            <span class="hidden-mobile">資料科學第四週-資料處理常用操作</span>
+                                                                                                            <span class="visible-mobile">下一篇</span>
+                                                                                                            <i class="iconfont icon-arrowright"></i>
+                                                                                                        </a>
+                                                                                                        
+                                                                                            </article>
+                                                                                        </div>
+                                                                                        
+                                                                        </div>
+
+                                                                        
+                        </article>
+                    </div>
+                </div>
+            </div>
+
+            <div class="side-col d-none d-lg-block col-lg-2">
+                
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目錄</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+            </div>
+        </div>
+    </div>
+
+    
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+        
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="mailto:luwei1006@gmail.com" target="_blank" rel="nofollow noopener"><span>Produced by ALU &copy; 2023</span></a>
+<a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        總訪問量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        總訪客數 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允許 JavaScript 運行的環境下瀏覽效果更佳</div>
+  </noscript>
+</body>
+</html>

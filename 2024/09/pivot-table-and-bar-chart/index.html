@@ -16,27 +16,27 @@
   <meta name="author" content="阿盧">
   <meta name="keywords" content="">
   
-    <meta name="description" content="以前面的資料為延續，繼續介紹幾個常用到的函式 超級好用的groupby()類似於Excel的樞紐分析，進行分組，先以性別試看看 1234df_grouped&#x3D;df.groupby(&#x27;性別&#x27;)df_grouped.mean()   1df_grouped[[&#x27;平均&#x27;,&#x27;第一次段考&#x27;,&#x27;期末考&#x27;]].mean()   女生">
+    <meta name="description" content="繼續資料視覺化的過程吧，來試試看同樣查看分佈的長條圖，並介紹Seaborn。 Seaborn 是建立在 Matplotlib 基礎上，提供了更高級、更美觀的繪圖功能。 查看分佈-以桃園的廟為例先讀取桃園區有登記的廟宇： 1234import pandas as pddata &#x3D; pd.read_json(&#x27;http:&#x2F;&#x2F;data.tycg.gov.tw&#x2F;api&#x2F;v1&#x2F;rest&#x2F;datas">
 <meta property="og:type" content="article">
-<meta property="og:title" content="資料科學第四週-資料處理常用操作">
-<meta property="og:url" content="https://alu1006.github.io/2024/09/data-process-groupby/index.html">
+<meta property="og:title" content="資料科學第五週-樞紐分析、表資料視覺化長條圖">
+<meta property="og:url" content="https://alu1006.github.io/2024/09/pivot-table-and-bar-chart/index.html">
 <meta property="og:site_name" content="阿盧老師Coding嚕">
-<meta property="og:description" content="以前面的資料為延續，繼續介紹幾個常用到的函式 超級好用的groupby()類似於Excel的樞紐分析，進行分組，先以性別試看看 1234df_grouped&#x3D;df.groupby(&#x27;性別&#x27;)df_grouped.mean()   1df_grouped[[&#x27;平均&#x27;,&#x27;第一次段考&#x27;,&#x27;期末考&#x27;]].mean()   女生">
+<meta property="og:description" content="繼續資料視覺化的過程吧，來試試看同樣查看分佈的長條圖，並介紹Seaborn。 Seaborn 是建立在 Matplotlib 基礎上，提供了更高級、更美觀的繪圖功能。 查看分佈-以桃園的廟為例先讀取桃園區有登記的廟宇： 1234import pandas as pddata &#x3D; pd.read_json(&#x27;http:&#x2F;&#x2F;data.tycg.gov.tw&#x2F;api&#x2F;v1&#x2F;rest&#x2F;datas">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://alu1006.github.io/img/%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E7%AC%AC%E5%9B%9B%E9%80%B1-%E8%B3%87%E6%96%99%E8%99%95%E7%90%86%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C_index.webp">
-<meta property="article:published_time" content="2024-09-18T12:16:07.308Z">
-<meta property="article:modified_time" content="2024-09-18T12:16:28.854Z">
+<meta property="og:image" content="https://alu1006.github.io/img/%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E7%AC%AC%E4%BA%94%E9%80%B1-%E6%A8%9E%E7%B4%90%E5%88%86%E6%9E%90%E3%80%81%E8%A1%A8%E8%B3%87%E6%96%99%E8%A6%96%E8%A6%BA%E5%8C%96%E9%95%B7%E6%A2%9D%E5%9C%96_index.webp">
+<meta property="article:published_time" content="2024-09-26T02:51:10.417Z">
+<meta property="article:modified_time" content="2024-09-26T02:51:30.983Z">
 <meta property="article:author" content="阿盧">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="資料科學">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://alu1006.github.io/img/%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E7%AC%AC%E5%9B%9B%E9%80%B1-%E8%B3%87%E6%96%99%E8%99%95%E7%90%86%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C_index.webp">
+<meta name="twitter:image" content="https://alu1006.github.io/img/%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E7%AC%AC%E4%BA%94%E9%80%B1-%E6%A8%9E%E7%B4%90%E5%88%86%E6%9E%90%E3%80%81%E8%A1%A8%E8%B3%87%E6%96%99%E8%A6%96%E8%A6%BA%E5%8C%96%E9%95%B7%E6%A2%9D%E5%9C%96_index.webp">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>資料科學第四週-資料處理常用操作 - 阿盧老師Coding嚕</title>
+  <title>資料科學第五週-樞紐分析、表資料視覺化長條圖 - 阿盧老師Coding嚕</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -223,13 +223,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E7%AC%AC%E5%9B%9B%E9%80%B1-%E8%B3%87%E6%96%99%E8%99%95%E7%90%86%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C_index.webp') no-repeat center center; background-size: cover;">
+     style="background: url('/img/%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E7%AC%AC%E4%BA%94%E9%80%B1-%E6%A8%9E%E7%B4%90%E5%88%86%E6%9E%90%E3%80%81%E8%A1%A8%E8%B3%87%E6%96%99%E8%A6%96%E8%A6%BA%E5%8C%96%E9%95%B7%E6%A2%9D%E5%9C%96_index.webp') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="資料科學第四週-資料處理常用操作"></span>
+            <span id="subtitle" data-typed-text="資料科學第五週-樞紐分析、表資料視覺化長條圖"></span>
           
         </div>
 
@@ -240,8 +240,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-09-18 20:16" pubdate>
-          2024年9月18日 晚上
+        <time datetime="2024-09-26 10:51" pubdate>
+          2024年9月26日 上午
         </time>
       </span>
     
@@ -252,7 +252,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          985 字
+          2.8k 字
         
       </span>
     
@@ -263,7 +263,7 @@
         
         
         
-          5 分鐘
+          14 分鐘
         
       </span>
     
@@ -301,13 +301,13 @@
                     <div id="board">
                         <article class="post-content mx-auto">
                             <h1 id="seo-header">
-                                資料科學第四週-資料處理常用操作
+                                資料科學第五週-樞紐分析、表資料視覺化長條圖
                             </h1>
                             <!-- 改動開始：顯示文章摘要 -->
                             
                                 <div class="post-summary">
                                     <p>
-                                        學習Python處理資料的新技巧！用groupby()分組比較成績，發現女生表現較好。用sort_values()輕鬆排序成績，避免極端值影響結果。nlargest()輕鬆取前幾高分，apply()更彈性運算，還能用lambda簡化程式碼。用這些技巧輕鬆處理資料，讓分析更輕鬆！
+                                        想讓資料更有趣嗎？Seaborn是比Matplotlib更美觀的繪圖工具，用長條圖探索桃園廟宇分布吧。學用Pandas製作樞紐分析表，查看神明分布。透過Bar Chart比較不同神明數量。挑選顏色時參考Adobe Color等網站。探索Pandas、Matplotlib、Seaborn用法。使用AI快速處理Youbike站點資料，以長條圖呈現可借數量。
                                     </p>
                                 </div>
                                 
@@ -316,43 +316,89 @@
                                             
                                                                     <div class="markdown-body">
                                                                         
-                                                                            <p>以前面的資料為延續，繼續介紹幾個常用到的函式</p>
-<h2 id="超級好用的groupby"><a href="#超級好用的groupby" class="headerlink" title="超級好用的groupby()"></a>超級好用的groupby()</h2><p>類似於Excel的樞紐分析，進行分組，先以性別試看看</p>
-<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs arcade">df_grouped=df.<span class="hljs-built_in">groupby</span>(<span class="hljs-string">&#x27;性別&#x27;</span>)<br><br>df_grouped.<span class="hljs-built_in">mean</span>()<br><br></code></pre></td></tr></table></figure>
+                                                                            <p>繼續資料視覺化的過程吧，來試試看同樣查看分佈的長條圖，並介紹Seaborn。</p>
+<p>Seaborn 是建立在 Matplotlib 基礎上，提供了更高級、更美觀的繪圖功能。</p>
+<h2 id="查看分佈-以桃園的廟為例"><a href="#查看分佈-以桃園的廟為例" class="headerlink" title="查看分佈-以桃園的廟為例"></a>查看分佈-以桃園的廟為例</h2><p>先讀取桃園區有登記的廟宇：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd<br><span class="hljs-class"><span class="hljs-keyword">data</span> = pd.read_json(&#x27;<span class="hljs-title">http</span>://<span class="hljs-title">data</span>.<span class="hljs-title">tycg</span>.<span class="hljs-title">gov</span>.<span class="hljs-title">tw</span>/<span class="hljs-title">api</span>/<span class="hljs-title">v1</span>/<span class="hljs-title">rest</span>/<span class="hljs-title">datastore</span>/<span class="hljs-title">b2247404</span>-3<span class="hljs-title">d92</span>-4829-9855-0<span class="hljs-title">cd5e71b92b3</span>?<span class="hljs-title">format</span>=<span class="hljs-title">json</span>&amp;<span class="hljs-title">limit</span>=500&#x27;)</span><br><span class="hljs-title">df</span> = pd.<span class="hljs-type">DataFrame</span>(<span class="hljs-class"><span class="hljs-keyword">data</span>[&#x27;result&#x27;][&#x27;records&#x27;])</span><br><span class="hljs-title">df</span>.head()<br></code></pre></td></tr></table></figure>
 
-<p><img src="/2024/09/data-process-groupby/1050d470-6cd6-8047-91f2-e5d5f214faf6.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs lua">df_grouped<span class="hljs-string">[[&#x27;平均&#x27;,&#x27;第一次段考&#x27;,&#x27;期末考&#x27;]]</span>.mean()<br></code></pre></td></tr></table></figure>
+<p><img src="/2024/09/pivot-table-and-bar-chart/fff0d470-6cd6-8125-b253-f0f5c60c66a9.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<h2 id="樞紐分析表Pivot"><a href="#樞紐分析表Pivot" class="headerlink" title="樞紐分析表Pivot()"></a>樞紐分析表Pivot()</h2><p>主要把兩篇分開，也是想介紹Pandas中也有像Excel樞紐分析表的功能，非常強！重點參數如下：</p>
+<ul>
+<li><p>index: 用於指定作為索引的列。這將成為新 DataFrame 的行標籤。</p>
+</li>
+<li><p>columns: 用於指定作為列的列。這將成為新 DataFrame 的列標籤。</p>
+</li>
+<li><p>values: 用於指定要聚合的列。如果未指定，將使用所有剩餘的列。</p>
+</li>
+<li><p>aggfunc: 用於指定聚合函數。默認為 numpy.mean。可以是函數名稱或函數列表。</p>
+</li>
+</ul>
+<p>在這我好奇「每個神有沒有隸屬的宗教？」，我就可以使用樞紐分析表，同時也秀一下Excel的版本，方便視覺化了解<code>index</code>, <code>columns</code>, <code>value</code>, 和<code>aggfunc</code></p>
+<figure class="highlight sml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sml">df.to_excel(<span class="hljs-symbol">&#x27;df</span>.xlsx&#x27;)<br></code></pre></td></tr></table></figure>
 
-<p><img src="/2024/09/data-process-groupby/34103876-19c6-4b5f-92a1-47d950737ee2.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
-<p>女生不論在平均成績、段考或期末考，平均都高於男生</p>
-<h2 id="成績由高到低排列sort-values"><a href="#成績由高到低排列sort-values" class="headerlink" title="成績由高到低排列sort_values()"></a>成績由高到低排列sort_values()</h2><p>將成績由高到低排列是常用的功能，其中參數<code>ascending</code>意思為是否遞增</p>
-<p>試著以學期成績做排序</p>
-<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs lasso">df_sort = df.sort_values(<span class="hljs-keyword">by</span>=<span class="hljs-string">&#x27;學期成績&#x27;</span>,<span class="hljs-keyword">ascending</span>=<span class="hljs-literal">False</span>)<br>df_sort<br></code></pre></td></tr></table></figure>
+<p><img src="/2024/09/pivot-table-and-bar-chart/10d0d470-6cd6-80d0-80c2-fad7aea83ed1.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">pivot_table = pd.pivot_table(df, <span class="hljs-keyword">index</span>=<span class="hljs-string">&#x27;教別&#x27;</span>,<span class="hljs-keyword">columns</span>=<span class="hljs-string">&#x27;主祀神祇&#x27;</span>,<span class="hljs-keyword">values</span>=<span class="hljs-string">&#x27;寺廟名稱&#x27;</span>, aggfunc=<span class="hljs-string">&#x27;count&#x27;</span>)<br>pivot_table<br></code></pre></td></tr></table></figure>
 
-<p><img src="/2024/09/data-process-groupby/1050d470-6cd6-801b-b2d3-ce66be510272.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
-<h2 id="取部分成績作平均"><a href="#取部分成績作平均" class="headerlink" title="取部分成績作平均"></a>取部分成績作平均</h2><p>因為整個學期會很很多次小考與作業，取部分成績的好處是，剔除極端低的數值，不要因為一兩次不認真，拖累到整體成績，跟剛才一樣先取出要計算的範圍</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">df_10</span> = df.iloc[:,<span class="hljs-number">2</span>:<span class="hljs-number">12</span>]<br><span class="hljs-attribute">df_10</span><br></code></pre></td></tr></table></figure>
+<p><img src="/2024/09/pivot-table-and-bar-chart/01c3bd10-f583-4d74-9520-57ab32e67e59.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p>挑選福德正神來作為各教別的呈現資料</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">god</span> = pivot_table[<span class="hljs-string">&#x27;福德正神&#x27;</span>]<br>god<br></code></pre></td></tr></table></figure>
 
-<p><img src="/2024/09/data-process-groupby/1050d470-6cd6-80d5-a417-e4165cbd4c97.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
-<h3 id="nlargest-取每欄前n大的值"><a href="#nlargest-取每欄前n大的值" class="headerlink" title="nlargest()取每欄前n大的值"></a>nlargest()取每欄前n大的值</h3><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scss">df_10<span class="hljs-selector-attr">[<span class="hljs-string">&#x27;1流程圖&#x27;</span>]</span><span class="hljs-selector-class">.nlargest</span>(<span class="hljs-number">10</span>)<br></code></pre></td></tr></table></figure>
+<p><img src="/2024/09/pivot-table-and-bar-chart/10d0d470-6cd6-803c-b84a-ea14c983413f.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<h2 id="長條圖"><a href="#長條圖" class="headerlink" title="長條圖"></a>長條圖</h2><p>為了教學唬爛一下，加入一種神明</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stylus">god = pd<span class="hljs-selector-class">.DataFrame</span>(god)<br>god<span class="hljs-selector-attr">[<span class="hljs-string">&#x27;盧盧大神&#x27;</span>]</span> = <span class="hljs-selector-attr">[10, 20, 30, 40]</span><br>god<br></code></pre></td></tr></table></figure>
 
-<p><img src="/2024/09/data-process-groupby/1050d470-6cd6-807c-b3d8-db1251e0e77e.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
-<p>可以很輕易的取出流程圖這次作業前十高的分數，但是要怎麼取一個同學（一整列）的前十高分數呢？</p>
-<h2 id="進階：要怎麼取列，使用apply"><a href="#進階：要怎麼取列，使用apply" class="headerlink" title="進階：要怎麼取列，使用apply()"></a>進階：要怎麼取列，使用apply()</h2><p>有些函式並不支援直接對<code>axis=1</code>來做運算</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">df_10</span>.nlargest(<span class="hljs-number">10</span>,axis=<span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
+<h3 id="長條圖的參數"><a href="#長條圖的參數" class="headerlink" title="長條圖的參數"></a>長條圖的參數</h3><ul>
+<li><p><code>x</code>：X 軸的標籤，通常是一組類別數據或索引。</p>
+</li>
+<li><p><code>height</code>：Y 軸的數據，對應於每個 X 軸標籤的高度。</p>
+</li>
+<li><p><code>width</code>：條形的寬度，默認為 <code>0.8</code>。可以調整寬度使長條圖更加緊湊或分散。</p>
+</li>
+<li><p><code>bottom</code>：條形的基準線，默認為 <code>0</code>。如果要實現堆疊長條圖，可以設置為另一組數據的高度。</p>
+</li>
+<li><p><code>align</code>：條形的位置對齊方式，有兩個選項：</p>
+<ul>
+<li><p><code>&#39;center&#39;</code>（默認）：條形的中心對齊 X 軸位置。</p>
+</li>
+<li><p><code>&#39;edge&#39;</code>：條形的左邊緣對齊 X 軸位置。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="繪圖"><a href="#繪圖" class="headerlink" title="繪圖"></a>繪圖</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros">plt.title(<span class="hljs-string">&#x27;福德正神各宗教分布&#x27;</span>)<br>plt.bar(<span class="hljs-attribute">x</span>=god.index, <span class="hljs-attribute">height</span>=god[<span class="hljs-string">&#x27;福德正神&#x27;</span>],<span class="hljs-attribute">color</span>=<span class="hljs-string">&#x27;#05A6A6&#x27;</span>)<br></code></pre></td></tr></table></figure>
 
-<p><img src="/2024/09/data-process-groupby/90d209a9-f78f-4bb3-bb49-bbb00d119c22.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
-<p>可以使用<code>apply()</code>是對每一個axis，進行函式操作，順便也可以先了解一下python中的lambda是什麼？</p>
-<h3 id="lambda-是什麼"><a href="#lambda-是什麼" class="headerlink" title="lambda 是什麼"></a>lambda 是什麼</h3><figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs isbl"><span class="hljs-variable">def</span> <span class="hljs-function"><span class="hljs-title">f</span>(<span class="hljs-variable">x</span>):</span><br><span class="hljs-function">	<span class="hljs-variable">return</span> <span class="hljs-variable">x</span>**<span class="hljs-number">2</span></span><br><span class="hljs-function"></span><br><span class="hljs-function"><span class="hljs-title">print</span>(<span class="hljs-title">f</span>(<span class="hljs-number">3</span>))</span><br></code></pre></td></tr></table></figure>
+<p><img src="/2024/09/pivot-table-and-bar-chart/10d0d470-6cd6-8036-bcac-ca858a228b2f.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<h3 id="同時兩個神明做比較"><a href="#同時兩個神明做比較" class="headerlink" title="同時兩個神明做比較"></a>同時兩個神明做比較</h3><p>同時兩種資料進行比較時，較簡單的做法可以使用pandas內建的bar chart，但缺點就是不能調整細節。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">god.plot(<span class="hljs-attribute">kind</span>=<span class="hljs-string">&#x27;bar&#x27;</span>) <br></code></pre></td></tr></table></figure>
 
-<p>上面是學過的定義函式<br>使用<code>lambda</code>可以更簡化只有簡單條件的函式，稱之為匿名函式</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-comment">#做出相等的匿名函式</span><br>f = lambda x:x*<span class="hljs-number">*2</span><br><span class="hljs-built_in">print</span>(f(3))<br></code></pre></td></tr></table></figure>
+<p><img src="/2024/09/pivot-table-and-bar-chart/eccaeee5-8c1b-446d-8edb-c0cedd0356ff.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p>使用matplotlib可以對顏色、文字等進行修改，但要注意寬度可能重疊，要做調整，個人覺得顏色還是圖的靈魂啊！</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs routeros">plt.title(<span class="hljs-string">&#x27;福德正神各宗教分布&#x27;</span>)<br>plt.bar(<span class="hljs-attribute">x</span>=god.index, <span class="hljs-attribute">height</span>=god[<span class="hljs-string">&#x27;福德正神&#x27;</span>],<span class="hljs-attribute">width</span>=0.3,align=&#x27;edge&#x27;,color=&#x27;#658BFC&#x27;)<br>plt.bar(<span class="hljs-attribute">x</span>=god.index, <span class="hljs-attribute">height</span>=god[<span class="hljs-string">&#x27;盧盧大神&#x27;</span>],<span class="hljs-attribute">width</span>=0.2,color=&#x27;#B9CAFC&#x27;)<br>plt.legend(god.columns)<br></code></pre></td></tr></table></figure>
 
-<h3 id="apply-與nlargest"><a href="#apply-與nlargest" class="headerlink" title="apply()與nlargest()"></a>apply()與nlargest()</h3><p><code>apply()</code>是對每一個axis，進行函式操作，以<code>axis=1</code> 來說，就是對一整列做事情</p>
-<p><img src="/2024/09/data-process-groupby/1050d470-6cd6-80da-a1e1-e34ac830dac7.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stylus">#每列的<span class="hljs-built_in">largest</span>(<span class="hljs-number">10</span>)取平均放入df<span class="hljs-selector-attr">[<span class="hljs-string">&#x27;平均&#x27;</span>]</span><br>df<span class="hljs-selector-attr">[<span class="hljs-string">&#x27;平均2&#x27;</span>]</span>=df_10<span class="hljs-selector-class">.apply</span>(lambda x:x<span class="hljs-selector-class">.nlargest</span>(<span class="hljs-number">10</span>)<span class="hljs-selector-class">.mean</span>(),axis=<span class="hljs-number">1</span>)<br>df<span class="hljs-selector-attr">[<span class="hljs-string">&#x27;平均2&#x27;</span>]</span><br></code></pre></td></tr></table></figure>
+<p><img src="/2024/09/pivot-table-and-bar-chart/10d0d470-6cd6-8045-b0f1-e5e1a6b7994f.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<h2 id="顏色的挑選"><a href="#顏色的挑選" class="headerlink" title="顏色的挑選"></a>顏色的挑選</h2><p>在挑選顏色時可以參考幾個網站，我個人推薦Adobe Color，其他也都可以嘗試看看：</p>
+<p>Adobe Color</p>
+<p><a target="_blank" rel="noopener" href="https://color.adobe.com/zh/create/color-wheel">https://color.adobe.com/zh/create/color-wheel</a></p>
+<p>Nippon Colors</p>
+<p><a target="_blank" rel="noopener" href="https://nipponcolors.com/#higosusutake">https://nipponcolors.com/#higosusutake</a></p>
+<p>預設顏色表</p>
+<p><a target="_blank" rel="noopener" href="https://www.practicalpythonfordatascience.com/ap_seaborn_palette">https://www.practicalpythonfordatascience.com/ap_seaborn_palette</a></p>
+<h2 id="Pandas-Matplotlib-Seaborn用法差異"><a href="#Pandas-Matplotlib-Seaborn用法差異" class="headerlink" title="Pandas, Matplotlib, Seaborn用法差異"></a>Pandas, Matplotlib, Seaborn用法差異</h2><p>最後，引用NTUDAC的圖，做個簡單用法比較</p>
+<p><img src="/2024/09/pivot-table-and-bar-chart/fff0d470-6cd6-8112-9de9-f6cf0aa84825.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<h2 id="作業-Youbike各站資料呈現"><a href="#作業-Youbike各站資料呈現" class="headerlink" title="作業-Youbike各站資料呈現"></a>作業-Youbike各站資料呈現</h2><p>示範利用AI的力量如何更快速產生結果</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs maxima">import pandas as pd<br><br>url = &#x27;http://data.tycg.gov.tw/api/v1/<span class="hljs-built_in">rest</span>/datastore/a1b4714b-<span class="hljs-number">3b75</span>-4ff8-a8f2-cc377e4eaa0f?format=json&amp;<span class="hljs-built_in">limit</span>=<span class="hljs-number">500</span>&#x27;<br>youbike_data = pd.read_json(url)<br><br>df_youbike = pd.DataFrame(youbike_data[&#x27;result&#x27;][&#x27;records&#x27;])<br>df_youbike.head()<br></code></pre></td></tr></table></figure>
 
-<p><img src="/2024/09/data-process-groupby/1050d470-6cd6-8012-abec-c23d8b407252.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p><img src="/2024/09/pivot-table-and-bar-chart/10d0d470-6cd6-806c-873e-f7b2533013fe.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<h3 id="資料轉型與排序"><a href="#資料轉型與排序" class="headerlink" title="資料轉型與排序"></a>資料轉型與排序</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">df_youbike<span class="hljs-selector-attr">[<span class="hljs-string">&#x27;tot&#x27;</span>]</span> = df_youbike<span class="hljs-selector-attr">[<span class="hljs-string">&#x27;tot&#x27;</span>]</span><span class="hljs-selector-class">.astype</span>(<span class="hljs-string">&#x27;int&#x27;</span>)<br>df_youbike<span class="hljs-selector-attr">[<span class="hljs-string">&#x27;sbi&#x27;</span>]</span> = df_youbike<span class="hljs-selector-attr">[<span class="hljs-string">&#x27;sbi&#x27;</span>]</span><span class="hljs-selector-class">.astype</span>(<span class="hljs-string">&#x27;int&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs lasso">df_youbike.sort_values(<span class="hljs-keyword">by</span>=<span class="hljs-string">&#x27;tot&#x27;</span>,<span class="hljs-keyword">ascending</span>=<span class="hljs-literal">False</span>).head(<span class="hljs-number">10</span>)<br></code></pre></td></tr></table></figure>
+
+<p><img src="/2024/09/pivot-table-and-bar-chart/10d0d470-6cd6-8053-905d-f816da4f3a19.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<h3 id="詢問AI"><a href="#詢問AI" class="headerlink" title="詢問ＡＩ"></a>詢問ＡＩ</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">各站可借數量，<span class="hljs-selector-tag">label</span>之間寬一點<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-comment"># prompt: 各站可借數量，label之間寬一點</span><br><br>import matplotlib.pyplot as plt<br>plt.figure(figsize=(20, 6))<br>plt.title(<span class="hljs-string">&#x27;Youbike 各站可借數量&#x27;</span>)<br>plt.bar(<span class="hljs-attribute">x</span>=df_youbike[<span class="hljs-string">&#x27;sna&#x27;</span>], <span class="hljs-attribute">height</span>=df_youbike[<span class="hljs-string">&#x27;sbi&#x27;</span>], <span class="hljs-attribute">width</span>=1)  # 使用 width 調整柱狀圖寬度<br>plt.xticks(<span class="hljs-attribute">rotation</span>=90)  # 旋轉 x 軸標籤，避免重疊<br>plt.tight_layout()  # 調整佈局，避免標籤超出圖表範圍<br>plt.show()<br></code></pre></td></tr></table></figure>
+
+<p><img src="/2024/09/pivot-table-and-bar-chart/10d0d470-6cd6-80f0-9878-cd01606c4362.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
 
                                                                                 
                                                                     </div>
@@ -402,9 +448,9 @@
                                                                                             <article class="post-prev col-6">
                                                                                                 
                                                                                                     
-                                                                                                        <a href="/2024/09/colab-matplotlib-chinese-and-pie-chart/" title="資料科學第五週-Colab中圖要怎麼有中文、資料視覺化圓餅圖">
+                                                                                                        <a href="/2024/09/seaborn-and-pairplot-lineplot/" title="資料科學第五週-Seaborn折線圖的用法">
                                                                                                             <i class="iconfont icon-arrowleft"></i>
-                                                                                                            <span class="hidden-mobile">資料科學第五週-Colab中圖要怎麼有中文、資料視覺化圓餅圖</span>
+                                                                                                            <span class="hidden-mobile">資料科學第五週-Seaborn折線圖的用法</span>
                                                                                                             <span class="visible-mobile">上一篇</span>
                                                                                                         </a>
                                                                                                         
@@ -412,8 +458,8 @@
                                                                                             <article class="post-next col-6">
                                                                                                 
                                                                                                     
-                                                                                                        <a href="/2024/09/data-preprocessing/" title="資料科學第四週-資料前處理">
-                                                                                                            <span class="hidden-mobile">資料科學第四週-資料前處理</span>
+                                                                                                        <a href="/2024/09/colab-matplotlib-chinese-and-pie-chart/" title="資料科學第五週-Colab中圖要怎麼有中文、資料視覺化圓餅圖">
+                                                                                                            <span class="hidden-mobile">資料科學第五週-Colab中圖要怎麼有中文、資料視覺化圓餅圖</span>
                                                                                                             <span class="visible-mobile">下一篇</span>
                                                                                                             <i class="iconfont icon-arrowright"></i>
                                                                                                         </a>

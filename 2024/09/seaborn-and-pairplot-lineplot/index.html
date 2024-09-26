@@ -16,27 +16,27 @@
   <meta name="author" content="阿盧">
   <meta name="keywords" content="">
   
-    <meta name="description" content="以前面的資料為延續，繼續介紹幾個常用到的函式 超級好用的groupby()類似於Excel的樞紐分析，進行分組，先以性別試看看 1234df_grouped&#x3D;df.groupby(&#x27;性別&#x27;)df_grouped.mean()   1df_grouped[[&#x27;平均&#x27;,&#x27;第一次段考&#x27;,&#x27;期末考&#x27;]].mean()   女生">
+    <meta name="description" content="資料視覺化-Seaborn既然有了AI，更好幫你操作繪圖。建議直接用Seaborn，更漂亮。 載入除了載入matplotlib.pyplot之外，現在需要載入seaborn，多簡稱為sns 1import seaborn as sns  台灣信用卡盜刷統計你知道每年台灣因為信用卡被盜刷，損失的金額嗎？ 透過Open Data，可以看出台灣越來越有錢？ 12url &#x3D; &#x27;https:&#x2F;&#x2F;w">
 <meta property="og:type" content="article">
-<meta property="og:title" content="資料科學第四週-資料處理常用操作">
-<meta property="og:url" content="https://alu1006.github.io/2024/09/data-process-groupby/index.html">
+<meta property="og:title" content="資料科學第五週-Seaborn折線圖的用法">
+<meta property="og:url" content="https://alu1006.github.io/2024/09/seaborn-and-pairplot-lineplot/index.html">
 <meta property="og:site_name" content="阿盧老師Coding嚕">
-<meta property="og:description" content="以前面的資料為延續，繼續介紹幾個常用到的函式 超級好用的groupby()類似於Excel的樞紐分析，進行分組，先以性別試看看 1234df_grouped&#x3D;df.groupby(&#x27;性別&#x27;)df_grouped.mean()   1df_grouped[[&#x27;平均&#x27;,&#x27;第一次段考&#x27;,&#x27;期末考&#x27;]].mean()   女生">
+<meta property="og:description" content="資料視覺化-Seaborn既然有了AI，更好幫你操作繪圖。建議直接用Seaborn，更漂亮。 載入除了載入matplotlib.pyplot之外，現在需要載入seaborn，多簡稱為sns 1import seaborn as sns  台灣信用卡盜刷統計你知道每年台灣因為信用卡被盜刷，損失的金額嗎？ 透過Open Data，可以看出台灣越來越有錢？ 12url &#x3D; &#x27;https:&#x2F;&#x2F;w">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://alu1006.github.io/img/%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E7%AC%AC%E5%9B%9B%E9%80%B1-%E8%B3%87%E6%96%99%E8%99%95%E7%90%86%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C_index.webp">
-<meta property="article:published_time" content="2024-09-18T12:16:07.308Z">
-<meta property="article:modified_time" content="2024-09-18T12:16:28.854Z">
+<meta property="og:image" content="https://alu1006.github.io/img/%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E7%AC%AC%E4%BA%94%E9%80%B1-Seaborn%E6%8A%98%E7%B7%9A%E5%9C%96%E7%9A%84%E7%94%A8%E6%B3%95_index.webp">
+<meta property="article:published_time" content="2024-09-26T02:51:38.985Z">
+<meta property="article:modified_time" content="2024-09-26T02:51:50.842Z">
 <meta property="article:author" content="阿盧">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="資料科學">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://alu1006.github.io/img/%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E7%AC%AC%E5%9B%9B%E9%80%B1-%E8%B3%87%E6%96%99%E8%99%95%E7%90%86%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C_index.webp">
+<meta name="twitter:image" content="https://alu1006.github.io/img/%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E7%AC%AC%E4%BA%94%E9%80%B1-Seaborn%E6%8A%98%E7%B7%9A%E5%9C%96%E7%9A%84%E7%94%A8%E6%B3%95_index.webp">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>資料科學第四週-資料處理常用操作 - 阿盧老師Coding嚕</title>
+  <title>資料科學第五週-Seaborn折線圖的用法 - 阿盧老師Coding嚕</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -223,13 +223,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E7%AC%AC%E5%9B%9B%E9%80%B1-%E8%B3%87%E6%96%99%E8%99%95%E7%90%86%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C_index.webp') no-repeat center center; background-size: cover;">
+     style="background: url('/img/%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E7%AC%AC%E4%BA%94%E9%80%B1-Seaborn%E6%8A%98%E7%B7%9A%E5%9C%96%E7%9A%84%E7%94%A8%E6%B3%95_index.webp') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="資料科學第四週-資料處理常用操作"></span>
+            <span id="subtitle" data-typed-text="資料科學第五週-Seaborn折線圖的用法"></span>
           
         </div>
 
@@ -240,8 +240,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-09-18 20:16" pubdate>
-          2024年9月18日 晚上
+        <time datetime="2024-09-26 10:51" pubdate>
+          2024年9月26日 上午
         </time>
       </span>
     
@@ -252,7 +252,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          985 字
+          2.7k 字
         
       </span>
     
@@ -263,7 +263,7 @@
         
         
         
-          5 分鐘
+          14 分鐘
         
       </span>
     
@@ -301,13 +301,13 @@
                     <div id="board">
                         <article class="post-content mx-auto">
                             <h1 id="seo-header">
-                                資料科學第四週-資料處理常用操作
+                                資料科學第五週-Seaborn折線圖的用法
                             </h1>
                             <!-- 改動開始：顯示文章摘要 -->
                             
                                 <div class="post-summary">
                                     <p>
-                                        學習Python處理資料的新技巧！用groupby()分組比較成績，發現女生表現較好。用sort_values()輕鬆排序成績，避免極端值影響結果。nlargest()輕鬆取前幾高分，apply()更彈性運算，還能用lambda簡化程式碼。用這些技巧輕鬆處理資料，讓分析更輕鬆！
+                                        AI助你繪製更漂亮圖表！透過Seaborn，輕鬆呈現資料。從台灣信用卡盜刷數據看金額損失趨勢，用折線圖展示。Seaborn畫圖簡單，還可畫分佈圖、多因子分析圖。想看變量關係就用Seaborn吧！詳細教學可上Kaggle搜尋。
                                     </p>
                                 </div>
                                 
@@ -316,43 +316,54 @@
                                             
                                                                     <div class="markdown-body">
                                                                         
-                                                                            <p>以前面的資料為延續，繼續介紹幾個常用到的函式</p>
-<h2 id="超級好用的groupby"><a href="#超級好用的groupby" class="headerlink" title="超級好用的groupby()"></a>超級好用的groupby()</h2><p>類似於Excel的樞紐分析，進行分組，先以性別試看看</p>
-<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs arcade">df_grouped=df.<span class="hljs-built_in">groupby</span>(<span class="hljs-string">&#x27;性別&#x27;</span>)<br><br>df_grouped.<span class="hljs-built_in">mean</span>()<br><br></code></pre></td></tr></table></figure>
+                                                                            <h2 id="資料視覺化-Seaborn"><a href="#資料視覺化-Seaborn" class="headerlink" title="資料視覺化-Seaborn"></a>資料視覺化-Seaborn</h2><p>既然有了AI，更好幫你操作繪圖。建議直接用Seaborn，更漂亮。</p>
+<h3 id="載入"><a href="#載入" class="headerlink" title="載入"></a>載入</h3><p>除了載入<code>matplotlib.pyplot</code>之外，現在需要載入<code>seaborn</code>，多簡稱為sns</p>
+<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elm"><span class="hljs-keyword">import</span> seaborn <span class="hljs-keyword">as</span> sns<br></code></pre></td></tr></table></figure>
 
-<p><img src="/2024/09/data-process-groupby/1050d470-6cd6-8047-91f2-e5d5f214faf6.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs lua">df_grouped<span class="hljs-string">[[&#x27;平均&#x27;,&#x27;第一次段考&#x27;,&#x27;期末考&#x27;]]</span>.mean()<br></code></pre></td></tr></table></figure>
+<h2 id="台灣信用卡盜刷統計"><a href="#台灣信用卡盜刷統計" class="headerlink" title="台灣信用卡盜刷統計"></a>台灣信用卡盜刷統計</h2><p>你知道每年台灣因為信用卡被盜刷，損失的金額嗎？</p>
+<p>透過Open Data，可以看出台灣越來越有錢？</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">url</span> = <span class="hljs-string">&#x27;https://www.nccc.com.tw/dataDownload/09_NCCC_Member_Banks_Card_Issuing_Fraud_Types.csv&#x27;</span><br><br></code></pre></td></tr></table></figure>
 
-<p><img src="/2024/09/data-process-groupby/34103876-19c6-4b5f-92a1-47d950737ee2.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
-<p>女生不論在平均成績、段考或期末考，平均都高於男生</p>
-<h2 id="成績由高到低排列sort-values"><a href="#成績由高到低排列sort-values" class="headerlink" title="成績由高到低排列sort_values()"></a>成績由高到低排列sort_values()</h2><p>將成績由高到低排列是常用的功能，其中參數<code>ascending</code>意思為是否遞增</p>
-<p>試著以學期成績做排序</p>
-<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs lasso">df_sort = df.sort_values(<span class="hljs-keyword">by</span>=<span class="hljs-string">&#x27;學期成績&#x27;</span>,<span class="hljs-keyword">ascending</span>=<span class="hljs-literal">False</span>)<br>df_sort<br></code></pre></td></tr></table></figure>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc">&#x27;&#x27;&#x27;<br>五、詐欺型態：<br>(一)遺失卡：卡片遺失而被盜用、<br>(二)被竊卡：卡片被竊而發生盜用、<br>(三)未達卡：郵寄新、換卡遭攔截而發生盜用、<br>(四)冒用申請卡：使用未經本人授權申請之卡片、<br>(五)偽卡：使用未經發卡機構授權製作之卡片、<br>(六)MOTO/EC：未經持卡人授權之非面對面交易、<br>(七)多刷帳單之詐欺：商店利用持卡人卡號等資料偽造交易、<br>(八)其他：不屬於上述標準詐欺類型者。<br>&#x27;&#x27;&#x27;<br><br>import pandas as pd<br>df = pd.read_csv(url, encoding=<span class="hljs-emphasis">&#x27;big5&#x27;</span>)<br>df[df[<span class="hljs-emphasis">&#x27;年度&#x27;</span>]==2023]<br></code></pre></td></tr></table></figure>
 
-<p><img src="/2024/09/data-process-groupby/1050d470-6cd6-801b-b2d3-ce66be510272.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
-<h2 id="取部分成績作平均"><a href="#取部分成績作平均" class="headerlink" title="取部分成績作平均"></a>取部分成績作平均</h2><p>因為整個學期會很很多次小考與作業，取部分成績的好處是，剔除極端低的數值，不要因為一兩次不認真，拖累到整體成績，跟剛才一樣先取出要計算的範圍</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">df_10</span> = df.iloc[:,<span class="hljs-number">2</span>:<span class="hljs-number">12</span>]<br><span class="hljs-attribute">df_10</span><br></code></pre></td></tr></table></figure>
+<p><img src="/2024/09/seaborn-and-pairplot-lineplot/f0c0c959-f02f-4004-8a37-27376819027f.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<h3 id="年度從2010-2023的MOTO-EC"><a href="#年度從2010-2023的MOTO-EC" class="headerlink" title="年度從2010~2023的MOTO&#x2F;EC"></a>年度從2010~2023的MOTO&#x2F;EC</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># prompt: 年度從2010~2023的MOTO/EC</span><br><br>moto_ec_df = <span class="hljs-built_in">df</span>[(<span class="hljs-built_in">df</span>[<span class="hljs-string">&#x27;年度&#x27;</span>] &gt;= 2010) &amp; (<span class="hljs-built_in">df</span>[<span class="hljs-string">&#x27;年度&#x27;</span>] &lt;= 2023) &amp; (<span class="hljs-built_in">df</span>[<span class="hljs-string">&#x27;詐欺型態&#x27;</span>] == <span class="hljs-string">&#x27;MOTO / EC&#x27;</span>)]<br>moto_ec_df<br><br></code></pre></td></tr></table></figure>
 
-<p><img src="/2024/09/data-process-groupby/1050d470-6cd6-80d5-a417-e4165cbd4c97.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
-<h3 id="nlargest-取每欄前n大的值"><a href="#nlargest-取每欄前n大的值" class="headerlink" title="nlargest()取每欄前n大的值"></a>nlargest()取每欄前n大的值</h3><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scss">df_10<span class="hljs-selector-attr">[<span class="hljs-string">&#x27;1流程圖&#x27;</span>]</span><span class="hljs-selector-class">.nlargest</span>(<span class="hljs-number">10</span>)<br></code></pre></td></tr></table></figure>
+<p><img src="/2024/09/seaborn-and-pairplot-lineplot/10d0d470-6cd6-8054-87bb-c9e5edb36334.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p>可以看到從4億到2023已經變成32億了！誇張吧！</p>
+<p>這種趨勢就適合用折線圖，呈現連續的統計資料</p>
+<h2 id="繪製折線圖"><a href="#繪製折線圖" class="headerlink" title="繪製折線圖"></a>繪製折線圖</h2><h3 id="事前準備"><a href="#事前準備" class="headerlink" title="事前準備"></a>事前準備</h3><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs clean"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br>%matplotlib <span class="hljs-keyword">inline</span><br><span class="hljs-keyword">import</span> matplotlib.font_manager <span class="hljs-keyword">as</span> fm<br># 如果是COLAB要先下載繁體中文字型<br>!wget -O TaipeiSansTCBeta-Regular.ttf https:<span class="hljs-comment">//drive.google.com/uc?id=1eGAsTN1HBpJAkeVM57_C7ccp7hbgSz3_&amp;export=download</span><br>#將字型加入，確認系統字型<br>fm.fontManager.addfont(<span class="hljs-string">&#x27;TaipeiSansTCBeta-Regular.ttf&#x27;</span>)<br>[f.name for f <span class="hljs-keyword">in</span> fm.fontManager.ttflist]<br>#全局參數設定 runtime configuration，字體設為可呈現中文的字體<br>plt.rc(<span class="hljs-string">&#x27;font&#x27;</span>, family=<span class="hljs-string">&#x27;Taipei Sans TC Beta&#x27;</span>)<br></code></pre></td></tr></table></figure>
 
-<p><img src="/2024/09/data-process-groupby/1050d470-6cd6-807c-b3d8-db1251e0e77e.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
-<p>可以很輕易的取出流程圖這次作業前十高的分數，但是要怎麼取一個同學（一整列）的前十高分數呢？</p>
-<h2 id="進階：要怎麼取列，使用apply"><a href="#進階：要怎麼取列，使用apply" class="headerlink" title="進階：要怎麼取列，使用apply()"></a>進階：要怎麼取列，使用apply()</h2><p>有些函式並不支援直接對<code>axis=1</code>來做運算</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">df_10</span>.nlargest(<span class="hljs-number">10</span>,axis=<span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
+<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elm"><span class="hljs-keyword">import</span> seaborn <span class="hljs-keyword">as</span> sns<br></code></pre></td></tr></table></figure>
 
-<p><img src="/2024/09/data-process-groupby/90d209a9-f78f-4bb3-bb49-bbb00d119c22.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
-<p>可以使用<code>apply()</code>是對每一個axis，進行函式操作，順便也可以先了解一下python中的lambda是什麼？</p>
-<h3 id="lambda-是什麼"><a href="#lambda-是什麼" class="headerlink" title="lambda 是什麼"></a>lambda 是什麼</h3><figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs isbl"><span class="hljs-variable">def</span> <span class="hljs-function"><span class="hljs-title">f</span>(<span class="hljs-variable">x</span>):</span><br><span class="hljs-function">	<span class="hljs-variable">return</span> <span class="hljs-variable">x</span>**<span class="hljs-number">2</span></span><br><span class="hljs-function"></span><br><span class="hljs-function"><span class="hljs-title">print</span>(<span class="hljs-title">f</span>(<span class="hljs-number">3</span>))</span><br></code></pre></td></tr></table></figure>
+<h3 id="Matplotlib繪製"><a href="#Matplotlib繪製" class="headerlink" title="Matplotlib繪製"></a>Matplotlib繪製</h3><p>先以Matplotlib繪製，使用plot():</p>
+<ul>
+<li><p><code>x</code>：X 軸的數據，通常是一個序列或數組。</p>
+</li>
+<li><p><code>y</code>：Y 軸的數據，與 X 軸數據相對應。</p>
+</li>
+</ul>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-comment"># prompt: moto_ec_df的折線圖</span><br><br>import matplotlib.pyplot as plt<br>plt.figure(figsize=(12, 6))<br>plt.plot(<span class="hljs-attribute">x</span>=moto_ec_df[<span class="hljs-string">&#x27;年度&#x27;</span>], <span class="hljs-attribute">y</span>=moto_ec_df[<span class="hljs-string">&#x27;詐欺金額[新台幣]&#x27;</span>], <span class="hljs-attribute">marker</span>=<span class="hljs-string">&#x27;o&#x27;</span>)<br>plt.title(<span class="hljs-string">&#x27;2010-2023年 MOTO/EC 詐欺金額趨勢&#x27;</span>)<br>plt.xlabel(<span class="hljs-string">&#x27;年度&#x27;</span>)<br>plt.ylabel(<span class="hljs-string">&#x27;金額&#x27;</span>)<br>plt.grid(<span class="hljs-literal">True</span>)<br>plt.show()<br><br></code></pre></td></tr></table></figure>
 
-<p>上面是學過的定義函式<br>使用<code>lambda</code>可以更簡化只有簡單條件的函式，稱之為匿名函式</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-comment">#做出相等的匿名函式</span><br>f = lambda x:x*<span class="hljs-number">*2</span><br><span class="hljs-built_in">print</span>(f(3))<br></code></pre></td></tr></table></figure>
+<p><img src="/2024/09/seaborn-and-pairplot-lineplot/10d0d470-6cd6-8080-b7ef-db6df3dfc550.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<h3 id="Seaborn繪製"><a href="#Seaborn繪製" class="headerlink" title="Seaborn繪製"></a>Seaborn繪製</h3><p>再使用Seaborn，基本上只是把<code>plot()</code> 改成<code>lineplot()</code> ，圖也是差不多的</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-comment"># prompt: moto_ec_df的折線圖using sns</span><br><br>import matplotlib.pyplot as plt<br>plt.figure(figsize=(12, 6))<br>sns.lineplot(<span class="hljs-attribute">x</span>=<span class="hljs-string">&#x27;年度&#x27;</span>, <span class="hljs-attribute">y</span>=<span class="hljs-string">&#x27;詐欺金額[新台幣]&#x27;</span>, <span class="hljs-attribute">data</span>=moto_ec_df, <span class="hljs-attribute">marker</span>=<span class="hljs-string">&#x27;o&#x27;</span>)<br><span class="hljs-comment">#marker=&#x27;o&#x27;</span><br><br>plt.title(<span class="hljs-string">&#x27;MOTO/EC 詐欺案件數趨勢 (2014-2023)&#x27;</span>)<br>plt.xlabel(<span class="hljs-string">&#x27;年度&#x27;</span>)<br>plt.ylabel(<span class="hljs-string">&#x27;詐欺金額&#x27;</span>)<br>plt.grid(<span class="hljs-literal">True</span>)<br>plt.show()<br><br></code></pre></td></tr></table></figure>
 
-<h3 id="apply-與nlargest"><a href="#apply-與nlargest" class="headerlink" title="apply()與nlargest()"></a>apply()與nlargest()</h3><p><code>apply()</code>是對每一個axis，進行函式操作，以<code>axis=1</code> 來說，就是對一整列做事情</p>
-<p><img src="/2024/09/data-process-groupby/1050d470-6cd6-80da-a1e1-e34ac830dac7.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stylus">#每列的<span class="hljs-built_in">largest</span>(<span class="hljs-number">10</span>)取平均放入df<span class="hljs-selector-attr">[<span class="hljs-string">&#x27;平均&#x27;</span>]</span><br>df<span class="hljs-selector-attr">[<span class="hljs-string">&#x27;平均2&#x27;</span>]</span>=df_10<span class="hljs-selector-class">.apply</span>(lambda x:x<span class="hljs-selector-class">.nlargest</span>(<span class="hljs-number">10</span>)<span class="hljs-selector-class">.mean</span>(),axis=<span class="hljs-number">1</span>)<br>df<span class="hljs-selector-attr">[<span class="hljs-string">&#x27;平均2&#x27;</span>]</span><br></code></pre></td></tr></table></figure>
+<p><img src="/2024/09/seaborn-and-pairplot-lineplot/10d0d470-6cd6-8014-9750-c6c2d30c7fba.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<h2 id="Seaborn可以畫什麼酷圖"><a href="#Seaborn可以畫什麼酷圖" class="headerlink" title="Seaborn可以畫什麼酷圖"></a>Seaborn可以畫什麼酷圖</h2><p>以台股2330台積電這兩個月的每日資料來做統計(資料使用findmind先抓下來了)</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">df_stock = pd<span class="hljs-selector-class">.read_csv</span>(<span class="hljs-string">&#x27;/content/台灣股價資料表.csv&#x27;</span>)<br>df_stock<span class="hljs-selector-class">.head</span>()<br></code></pre></td></tr></table></figure>
 
-<p><img src="/2024/09/data-process-groupby/1050d470-6cd6-8012-abec-c23d8b407252.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p><img src="/2024/09/seaborn-and-pairplot-lineplot/10d0d470-6cd6-8002-a2f1-e28edc2a0c25.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<h3 id="分佈圖"><a href="#分佈圖" class="headerlink" title="分佈圖"></a>分佈圖</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs css"># prompt: 畫分佈圖<br><br>import matplotlib.pyplot as plt<br>plt.<span class="hljs-built_in">figure</span>(figsize=(<span class="hljs-number">12</span>, <span class="hljs-number">6</span>))<br>sns.<span class="hljs-built_in">histplot</span>(df_stock[<span class="hljs-string">&#x27;收盤價&#x27;</span>], kde=True)<br>plt.<span class="hljs-built_in">title</span>(<span class="hljs-string">&#x27;收盤價分佈圖&#x27;</span>)<br>plt.<span class="hljs-built_in">xlabel</span>(<span class="hljs-string">&#x27;收盤價&#x27;</span>)<br>plt.<span class="hljs-built_in">ylabel</span>(<span class="hljs-string">&#x27;頻率&#x27;</span>)<br>plt.<span class="hljs-built_in">show</span>()<br><br></code></pre></td></tr></table></figure>
+
+<p><img src="/2024/09/seaborn-and-pairplot-lineplot/10d0d470-6cd6-80e1-90ba-d223821a4fe5.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<h3 id="多因子分析圖"><a href="#多因子分析圖" class="headerlink" title="多因子分析圖"></a>多因子分析圖</h3><p><code>hue</code> 為圖表依據，這裡以成交量為<code>hue</code> ，可以看個成交量之間的二因子分析</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-title">sns</span>.pairplot(<span class="hljs-class"><span class="hljs-keyword">data</span>=df_stock,hue=&#x27;成交量&#x27;)</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/2024/09/seaborn-and-pairplot-lineplot/10d0d470-6cd6-8020-9c1d-d59f95fff5bf.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>簡單來說，如果繪製的是簡單圖形，可以使用Matplotlib或Seaborn都可以。如果要查看變量之間的關係，建議使用Seaborn，有更多的圖形工具，來觀察結果。</p>
+<h2 id="Seaborn-Cheat-Sheet"><a href="#Seaborn-Cheat-Sheet" class="headerlink" title="Seaborn Cheat Sheet"></a>Seaborn Cheat Sheet</h2><p>如果要詳細的Seaborn教學，Kaggle上一樣有很多人的用法整理！</p>
+<p><a target="_blank" rel="noopener" href="https://www.kaggle.com/code/themlphdstudent/cheat-sheet-seaborn-charts">https://www.kaggle.com/code/themlphdstudent/cheat-sheet-seaborn-charts</a></p>
 
                                                                                 
                                                                     </div>
@@ -402,18 +413,12 @@
                                                                                             <article class="post-prev col-6">
                                                                                                 
                                                                                                     
-                                                                                                        <a href="/2024/09/colab-matplotlib-chinese-and-pie-chart/" title="資料科學第五週-Colab中圖要怎麼有中文、資料視覺化圓餅圖">
-                                                                                                            <i class="iconfont icon-arrowleft"></i>
-                                                                                                            <span class="hidden-mobile">資料科學第五週-Colab中圖要怎麼有中文、資料視覺化圓餅圖</span>
-                                                                                                            <span class="visible-mobile">上一篇</span>
-                                                                                                        </a>
-                                                                                                        
                                                                                             </article>
                                                                                             <article class="post-next col-6">
                                                                                                 
                                                                                                     
-                                                                                                        <a href="/2024/09/data-preprocessing/" title="資料科學第四週-資料前處理">
-                                                                                                            <span class="hidden-mobile">資料科學第四週-資料前處理</span>
+                                                                                                        <a href="/2024/09/pivot-table-and-bar-chart/" title="資料科學第五週-樞紐分析、表資料視覺化長條圖">
+                                                                                                            <span class="hidden-mobile">資料科學第五週-樞紐分析、表資料視覺化長條圖</span>
                                                                                                             <span class="visible-mobile">下一篇</span>
                                                                                                             <i class="iconfont icon-arrowright"></i>
                                                                                                         </a>

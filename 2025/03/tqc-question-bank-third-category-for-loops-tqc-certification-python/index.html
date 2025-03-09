@@ -16,27 +16,27 @@
   <meta name="author" content="阿盧">
   <meta name="keywords" content="">
   
-    <meta name="description" content="以前面的資料為延續，繼續介紹幾個常用到的函式 超級好用的groupby()類似於Excel的樞紐分析，進行分組，先以性別試看看 1234df_grouped&#x3D;df.groupby(&#x27;性別&#x27;)df_grouped.mean()   1df_grouped[[&#x27;平均&#x27;,&#x27;第一次段考&#x27;,&#x27;期末考&#x27;]].mean()   女生">
+    <meta name="description" content="以下大方向請先熟悉：  range() 產生的範圍，隨著for 的迴圈變動，因此通常會如此寫來做加總、重複  12for i in range(開始,結束條件,間隔):   要做加總，需要一個變數做儲存，要在for 迴圈外面避免每次迴圈時被重置  302題目為a~b的偶數加總，但我們的i 還是間隔為1，透過if 判斷是否要加進s 變數當中。 認為間隔為2是常見的錯誤，若for i in range">
 <meta property="og:type" content="article">
-<meta property="og:title" content="資料科學第四週-資料處理常用操作">
-<meta property="og:url" content="https://alu1006.github.io/2024/09/data-process-groupby/index.html">
+<meta property="og:title" content="TQC題庫-第三大類_定數迴圈_For">
+<meta property="og:url" content="https://alu1006.github.io/2025/03/tqc-question-bank-third-category-for-loops-tqc-certification-python/index.html">
 <meta property="og:site_name" content="阿盧老師Coding嚕">
-<meta property="og:description" content="以前面的資料為延續，繼續介紹幾個常用到的函式 超級好用的groupby()類似於Excel的樞紐分析，進行分組，先以性別試看看 1234df_grouped&#x3D;df.groupby(&#x27;性別&#x27;)df_grouped.mean()   1df_grouped[[&#x27;平均&#x27;,&#x27;第一次段考&#x27;,&#x27;期末考&#x27;]].mean()   女生">
+<meta property="og:description" content="以下大方向請先熟悉：  range() 產生的範圍，隨著for 的迴圈變動，因此通常會如此寫來做加總、重複  12for i in range(開始,結束條件,間隔):   要做加總，需要一個變數做儲存，要在for 迴圈外面避免每次迴圈時被重置  302題目為a~b的偶數加總，但我們的i 還是間隔為1，透過if 判斷是否要加進s 變數當中。 認為間隔為2是常見的錯誤，若for i in range">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://alu1006.github.io/img/%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E7%AC%AC%E5%9B%9B%E9%80%B1-%E8%B3%87%E6%96%99%E8%99%95%E7%90%86%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C_index.webp">
-<meta property="article:published_time" content="2024-09-18T12:16:07.308Z">
-<meta property="article:modified_time" content="2024-09-18T12:16:28.854Z">
+<meta property="og:image" content="https://alu1006.github.io/img/TQC%E9%A1%8C%E5%BA%AB-%E7%AC%AC%E4%B8%89%E5%A4%A7%E9%A1%9E_%E5%AE%9A%E6%95%B8%E8%BF%B4%E5%9C%88_For_index.webp">
+<meta property="article:published_time" content="2025-03-09T16:33:08.706Z">
+<meta property="article:modified_time" content="2025-03-09T16:33:25.453Z">
 <meta property="article:author" content="阿盧">
 <meta property="article:tag" content="python">
-<meta property="article:tag" content="資料科學">
+<meta property="article:tag" content="TQC檢定">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://alu1006.github.io/img/%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E7%AC%AC%E5%9B%9B%E9%80%B1-%E8%B3%87%E6%96%99%E8%99%95%E7%90%86%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C_index.webp">
+<meta name="twitter:image" content="https://alu1006.github.io/img/TQC%E9%A1%8C%E5%BA%AB-%E7%AC%AC%E4%B8%89%E5%A4%A7%E9%A1%9E_%E5%AE%9A%E6%95%B8%E8%BF%B4%E5%9C%88_For_index.webp">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>資料科學第四週-資料處理常用操作 - 阿盧老師Coding嚕</title>
+  <title>TQC題庫-第三大類_定數迴圈_For - 阿盧老師Coding嚕</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -223,13 +223,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('../../../img/%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E7%AC%AC%E5%9B%9B%E9%80%B1-%E8%B3%87%E6%96%99%E8%99%95%E7%90%86%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C_index.webp') no-repeat center center; background-size: cover;">
+     style="background: url('../../../img/TQC%E9%A1%8C%E5%BA%AB-%E7%AC%AC%E4%B8%89%E5%A4%A7%E9%A1%9E_%E5%AE%9A%E6%95%B8%E8%BF%B4%E5%9C%88_For_index.webp') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="資料科學第四週-資料處理常用操作"></span>
+            <span id="subtitle" data-typed-text="TQC題庫-第三大類_定數迴圈_For"></span>
           
         </div>
 
@@ -240,8 +240,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-09-18 20:16" pubdate>
-          2024年9月18日 晚上
+        <time datetime="2025-03-10 00:33" pubdate>
+          2025年3月10日 凌晨
         </time>
       </span>
     
@@ -252,7 +252,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          985 字
+          1k 字
         
       </span>
     
@@ -263,7 +263,7 @@
         
         
         
-          5 分鐘
+          6 分鐘
         
       </span>
     
@@ -301,13 +301,13 @@
                     <div id="board">
                         <article class="post-content mx-auto">
                             <h1 id="seo-header">
-                                資料科學第四週-資料處理常用操作
+                                TQC題庫-第三大類_定數迴圈_For
                             </h1>
                             <!-- 改動開始：顯示文章摘要 -->
                             
                                 <div class="post-summary">
                                     <p>
-                                        學習Python處理資料的新技巧！用groupby()分組比較成績，發現女生表現較好。用sort_values()輕鬆排序成績，避免極端值影響結果。nlargest()輕鬆取前幾高分，apply()更彈性運算，還能用lambda簡化程式碼。用這些技巧輕鬆處理資料，讓分析更輕鬆！
+                                        這篇文章教你如何用簡單的程式碼來解決各種數字加總與乘積的問題。從偶數、被5整除的數字，到數字乘積及字串內各數字的加總，一直到用公式計算望遠鏡級數，作者詳解每步驟，並糾正常見錯誤。透過這些技巧，小白也能輕鬆掌握程式加總的精髓！
                                     </p>
                                 </div>
                                 
@@ -316,43 +316,49 @@
                                             
                                                                     <div class="markdown-body">
                                                                         
-                                                                            <p>以前面的資料為延續，繼續介紹幾個常用到的函式</p>
-<h2 id="超級好用的groupby"><a href="#超級好用的groupby" class="headerlink" title="超級好用的groupby()"></a>超級好用的groupby()</h2><p>類似於Excel的樞紐分析，進行分組，先以性別試看看</p>
-<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs arcade">df_grouped=df.<span class="hljs-built_in">groupby</span>(<span class="hljs-string">&#x27;性別&#x27;</span>)<br><br>df_grouped.<span class="hljs-built_in">mean</span>()<br><br></code></pre></td></tr></table></figure>
+                                                                            <p>以下大方向請先熟悉：</p>
+<ol>
+<li><code>range()</code> 產生的範圍，隨著<code>for</code> 的迴圈變動，因此通常會如此寫來做加總、重複</li>
+</ol>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs scss">for <span class="hljs-selector-tag">i</span> in <span class="hljs-built_in">range</span>(開始,結束條件,間隔):<br><br></code></pre></td></tr></table></figure>
 
-<p><img src="1050d470-6cd6-8047-91f2-e5d5f214faf6.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs lua">df_grouped<span class="hljs-string">[[&#x27;平均&#x27;,&#x27;第一次段考&#x27;,&#x27;期末考&#x27;]]</span>.mean()<br></code></pre></td></tr></table></figure>
+<ol>
+<li>要做加總，需要一個變數做儲存，要在<code>for</code> 迴圈外面避免每次迴圈時被重置</li>
+</ol>
+<h3 id="302"><a href="#302" class="headerlink" title="302"></a>302</h3><p>題目為a~b的偶數加總，但我們的<code>i</code> 還是間隔為1，透過<code>if</code> 判斷是否要加進<code>s</code> 變數當中。</p>
+<p>認為間隔為2是常見的錯誤，若<code>for i in range(1,5,2)</code> 這樣的情形就會加總到奇數。</p>
+<p>答案：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">a = <span class="hljs-built_in">eval</span>(<span class="hljs-built_in">input</span>())<br>b = <span class="hljs-built_in">eval</span>(<span class="hljs-built_in">input</span>())<br>s = <span class="hljs-number">0</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(a, b + <span class="hljs-number">1</span>):<br>  <span class="hljs-keyword">if</span> i % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>:<br>    s = s + i<br><span class="hljs-built_in">print</span>(s)<br></code></pre></td></tr></table></figure>
 
-<p><img src="34103876-19c6-4b5f-92a1-47d950737ee2.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
-<p>女生不論在平均成績、段考或期末考，平均都高於男生</p>
-<h2 id="成績由高到低排列sort-values"><a href="#成績由高到低排列sort-values" class="headerlink" title="成績由高到低排列sort_values()"></a>成績由高到低排列sort_values()</h2><p>將成績由高到低排列是常用的功能，其中參數<code>ascending</code>意思為是否遞增</p>
-<p>試著以學期成績做排序</p>
-<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs lasso">df_sort = df.sort_values(<span class="hljs-keyword">by</span>=<span class="hljs-string">&#x27;學期成績&#x27;</span>,<span class="hljs-keyword">ascending</span>=<span class="hljs-literal">False</span>)<br>df_sort<br></code></pre></td></tr></table></figure>
+<h3 id="304"><a href="#304" class="headerlink" title="304"></a>304</h3><p>與302相同，只是改為確認是否可被5整除。</p>
+<p>答案：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">a = <span class="hljs-built_in">eval</span>(<span class="hljs-built_in">input</span>())<br><span class="hljs-built_in">sum</span> = <span class="hljs-number">0</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, a + <span class="hljs-number">1</span>):<br>  <span class="hljs-keyword">if</span> i % <span class="hljs-number">5</span> == <span class="hljs-number">0</span>:<br>    <span class="hljs-built_in">sum</span> = <span class="hljs-built_in">sum</span> + i<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">sum</span>)<br></code></pre></td></tr></table></figure>
 
-<p><img src="1050d470-6cd6-801b-b2d3-ce66be510272.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
-<h2 id="取部分成績作平均"><a href="#取部分成績作平均" class="headerlink" title="取部分成績作平均"></a>取部分成績作平均</h2><p>因為整個學期會很很多次小考與作業，取部分成績的好處是，剔除極端低的數值，不要因為一兩次不認真，拖累到整體成績，跟剛才一樣先取出要計算的範圍</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">df_10</span> = df.iloc[:,<span class="hljs-number">2</span>:<span class="hljs-number">12</span>]<br><span class="hljs-attribute">df_10</span><br></code></pre></td></tr></table></figure>
+<h3 id="306"><a href="#306" class="headerlink" title="306"></a>306</h3><p>此題為1~n的乘積，因此要注意用來儲存總數的<code>s</code> 初始值要是1而不是0。</p>
+<p>因為若初始值為0，會發生以下錯誤：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs routeros">0 * 1 存入s, <span class="hljs-attribute">s</span>=0<br>0 * 2 存入s, <span class="hljs-attribute">s</span>=0<br><span class="hljs-built_in">..</span>.<br></code></pre></td></tr></table></figure>
 
-<p><img src="1050d470-6cd6-80d5-a417-e4165cbd4c97.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
-<h3 id="nlargest-取每欄前n大的值"><a href="#nlargest-取每欄前n大的值" class="headerlink" title="nlargest()取每欄前n大的值"></a>nlargest()取每欄前n大的值</h3><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scss">df_10<span class="hljs-selector-attr">[<span class="hljs-string">&#x27;1流程圖&#x27;</span>]</span><span class="hljs-selector-class">.nlargest</span>(<span class="hljs-number">10</span>)<br></code></pre></td></tr></table></figure>
+<p>答案：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">n = <span class="hljs-built_in">eval</span>(<span class="hljs-built_in">input</span>())<br>s = <span class="hljs-number">1</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, n + <span class="hljs-number">1</span>):<br>  s = s * i<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">sum</span>)<br></code></pre></td></tr></table></figure>
 
-<p><img src="1050d470-6cd6-807c-b3d8-db1251e0e77e.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
-<p>可以很輕易的取出流程圖這次作業前十高的分數，但是要怎麼取一個同學（一整列）的前十高分數呢？</p>
-<h2 id="進階：要怎麼取列，使用apply"><a href="#進階：要怎麼取列，使用apply" class="headerlink" title="進階：要怎麼取列，使用apply()"></a>進階：要怎麼取列，使用apply()</h2><p>有些函式並不支援直接對<code>axis=1</code>來做運算</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">df_10</span>.nlargest(<span class="hljs-number">10</span>,axis=<span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
+<h3 id="308"><a href="#308" class="headerlink" title="308"></a>308</h3><p>透過字串(str)為序列，如下：</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 1c">for c in &#x27;<span class="hljs-number">1234</span>&#x27;:<br></code></pre></td></tr></table></figure>
 
-<p><img src="90d209a9-f78f-4bb3-bb49-bbb00d119c22.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
-<p>可以使用<code>apply()</code>是對每一個axis，進行函式操作，順便也可以先了解一下python中的lambda是什麼？</p>
-<h3 id="lambda-是什麼"><a href="#lambda-是什麼" class="headerlink" title="lambda 是什麼"></a>lambda 是什麼</h3><figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs isbl"><span class="hljs-variable">def</span> <span class="hljs-function"><span class="hljs-title">f</span>(<span class="hljs-variable">x</span>):</span><br><span class="hljs-function">	<span class="hljs-variable">return</span> <span class="hljs-variable">x</span>**<span class="hljs-number">2</span></span><br><span class="hljs-function"></span><br><span class="hljs-function"><span class="hljs-title">print</span>(<span class="hljs-title">f</span>(<span class="hljs-number">3</span>))</span><br></code></pre></td></tr></table></figure>
+<p>可依序取出每個字元，但要注意每個字元為文字型態(str)</p>
+<p>因此在加總時要記得轉型</p>
+<p>另外，此題要重複n次的輸入，外層還需要一<code>for</code> 迴圈來重複加總這件事情。</p>
+<p>答案：</p>
+<figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs isbl"><span class="hljs-variable">n</span> = <span class="hljs-function"><span class="hljs-title">eval</span>(<span class="hljs-title">input</span>())</span><br><span class="hljs-variable">for</span> <span class="hljs-variable">_</span> <span class="hljs-variable"><span class="hljs-keyword">in</span></span> <span class="hljs-function"><span class="hljs-title">range</span>(<span class="hljs-variable">n</span>):</span><br><span class="hljs-function">  <span class="hljs-variable">num</span> = <span class="hljs-title">input</span>()</span><br>  <span class="hljs-variable">s</span> = <span class="hljs-number">0</span><br>  <span class="hljs-variable">for</span> <span class="hljs-variable">c</span> <span class="hljs-variable"><span class="hljs-keyword">in</span></span> <span class="hljs-variable">num</span>:<br>    <span class="hljs-variable">s</span> = <span class="hljs-variable">s</span> + <span class="hljs-function"><span class="hljs-title">int</span>(<span class="hljs-variable">c</span>)</span><br>  <span class="hljs-function"><span class="hljs-title">print</span>(<span class="hljs-variable">f</span><span class="hljs-string">&#x27;Sum of all digits of &#123;num&#125; is &#123;s&#125;&#x27;</span>)</span><br></code></pre></td></tr></table></figure>
 
-<p>上面是學過的定義函式<br>使用<code>lambda</code>可以更簡化只有簡單條件的函式，稱之為匿名函式</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-comment">#做出相等的匿名函式</span><br>f = lambda x:x*<span class="hljs-number">*2</span><br><span class="hljs-built_in">print</span>(f(3))<br></code></pre></td></tr></table></figure>
+<h3 id="310"><a href="#310" class="headerlink" title="310"></a>310</h3><p>可自行由公式推得如何加總。</p>
+<p><img src="1b00d470-6cd6-8010-8c02-facae7e70213.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p>答案：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">n</span> = eval(input())<br><span class="hljs-attribute">sum</span> = <span class="hljs-number">0</span><br><span class="hljs-attribute">for</span> i in range(<span class="hljs-number">2</span>, n+<span class="hljs-number">1</span>):<br>  <span class="hljs-attribute">sum</span> = sum + (<span class="hljs-number">1</span> / (((i-<span class="hljs-number">1</span>)**<span class="hljs-number">0</span>.<span class="hljs-number">5</span>) + (i)**<span class="hljs-number">0</span>.<span class="hljs-number">5</span>))<br><span class="hljs-attribute">print</span>(f&#x27;&#123;sum:.<span class="hljs-number">4</span>f&#125;&#x27;)<br></code></pre></td></tr></table></figure>
 
-<h3 id="apply-與nlargest"><a href="#apply-與nlargest" class="headerlink" title="apply()與nlargest()"></a>apply()與nlargest()</h3><p><code>apply()</code>是對每一個axis，進行函式操作，以<code>axis=1</code> 來說，就是對一整列做事情</p>
-<p><img src="1050d470-6cd6-80da-a1e1-e34ac830dac7.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stylus">#每列的<span class="hljs-built_in">largest</span>(<span class="hljs-number">10</span>)取平均放入df<span class="hljs-selector-attr">[<span class="hljs-string">&#x27;平均&#x27;</span>]</span><br>df<span class="hljs-selector-attr">[<span class="hljs-string">&#x27;平均2&#x27;</span>]</span>=df_10<span class="hljs-selector-class">.apply</span>(lambda x:x<span class="hljs-selector-class">.nlargest</span>(<span class="hljs-number">10</span>)<span class="hljs-selector-class">.mean</span>(),axis=<span class="hljs-number">1</span>)<br>df<span class="hljs-selector-attr">[<span class="hljs-string">&#x27;平均2&#x27;</span>]</span><br></code></pre></td></tr></table></figure>
+<p>此題其實是望遠鏡級數（Telescopic series），可直接用公式代入：</p>
+<p>(\sqrt{n}-1)</p>
+<figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs isbl"><span class="hljs-variable">n</span> = <span class="hljs-function"><span class="hljs-title">eval</span>(<span class="hljs-title">input</span>())</span><br><span class="hljs-function"><span class="hljs-title">print</span>(<span class="hljs-variable">f</span><span class="hljs-string">&#x27;&#123;(n ** 0.5 - 1):.4f&#125;&#x27;</span>)</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="1050d470-6cd6-8012-abec-c23d8b407252.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
 
                                                                                 
                                                                     </div>
@@ -371,7 +377,7 @@
     
       <span class="category-chain">
         
-  <a href="../../../categories/%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8/" class="category-chain-item">資料科學</a>
+  <a href="../../../categories/Python%E8%AA%B2%E7%A8%8B/" class="category-chain-item">Python課程</a>
   
   
 
@@ -388,7 +394,7 @@
       
         <a href="../../../tags/python/" class="print-no-link">#python</a>
       
-        <a href="../../../tags/%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8/" class="print-no-link">#資料科學</a>
+        <a href="../../../tags/TQC%E6%AA%A2%E5%AE%9A/" class="print-no-link">#TQC檢定</a>
       
     </div>
   
@@ -402,18 +408,12 @@
                                                                                             <article class="post-prev col-6">
                                                                                                 
                                                                                                     
-                                                                                                        <a href="../colab-matplotlib-chinese-and-pie-chart/" title="資料科學第五週-Colab中圖要怎麼有中文、資料視覺化圓餅圖">
-                                                                                                            <i class="iconfont icon-arrowleft"></i>
-                                                                                                            <span class="hidden-mobile">資料科學第五週-Colab中圖要怎麼有中文、資料視覺化圓餅圖</span>
-                                                                                                            <span class="visible-mobile">上一篇</span>
-                                                                                                        </a>
-                                                                                                        
                                                                                             </article>
                                                                                             <article class="post-next col-6">
                                                                                                 
                                                                                                     
-                                                                                                        <a href="../data-preprocessing/" title="資料科學第四週-資料前處理">
-                                                                                                            <span class="hidden-mobile">資料科學第四週-資料前處理</span>
+                                                                                                        <a href="../58125/" title="TQC題庫-第三大類 定數迴圈 For">
+                                                                                                            <span class="hidden-mobile">TQC題庫-第三大類 定數迴圈 For</span>
                                                                                                             <span class="visible-mobile">下一篇</span>
                                                                                                             <i class="iconfont icon-arrowright"></i>
                                                                                                         </a>

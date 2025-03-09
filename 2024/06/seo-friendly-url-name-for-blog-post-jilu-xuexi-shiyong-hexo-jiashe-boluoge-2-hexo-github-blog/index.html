@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../../../img/fluid.png">
+  <link rel="icon" href="../../../img/fluid.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -28,8 +28,8 @@
 <meta property="article:modified_time" content="2024-07-25T05:51:24.090Z">
 <meta property="article:author" content="阿盧">
 <meta property="article:tag" content="hexo">
-<meta property="article:tag" content="github">
 <meta property="article:tag" content="blog">
+<meta property="article:tag" content="github">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://alu1006.github.io/img/default.webp">
   
@@ -61,12 +61,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="../../../css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="../../../css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="../../../css/highlight-dark.css" />
   
 
 
@@ -82,8 +82,8 @@
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="../../../js/utils.js" ></script>
+  <script  src="../../../js/color-schema.js" ></script>
   
 
   
@@ -127,7 +127,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="../../../index.html">
       <strong>阿盧老師Coding嚕</strong>
     </a>
 
@@ -146,7 +146,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
+              <a class="nav-link" href="../../../index.html" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首頁</span>
               </a>
@@ -158,7 +158,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
+              <a class="nav-link" href="../../../archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>歸檔</span>
               </a>
@@ -170,7 +170,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
+              <a class="nav-link" href="../../../categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分類</span>
               </a>
@@ -182,7 +182,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
+              <a class="nav-link" href="../../../tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>標籤</span>
               </a>
@@ -194,7 +194,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
+              <a class="nav-link" href="../../../about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>關於</span>
               </a>
@@ -224,7 +224,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.webp') no-repeat center center; background-size: cover;">
+     style="background: url('../../../img/default.webp') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -344,7 +344,7 @@
 <h2 id="第三步-設置貢獻日誌的樣式和功能"><a href="#第三步-設置貢獻日誌的樣式和功能" class="headerlink" title="第三步-設置貢獻日誌的樣式和功能"></a>第三步-設置貢獻日誌的樣式和功能</h2><p>我們還需要在<code>layout/_widget/post-calendar.ejs</code>文件中添加以下程式碼，以確保貢獻日誌的樣式和功能正常：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container archive-calendar&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;card&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;post-calendar&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;card-content&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/css&quot;</span>&gt;</span><span class="language-css"></span><br><span class="language-css">    <span class="hljs-selector-id">#post-calendar</span> &#123;</span><br><span class="language-css">        <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;</span><br><span class="language-css">        <span class="hljs-attribute">height</span>: <span class="hljs-number">225px</span>;</span><br><span class="language-css">        <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">20px</span>;</span><br><span class="language-css">        <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">12px</span>;</span><br><span class="language-css">        <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">rgb</span>(<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0.5</span>);</span><br><span class="language-css">    &#125;</span><br><span class="language-css"></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/cungudafa/cdn/js/echarts.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">    <span class="hljs-keyword">let</span> myChart = echarts.<span class="hljs-title function_">init</span>(<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;post-calendar&#x27;</span>));</span><br><span class="language-javascript"></span><br><span class="language-javascript">    &lt;%</span><br><span class="language-javascript">    <span class="hljs-comment">// calculate range.</span></span><br><span class="language-javascript">    <span class="hljs-keyword">var</span> startDate = <span class="hljs-title function_">moment</span>().<span class="hljs-title function_">subtract</span>(<span class="hljs-number">1</span>, <span class="hljs-string">&#x27;years&#x27;</span>);</span><br><span class="language-javascript">    <span class="hljs-keyword">var</span> endDate = <span class="hljs-title function_">moment</span>();</span><br><span class="language-javascript">    <span class="hljs-keyword">var</span> rangeArr = <span class="hljs-string">&#x27;[&quot;&#x27;</span> + startDate.<span class="hljs-title function_">format</span>(<span class="hljs-string">&#x27;YYYY-MM-DD&#x27;</span>) + <span class="hljs-string">&#x27;&quot;, &quot;&#x27;</span> + endDate.<span class="hljs-title function_">format</span>(<span class="hljs-string">&#x27;YYYY-MM-DD&#x27;</span>) + <span class="hljs-string">&#x27;&quot;]&#x27;</span>;</span><br><span class="language-javascript"></span><br><span class="language-javascript">    <span class="hljs-comment">// post and count map.</span></span><br><span class="language-javascript">    <span class="hljs-keyword">var</span> dateMap = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Map</span>();</span><br><span class="language-javascript">    site.<span class="hljs-property">posts</span>.<span class="hljs-title function_">forEach</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">post</span>) &#123;</span><br><span class="language-javascript">        <span class="hljs-keyword">var</span> date = post.<span class="hljs-property">date</span>.<span class="hljs-title function_">format</span>(<span class="hljs-string">&#x27;YYYY-MM-DD&#x27;</span>);</span><br><span class="language-javascript">        <span class="hljs-keyword">var</span> count = dateMap.<span class="hljs-title function_">get</span>(date);</span><br><span class="language-javascript">        dateMap.<span class="hljs-title function_">set</span>(date, count == <span class="hljs-literal">null</span> || count == <span class="hljs-literal">undefined</span> ? <span class="hljs-number">1</span> : count + <span class="hljs-number">1</span>);</span><br><span class="language-javascript">    &#125;);</span><br><span class="language-javascript"></span><br><span class="language-javascript">    <span class="hljs-comment">// loop the data for the current year, generating the number of post per day.</span></span><br><span class="language-javascript">    <span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>;</span><br><span class="language-javascript">    <span class="hljs-keyword">var</span> datePosts = <span class="hljs-string">&#x27;[&#x27;</span>;</span><br><span class="language-javascript">    <span class="hljs-keyword">var</span> dayTime = <span class="hljs-number">3600</span> * <span class="hljs-number">24</span> * <span class="hljs-number">1000</span>;</span><br><span class="language-javascript">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> time = startDate; time &lt;= endDate; time += dayTime) &#123;</span><br><span class="language-javascript">        <span class="hljs-keyword">var</span> date = <span class="hljs-title function_">moment</span>(time).<span class="hljs-title function_">format</span>(<span class="hljs-string">&#x27;YYYY-MM-DD&#x27;</span>);</span><br><span class="language-javascript">        datePosts = (i === <span class="hljs-number">0</span> ? datePosts + <span class="hljs-string">&#x27;[&quot;&#x27;</span> : datePosts + <span class="hljs-string">&#x27;, [&quot;&#x27;</span>) + date + <span class="hljs-string">&#x27;&quot;, &#x27;</span> + (dateMap.<span class="hljs-title function_">has</span>(date) ? dateMap.<span class="hljs-title function_">get</span>(date) : <span class="hljs-number">0</span>) + <span class="hljs-string">&#x27;]&#x27;</span>;</span><br><span class="language-javascript">        i++;</span><br><span class="language-javascript">    &#125;</span><br><span class="language-javascript">    datePosts += <span class="hljs-string">&#x27;]&#x27;</span>;%&gt;</span><br><span class="language-javascript">    <span class="hljs-keyword">let</span> option = &#123;</span><br><span class="language-javascript">        <span class="hljs-attr">title</span>: &#123;</span><br><span class="language-javascript">            <span class="hljs-attr">top</span>: <span class="hljs-number">0</span>,</span><br><span class="language-javascript">            <span class="hljs-attr">text</span>: <span class="hljs-string">&#x27;文章熱力圖&#x27;</span>,</span><br><span class="language-javascript">            <span class="hljs-attr">left</span>: <span class="hljs-string">&#x27;center&#x27;</span>,</span><br><span class="language-javascript">            <span class="hljs-attr">textStyle</span>: &#123;</span><br><span class="language-javascript">                <span class="hljs-attr">color</span>: <span class="hljs-string">&#x27;#3C4858&#x27;</span></span><br><span class="language-javascript">            &#125;</span><br><span class="language-javascript">        &#125;,</span><br><span class="language-javascript">        <span class="hljs-attr">tooltip</span>: &#123;</span><br><span class="language-javascript">            <span class="hljs-attr">padding</span>: <span class="hljs-number">10</span>,</span><br><span class="language-javascript">            <span class="hljs-attr">backgroundColor</span>: <span class="hljs-string">&#x27;#555&#x27;</span>,</span><br><span class="language-javascript">            <span class="hljs-attr">borderColor</span>: <span class="hljs-string">&#x27;#777&#x27;</span>,</span><br><span class="language-javascript">            <span class="hljs-attr">borderWidth</span>: <span class="hljs-number">1</span>,</span><br><span class="language-javascript">            <span class="hljs-attr">formatter</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params">obj</span>) &#123;</span><br><span class="language-javascript">                <span class="hljs-keyword">var</span> value = obj.<span class="hljs-property">value</span>;</span><br><span class="language-javascript">                <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&lt;div style=&quot;font-size: 14px;&quot;&gt;&#x27;</span> + value[<span class="hljs-number">0</span>] + <span class="hljs-string">&#x27;: &#x27;</span> + value[<span class="hljs-number">1</span>] + <span class="hljs-string">&#x27;&lt;/div&gt;&#x27;</span>;</span><br><span class="language-javascript">            &#125;</span><br><span class="language-javascript">        &#125;,</span><br><span class="language-javascript">        <span class="hljs-attr">visualMap</span>: &#123;</span><br><span class="language-javascript">            <span class="hljs-attr">show</span>: <span class="hljs-literal">true</span>,</span><br><span class="language-javascript">            <span class="hljs-attr">showLabel</span>: <span class="hljs-literal">true</span>,</span><br><span class="language-javascript">            <span class="hljs-attr">categories</span>: [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>],</span><br><span class="language-javascript">            <span class="hljs-attr">calculable</span>: <span class="hljs-literal">true</span>,</span><br><span class="language-javascript">            <span class="hljs-attr">inRange</span>: &#123;</span><br><span class="language-javascript">                <span class="hljs-attr">symbol</span>: <span class="hljs-string">&#x27;rect&#x27;</span>,</span><br><span class="language-javascript">                <span class="hljs-attr">color</span>: [<span class="hljs-string">&#x27;#ebedf0&#x27;</span>, <span class="hljs-string">&#x27;#c6e48b&#x27;</span>, <span class="hljs-string">&#x27;#7bc96f&#x27;</span>, <span class="hljs-string">&#x27;#239a3b&#x27;</span>, <span class="hljs-string">&#x27;#196127&#x27;</span>]</span><br><span class="language-javascript">            &#125;,</span><br><span class="language-javascript">            <span class="hljs-attr">itemWidth</span>: <span class="hljs-number">12</span>,</span><br><span class="language-javascript">            <span class="hljs-attr">itemHeight</span>: <span class="hljs-number">12</span>,</span><br><span class="language-javascript">            <span class="hljs-attr">orient</span>: <span class="hljs-string">&#x27;horizontal&#x27;</span>,</span><br><span class="language-javascript">            <span class="hljs-attr">left</span>: <span class="hljs-string">&#x27;center&#x27;</span>,</span><br><span class="language-javascript">            <span class="hljs-attr">bottom</span>: <span class="hljs-number">0</span></span><br><span class="language-javascript">        &#125;,</span><br><span class="language-javascript">        <span class="hljs-attr">calendar</span>: [&#123;</span><br><span class="language-javascript">            <span class="hljs-attr">left</span>: <span class="hljs-string">&#x27;center&#x27;</span>,</span><br><span class="language-javascript">            <span class="hljs-attr">range</span>: &lt;%- rangeArr %&gt;,</span><br><span class="language-javascript">            <span class="hljs-attr">cellSize</span>: [<span class="hljs-number">13</span>, <span class="hljs-number">13</span>],</span><br><span class="language-javascript">            <span class="hljs-attr">splitLine</span>: &#123;</span><br><span class="language-javascript">                <span class="hljs-attr">show</span>: <span class="hljs-literal">false</span></span><br><span class="language-javascript">            &#125;,</span><br><span class="language-javascript">            <span class="hljs-attr">itemStyle</span>: &#123;</span><br><span class="language-javascript">                <span class="hljs-attr">width</span>: <span class="hljs-string">&#x27;1.88679%&#x27;</span>,</span><br><span class="language-javascript">                <span class="hljs-attr">height</span>: <span class="hljs-string">&#x27;15px&#x27;</span>,</span><br><span class="language-javascript">                <span class="hljs-attr">color</span>: <span class="hljs-string">&#x27;#EEEEEE&#x27;</span>,</span><br><span class="language-javascript">                <span class="hljs-attr">borderColor</span>: <span class="hljs-string">&#x27;#FFF&#x27;</span>,</span><br><span class="language-javascript">                <span class="hljs-attr">borderWidth</span>: <span class="hljs-number">2</span></span><br><span class="language-javascript">            &#125;,</span><br><span class="language-javascript">            <span class="hljs-attr">yearLabel</span>: &#123;</span><br><span class="language-javascript">                <span class="hljs-attr">show</span>: <span class="hljs-literal">false</span></span><br><span class="language-javascript">            &#125;,</span><br><span class="language-javascript">            <span class="hljs-attr">monthLabel</span>: &#123;</span><br><span class="language-javascript">                <span class="hljs-attr">nameMap</span>: <span class="hljs-string">&#x27;cn&#x27;</span>,</span><br><span class="language-javascript">                <span class="hljs-attr">fontWeight</span>: <span class="hljs-string">&#x27;lighter&#x27;</span>,</span><br><span class="language-javascript">                <span class="hljs-attr">fontSize</span>: <span class="hljs-number">12</span></span><br><span class="language-javascript">            &#125;,</span><br><span class="language-javascript">            <span class="hljs-attr">dayLabel</span>: &#123;</span><br><span class="language-javascript">                <span class="hljs-attr">show</span>: <span class="hljs-literal">true</span>,</span><br><span class="language-javascript">                <span class="hljs-attr">formatter</span>: <span class="hljs-string">&#x27;&#123;start&#125; 1st&#x27;</span>,</span><br><span class="language-javascript">                <span class="hljs-attr">fontWeight</span>: <span class="hljs-string">&#x27;lighter&#x27;</span>,</span><br><span class="language-javascript">                <span class="hljs-attr">nameMap</span>: [<span class="hljs-string">&#x27;日&#x27;</span>, <span class="hljs-string">&#x27;一&#x27;</span>, <span class="hljs-string">&#x27;二&#x27;</span>, <span class="hljs-string">&#x27;三&#x27;</span>, <span class="hljs-string">&#x27;四&#x27;</span>, <span class="hljs-string">&#x27;五&#x27;</span>, <span class="hljs-string">&#x27;六&#x27;</span>],</span><br><span class="language-javascript">                <span class="hljs-attr">fontSize</span>: <span class="hljs-number">12</span></span><br><span class="language-javascript">            &#125;</span><br><span class="language-javascript">        &#125;],</span><br><span class="language-javascript">        <span class="hljs-attr">series</span>: [&#123;</span><br><span class="language-javascript">            <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;heatmap&#x27;</span>,</span><br><span class="language-javascript">            <span class="hljs-attr">coordinateSystem</span>: <span class="hljs-string">&#x27;calendar&#x27;</span>,</span><br><span class="language-javascript">            <span class="hljs-attr">calendarIndex</span>: <span class="hljs-number">0</span>,</span><br><span class="language-javascript">            <span class="hljs-attr">data</span>: &lt;%- datePosts %&gt;</span><br><span class="language-javascript">        &#125;]</span><br><span class="language-javascript">    &#125;;</span><br><span class="language-javascript"></span><br><span class="language-javascript">    myChart.<span class="hljs-title function_">setOption</span>(option);</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><br></code></pre></td></tr></table></figure>
 
-<p><img src="/c91559c5-3957-4d78-a939-e1deb1a53cea.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p><img src="c91559c5-3957-4d78-a939-e1deb1a53cea.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
 <p>參考文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/cungudafa/article/details/106420842">https://blog.csdn.net/cungudafa/article/details/106420842</a></p>
 
                                                                                 
@@ -364,7 +364,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E9%83%A8%E8%90%BD%E6%A0%BC%E5%BB%BA%E7%BD%AE/" class="category-chain-item">部落格建置</a>
+  <a href="../../../categories/%E9%83%A8%E8%90%BD%E6%A0%BC%E5%BB%BA%E7%BD%AE/" class="category-chain-item">部落格建置</a>
   
   
 
@@ -379,11 +379,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/hexo/" class="print-no-link">#hexo</a>
+        <a href="../../../tags/hexo/" class="print-no-link">#hexo</a>
       
-        <a href="/tags/github/" class="print-no-link">#github</a>
+        <a href="../../../tags/blog/" class="print-no-link">#blog</a>
       
-        <a href="/tags/blog/" class="print-no-link">#blog</a>
+        <a href="../../../tags/github/" class="print-no-link">#github</a>
       
     </div>
   
@@ -397,7 +397,7 @@
                                                                                             <article class="post-prev col-6">
                                                                                                 
                                                                                                     
-                                                                                                        <a href="/2024/07/seo-friendly-url-name-for-a-blog-post%E6%B2%B3%E5%85%A7%E4%BA%94%E5%A4%A9%E5%9B%9B%E5%A4%9C-%E8%B6%8A%E5%8D%97/" title="河內五天四夜">
+                                                                                                        <a href="../../07/seo-friendly-url-name-for-a-blog-post%E6%B2%B3%E5%85%A7%E4%BA%94%E5%A4%A9%E5%9B%9B%E5%A4%9C-%E8%B6%8A%E5%8D%97/" title="河內五天四夜">
                                                                                                             <i class="iconfont icon-arrowleft"></i>
                                                                                                             <span class="hidden-mobile">河內五天四夜</span>
                                                                                                             <span class="visible-mobile">上一篇</span>
@@ -407,7 +407,7 @@
                                                                                             <article class="post-next col-6">
                                                                                                 
                                                                                                     
-                                                                                                        <a href="/2021/12/seo-friendly-url-name-for-blog-post-=-&#39;how-to-set-up-hexo-blog-with-github-page-for-beginners-notion-hexo-blog&#39;/" title="紀錄學習-使用Hexo架設部落格 (1) 使用Github Page從無到有">
+                                                                                                        <a href="../../../2021/12/seo-friendly-url-name-for-blog-post-=-&#39;how-to-set-up-hexo-blog-with-github-page-for-beginners-notion-hexo-blog&#39;/" title="紀錄學習-使用Hexo架設部落格 (1) 使用Github Page從無到有">
                                                                                                             <span class="hidden-mobile">紀錄學習-使用Hexo架設部落格 (1) 使用Github Page從無到有</span>
                                                                                                             <span class="visible-mobile">下一篇</span>
                                                                                                             <i class="iconfont icon-arrowright"></i>
@@ -561,8 +561,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="../../../js/events.js" ></script>
+<script  src="../../../js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -584,7 +584,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="../../../js/img-lazyload.js" ></script>
   
 
 
@@ -683,7 +683,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="../../../js/local-search.js" ></script>
 
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
@@ -693,7 +693,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="../../../js/boot.js" ></script>
 
 
   

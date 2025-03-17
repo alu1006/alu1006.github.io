@@ -19,18 +19,18 @@
     <meta name="description" content="前言-會做到什麼功能這堂課會使用Streamlit進行登入，畢竟有些東西，不是免費就能看的（搓手） 先上成果圖，下圖為登入成功畫面  登入成功後，可以與OpenAI機器人進行交談(需有API Key)  那就可以來練習這個主題了。 其中會簡化一些內容，比如密碼採明碼、API Key直接呈現在程式碼上，這些在真正要上線時，千萬不要這樣做。 先講講資料庫，再來做登入資料庫是專門處理資料儲存、管理和檢索">
 <meta property="og:type" content="article">
 <meta property="og:title" content="資料科學第七週-用Streamlit連接資料庫與OpenAI聊天機器人">
-<meta property="og:url" content="https://alu1006.github.io/2024/10/streamlit-database-gpt-chatbot/index.html">
+<meta property="og:url" content="https://codinglu.tw/2024/10/streamlit-database-gpt-chatbot/index.html">
 <meta property="og:site_name" content="阿盧老師Coding嚕">
 <meta property="og:description" content="前言-會做到什麼功能這堂課會使用Streamlit進行登入，畢竟有些東西，不是免費就能看的（搓手） 先上成果圖，下圖為登入成功畫面  登入成功後，可以與OpenAI機器人進行交談(需有API Key)  那就可以來練習這個主題了。 其中會簡化一些內容，比如密碼採明碼、API Key直接呈現在程式碼上，這些在真正要上線時，千萬不要這樣做。 先講講資料庫，再來做登入資料庫是專門處理資料儲存、管理和檢索">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://alu1006.github.io/img/%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E7%AC%AC%E4%B8%83%E9%80%B1-%E7%94%A8Streamlit%E9%80%A3%E6%8E%A5%E8%B3%87%E6%96%99%E5%BA%AB%E8%88%87OpenAI%E8%81%8A%E5%A4%A9%E6%A9%9F%E5%99%A8%E4%BA%BA_index.webp">
+<meta property="og:image" content="https://codinglu.tw/img/%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E7%AC%AC%E4%B8%83%E9%80%B1-%E7%94%A8Streamlit%E9%80%A3%E6%8E%A5%E8%B3%87%E6%96%99%E5%BA%AB%E8%88%87OpenAI%E8%81%8A%E5%A4%A9%E6%A9%9F%E5%99%A8%E4%BA%BA_index.webp">
 <meta property="article:published_time" content="2024-10-09T01:28:12.469Z">
 <meta property="article:modified_time" content="2024-10-09T01:28:37.606Z">
 <meta property="article:author" content="阿盧">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="資料科學">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://alu1006.github.io/img/%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E7%AC%AC%E4%B8%83%E9%80%B1-%E7%94%A8Streamlit%E9%80%A3%E6%8E%A5%E8%B3%87%E6%96%99%E5%BA%AB%E8%88%87OpenAI%E8%81%8A%E5%A4%A9%E6%A9%9F%E5%99%A8%E4%BA%BA_index.webp">
+<meta name="twitter:image" content="https://codinglu.tw/img/%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E7%AC%AC%E4%B8%83%E9%80%B1-%E7%94%A8Streamlit%E9%80%A3%E6%8E%A5%E8%B3%87%E6%96%99%E5%BA%AB%E8%88%87OpenAI%E8%81%8A%E5%A4%A9%E6%A9%9F%E5%99%A8%E4%BA%BA_index.webp">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -74,7 +74,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"alu1006.github.io","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"codinglu.tw","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"google":{"measurement_id":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -436,6 +436,55 @@
 
 
                                                                                 
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>資料科學第七週-用Streamlit連接資料庫與OpenAI聊天機器人</div>
+      <div>https://codinglu.tw/2024/10/streamlit-database-gpt-chatbot/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>阿盧</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>發布於</div>
+          <div>2024年10月9日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>許可協議</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商業性使用">
+                    <i class="iconfont icon-nc"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
 
                                                                                     
                                                                                         <div class="post-prevnext my-3">
@@ -512,6 +561,12 @@
   
 
 
+  
+  
+
+
+
+
 
 
 
@@ -553,14 +608,14 @@
 
   <footer>
     <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="mailto:luwei1006@gmail.com" target="_blank" rel="nofollow noopener"><span>Produced by ALU &copy; 2023</span></a>
+    
+        <div class="footer-content">
+             <a href="mailto:luwei1006@gmail.com" target="_blank" rel="nofollow noopener"><span>Produced by ALU &copy; 2023</span></a>
 <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
-  
-  
-    <div class="statistics">
+        </div>
+        
+            
+                <div class="statistics">
   
   
 
@@ -583,11 +638,10 @@
   
 </div>
 
-  
-  
-  
-</div>
+                    
 
+                        
+</div>
   </footer>
 
   <!-- Scripts -->
@@ -727,6 +781,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="../../../js/local-search.js" ></script>
 

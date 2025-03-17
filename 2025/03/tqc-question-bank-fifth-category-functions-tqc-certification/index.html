@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://alu1006.github.io/img/TQC%E9%A1%8C%E5%BA%AB-%E7%AC%AC%E4%BA%94%E5%A4%A7%E9%A1%9E_%E5%87%BD%E5%BC%8F_index.webp">
 <meta property="article:published_time" content="2025-03-17T02:17:03.143Z">
-<meta property="article:modified_time" content="2025-03-17T07:07:58.057Z">
+<meta property="article:modified_time" content="2025-03-17T08:10:46.506Z">
 <meta property="article:author" content="阿盧">
 <meta property="article:tag" content="TQC檢定">
 <meta name="twitter:card" content="summary_large_image">
@@ -156,9 +156,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="../../../archives/" target="_self">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>歸檔</span>
+              <a class="nav-link" href="../../../categories/programming/" target="_self">
+                <i class="iconfont icon-python"></i>
+                <span>Python課程</span>
               </a>
             </li>
           
@@ -168,9 +168,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="../../../categories/" target="_self">
-                <i class="iconfont icon-category-fill"></i>
-                <span>分類</span>
+              <a class="nav-link" href="../../../categories/data-science/" target="_self">
+                <i class="iconfont icon-database-fill"></i>
+                <span>資料科學</span>
               </a>
             </li>
           
@@ -180,9 +180,33 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="../../../tags/" target="_self">
-                <i class="iconfont icon-tags-fill"></i>
-                <span>標籤</span>
+              <a class="nav-link" href="../../../categories/deep-learning/" target="_self">
+                <i class="iconfont icon-brain-fill"></i>
+                <span>深度學習</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="../../../categories/tqc/" target="_self">
+                <i class="iconfont icon-certificate-fill"></i>
+                <span>TQC檢定</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="../../../categories/algorithm/" target="_self">
+                <i class="iconfont icon-tree-fill"></i>
+                <span>演算法與資料結構</span>
               </a>
             </li>
           
@@ -251,7 +275,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.2k 字
+          1.3k 字
         
       </span>
     
@@ -335,6 +359,8 @@
 
 <p>從前面開始找：</p>
 <figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs maxima">a, b = <span class="hljs-built_in">eval</span>(input())<br><span class="hljs-built_in">gcd</span> = <span class="hljs-number">1</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, b + <span class="hljs-number">1</span>):<br>	<span class="hljs-keyword">if</span> a <span class="hljs-symbol">%</span> i == <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> b <span class="hljs-symbol">%</span> i == <span class="hljs-number">0</span>:<br>	  <span class="hljs-built_in">gcd</span> = i<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">gcd</span>)<br></code></pre></td></tr></table></figure>
+<p>更簡單的方式用內建的<code>math</code>函式</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stylus">import math<br><span class="hljs-selector-tag">a</span>, <span class="hljs-selector-tag">b</span> = <span class="hljs-built_in">eval</span>(<span class="hljs-selector-tag">input</span>())<br><span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(math.gcd(a,b)</span></span>)<br></code></pre></td></tr></table></figure>
 
 <h3 id="506"><a href="#506" class="headerlink" title="506"></a>506</h3><p>就是國中數學</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python">a, b, c = <span class="hljs-built_in">eval</span>(<span class="hljs-built_in">input</span>()), <span class="hljs-built_in">eval</span>(<span class="hljs-built_in">input</span>()), <span class="hljs-built_in">eval</span>(<span class="hljs-built_in">input</span>())<br>r = b**<span class="hljs-number">2</span> - <span class="hljs-number">4</span> * a * c<br><span class="hljs-keyword">if</span> r &gt; <span class="hljs-number">0</span>:<br>  ans1 = (-b + r**<span class="hljs-number">0.5</span>) / (<span class="hljs-number">2</span> * a)<br>  ans2 = (-b - r**<span class="hljs-number">0.5</span>) / (<span class="hljs-number">2</span> * a)<br>  <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;ans1&#125;</span>, <span class="hljs-subst">&#123;ans2&#125;</span>)&#x27;</span><br><span class="hljs-keyword">elif</span> r == <span class="hljs-number">0</span>:<br>  <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;-b/(<span class="hljs-number">2</span>*a)&#125;</span>)&#x27;</span><br><span class="hljs-keyword">else</span>:<br>  <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Your equation has no root.&#x27;</span>)<br></code></pre></td></tr></table></figure>
@@ -367,7 +393,7 @@
     
       <span class="category-chain">
         
-  <a href="../../../categories/Python%E8%AA%B2%E7%A8%8B/" class="category-chain-item">Python課程</a>
+  <a href="../../../categories/tqc/" class="category-chain-item">TQC檢定</a>
   
   
 

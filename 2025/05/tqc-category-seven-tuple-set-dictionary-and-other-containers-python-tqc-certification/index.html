@@ -16,26 +16,27 @@
   <meta name="author" content="阿盧">
   <meta name="keywords" content="">
   
-    <meta name="description" content="402利用一個變數儲存最小值，當每次輸入有更小的時候，就做替換。  12345678min&#x3D;float(&#x27;inf&#x27;) #999999999while True:  num &#x3D; eval(input())  if num &#x3D;&#x3D; 9999:    break  if num &lt; min:    min &#x3D; numprint(min)  考進階的同學可以使用list 中的min">
+    <meta name="description" content="以下大方向請先熟悉： Tuple元組轉型成tuple  1tuple(物件)  Set集合不會加入重複的內容的容器 創建set  1s&#x3D;set()  新增元素 1s.add(元素)  Dictionary字典創建字典 1d&#x3D;&#123;&#125;  加入字典 1d[key]&#x3D;value  合併字典 1d1.update(d2)#將d2合併至d1  Python內建函數排序：sorted  1so">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TQC題庫-第四大類_不定數迴圈_While">
-<meta property="og:url" content="https://codinglu.tw/2025/03/tqc-question-bank-fourth-category-undetermined-number-loop-while-tqc-certification/index.html">
+<meta property="og:title" content="TQC-第七大類-Tuple、Set、Dictionary其他容器">
+<meta property="og:url" content="https://codinglu.tw/2025/05/tqc-category-seven-tuple-set-dictionary-and-other-containers-python-tqc-certification/index.html">
 <meta property="og:site_name" content="阿盧老師Coding嚕">
-<meta property="og:description" content="402利用一個變數儲存最小值，當每次輸入有更小的時候，就做替換。  12345678min&#x3D;float(&#x27;inf&#x27;) #999999999while True:  num &#x3D; eval(input())  if num &#x3D;&#x3D; 9999:    break  if num &lt; min:    min &#x3D; numprint(min)  考進階的同學可以使用list 中的min">
+<meta property="og:description" content="以下大方向請先熟悉： Tuple元組轉型成tuple  1tuple(物件)  Set集合不會加入重複的內容的容器 創建set  1s&#x3D;set()  新增元素 1s.add(元素)  Dictionary字典創建字典 1d&#x3D;&#123;&#125;  加入字典 1d[key]&#x3D;value  合併字典 1d1.update(d2)#將d2合併至d1  Python內建函數排序：sorted  1so">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://codinglu.tw/img/TQC%E9%A1%8C%E5%BA%AB-%E7%AC%AC%E5%9B%9B%E5%A4%A7%E9%A1%9E_%E4%B8%8D%E5%AE%9A%E6%95%B8%E8%BF%B4%E5%9C%88_While_index.webp">
-<meta property="article:published_time" content="2025-03-17T04:30:38.618Z">
-<meta property="article:modified_time" content="2025-03-17T08:10:40.776Z">
+<meta property="og:image" content="https://codinglu.tw/img/TQC-%E7%AC%AC%E4%B8%83%E5%A4%A7%E9%A1%9E-Tuple%E3%80%81Set%E3%80%81Dictionary%E5%85%B6%E4%BB%96%E5%AE%B9%E5%99%A8_index.webp">
+<meta property="article:published_time" content="2025-05-05T11:01:11.927Z">
+<meta property="article:modified_time" content="2025-05-05T11:01:15.726Z">
 <meta property="article:author" content="阿盧">
+<meta property="article:tag" content="python">
 <meta property="article:tag" content="TQC檢定">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://codinglu.tw/img/TQC%E9%A1%8C%E5%BA%AB-%E7%AC%AC%E5%9B%9B%E5%A4%A7%E9%A1%9E_%E4%B8%8D%E5%AE%9A%E6%95%B8%E8%BF%B4%E5%9C%88_While_index.webp">
+<meta name="twitter:image" content="https://codinglu.tw/img/TQC-%E7%AC%AC%E4%B8%83%E5%A4%A7%E9%A1%9E-Tuple%E3%80%81Set%E3%80%81Dictionary%E5%85%B6%E4%BB%96%E5%AE%B9%E5%99%A8_index.webp">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>TQC題庫-第四大類_不定數迴圈_While - 阿盧老師Coding嚕</title>
+  <title>TQC-第七大類-Tuple、Set、Dictionary其他容器 - 阿盧老師Coding嚕</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -246,13 +247,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('../../../img/TQC%E9%A1%8C%E5%BA%AB-%E7%AC%AC%E5%9B%9B%E5%A4%A7%E9%A1%9E_%E4%B8%8D%E5%AE%9A%E6%95%B8%E8%BF%B4%E5%9C%88_While_index.webp') no-repeat center center; background-size: cover;">
+     style="background: url('../../../img/TQC-%E7%AC%AC%E4%B8%83%E5%A4%A7%E9%A1%9E-Tuple%E3%80%81Set%E3%80%81Dictionary%E5%85%B6%E4%BB%96%E5%AE%B9%E5%99%A8_index.webp') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="TQC題庫-第四大類_不定數迴圈_While"></span>
+            <span id="subtitle" data-typed-text="TQC-第七大類-Tuple、Set、Dictionary其他容器"></span>
           
         </div>
 
@@ -263,8 +264,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-03-17 12:30" pubdate>
-          2025年3月17日 下午
+        <time datetime="2025-05-05 19:01" pubdate>
+          2025年5月5日 晚上
         </time>
       </span>
     
@@ -275,7 +276,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.3k 字
+          1.7k 字
         
       </span>
     
@@ -286,7 +287,7 @@
         
         
         
-          7 分鐘
+          9 分鐘
         
       </span>
     
@@ -324,13 +325,13 @@
                     <div id="board">
                         <article class="post-content mx-auto">
                             <h1 id="seo-header">
-                                TQC題庫-第四大類_不定數迴圈_While
+                                TQC-第七大類-Tuple、Set、Dictionary其他容器
                             </h1>
                             <!-- 改動開始：顯示文章摘要 -->
                             
                                 <div class="post-summary">
                                     <p>
-                                        這篇文章教你透過各種程式技巧解決數學問題。從找最小值到反轉字串，文章介紹如何使用清爽的變數和函式來簡化程式碼，避免肉眼難以理解的數字。再來是BMI計算，用胖瘦星球之旅掌握你的體重狀態。最後還帶你輕鬆判斷數字奇偶性和在螢幕上印出絢麗的星狀圖案，真是讓人啼笑皆非的內容！
+                                        這篇文章大致是Python核心概念懶人包，教你如何用`tuple`、`set`和`dictionary`輕鬆操作數據！還有用簡單的例子說明如何合併、排序列表與字典哦！不知道怎麼用`sorted`或檢查字典是否有款項？這些技巧你一定要學會！Python入門必備！
                                     </p>
                                 </div>
                                 
@@ -339,28 +340,41 @@
                                             
                                                                     <div class="markdown-body">
                                                                         
-                                                                            <h3 id="402"><a href="#402" class="headerlink" title="402"></a>402</h3><p>利用一個變數儲存最小值，當每次輸入有更小的時候，就做替換。</p>
-<p><img src="1b90d470-6cd6-8065-a31e-e417435bad4d.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
-<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs maxima"><span class="hljs-built_in">min</span>=<span class="hljs-built_in">float</span>(&#x27;<span class="hljs-literal">inf</span>&#x27;) #<span class="hljs-number">999999999</span><br><span class="hljs-keyword">while</span> True:<br>  <span class="hljs-built_in">num</span> = <span class="hljs-built_in">eval</span>(input())<br>  <span class="hljs-keyword">if</span> <span class="hljs-built_in">num</span> == <span class="hljs-number">9999</span>:<br>    <span class="hljs-built_in">break</span><br>  <span class="hljs-keyword">if</span> <span class="hljs-built_in">num</span> &lt; <span class="hljs-built_in">min</span>:<br>    <span class="hljs-built_in">min</span> = <span class="hljs-built_in">num</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">min</span>)<br></code></pre></td></tr></table></figure>
+                                                                            <p>以下大方向請先熟悉：</p>
+<h3 id="Tuple元組"><a href="#Tuple元組" class="headerlink" title="Tuple元組"></a>Tuple元組</h3><p>轉型成<code>tuple</code> </p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">tuple</span><span class="hljs-params">(物件)</span></span><br></code></pre></td></tr></table></figure>
 
-<p>考進階的同學可以使用<code>list</code> 中的<code>min()</code> 函式解題更為簡單，也減少一開始要設定<code>min</code>變數一個很大的值，這個不自然的想法。</p>
-<figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs isbl"><span class="hljs-variable">lst</span>=[]<br><span class="hljs-variable"><span class="hljs-keyword">while</span></span> <span class="hljs-variable"><span class="hljs-literal">True</span></span>:<br>	<span class="hljs-variable">num</span> = <span class="hljs-function"><span class="hljs-title">eval</span>(<span class="hljs-title">input</span>())</span><br>	<span class="hljs-variable"><span class="hljs-keyword">if</span></span> <span class="hljs-variable">num</span> == <span class="hljs-number">9999</span>:<br>    <span class="hljs-variable">break</span><br>  <span class="hljs-variable">lst.append</span>(<span class="hljs-variable">num</span>)<br><span class="hljs-function"><span class="hljs-title">print</span>(<span class="hljs-title"><span class="hljs-built_in">min</span></span>(<span class="hljs-variable">lst</span>))</span><br></code></pre></td></tr></table></figure>
+<h3 id="Set集合"><a href="#Set集合" class="headerlink" title="Set集合"></a>Set集合</h3><p>不會加入重複的內容的容器</p>
+<p>創建<code>set</code> </p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs abnf"><span class="hljs-attribute">s</span><span class="hljs-operator">=</span>set()<br></code></pre></td></tr></table></figure>
 
-<h3 id="404"><a href="#404" class="headerlink" title="404"></a>404</h3><p>字串範圍的使用方法類似<code>range()</code> ，使用方法為：<code>字串[開始:結束的條件:間隔]</code> </p>
-<p>若要反轉，間隔為-1，開始與結束條件可省略。</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">n = <span class="hljs-selector-tag">input</span>()<br><span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(n[::-<span class="hljs-number">1</span>])</span></span><br></code></pre></td></tr></table></figure>
+<p>新增元素</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">s.<span class="hljs-built_in">add</span>(元素)<br></code></pre></td></tr></table></figure>
 
-<h3 id="406"><a href="#406" class="headerlink" title="406"></a>406</h3><p>此題注意BMI公式要轉換為公尺。</p>
-<figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs isbl"><span class="hljs-variable"><span class="hljs-keyword">while</span></span> <span class="hljs-variable"><span class="hljs-literal">True</span></span>:<br>  <span class="hljs-variable">h</span> = <span class="hljs-function"><span class="hljs-title">eval</span>(<span class="hljs-title">input</span>())</span><br>  <span class="hljs-variable"><span class="hljs-keyword">if</span></span> <span class="hljs-variable">h</span> == -<span class="hljs-number">9999</span>:<br>    <span class="hljs-variable">break</span><br>  <span class="hljs-variable">w</span> = <span class="hljs-function"><span class="hljs-title">eval</span>(<span class="hljs-title">input</span>())</span><br>  <span class="hljs-variable">bmi</span> = <span class="hljs-variable">w</span> / (<span class="hljs-variable">h</span> / <span class="hljs-number">100</span>)**<span class="hljs-number">2</span><br>  <span class="hljs-function"><span class="hljs-title">print</span>(<span class="hljs-variable">f</span><span class="hljs-string">&#x27;BMI: &#123;bmi:.2f&#125;&#x27;</span>)</span><br>  <span class="hljs-variable"><span class="hljs-keyword">if</span></span> <span class="hljs-variable">bmi</span> &gt;= <span class="hljs-number">30</span>:<br>    <span class="hljs-function"><span class="hljs-title">print</span>(<span class="hljs-string">&#x27;State: fat&#x27;</span>)</span><br>  <span class="hljs-variable">elif</span> <span class="hljs-number">25</span> &lt;= <span class="hljs-variable">bmi</span> &lt; <span class="hljs-number">30</span>:<br>    <span class="hljs-function"><span class="hljs-title">print</span>(<span class="hljs-string">&#x27;State: over weight&#x27;</span>)</span><br>  <span class="hljs-variable">elif</span> <span class="hljs-number">18.5</span> &lt;= <span class="hljs-variable">bmi</span> &lt; <span class="hljs-number">25</span>:<br>    <span class="hljs-function"><span class="hljs-title">print</span>(<span class="hljs-string">&#x27;State: normal&#x27;</span>)</span><br>  <span class="hljs-variable"><span class="hljs-keyword">else</span></span>:<br>    <span class="hljs-function"><span class="hljs-title">print</span>(<span class="hljs-string">&#x27;State: under weight&#x27;</span>)</span><br></code></pre></td></tr></table></figure>
+<h3 id="Dictionary字典"><a href="#Dictionary字典" class="headerlink" title="Dictionary字典"></a>Dictionary字典</h3><p>創建字典</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs abnf"><span class="hljs-attribute">d</span><span class="hljs-operator">=</span>&#123;&#125;<br></code></pre></td></tr></table></figure>
 
-<h3 id="408"><a href="#408" class="headerlink" title="408"></a>408</h3><p>設定變數<code>e</code>與<code>o</code> 儲存偶數和奇數的個數，判斷奇偶後進行計數。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python">e = <span class="hljs-number">0</span><br>o = <span class="hljs-number">0</span><br><span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>):<br>  i = <span class="hljs-built_in">eval</span>(<span class="hljs-built_in">input</span>())<br>  <span class="hljs-keyword">if</span> i % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>:<br>    e = e + <span class="hljs-number">1</span><br>  <span class="hljs-keyword">else</span>:<br>    o = o + <span class="hljs-number">1</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;Even numbers: <span class="hljs-subst">&#123;e&#125;</span>&#x27;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;Odd numbers: <span class="hljs-subst">&#123;o&#125;</span>&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<p>加入字典</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs abnf">d[key]<span class="hljs-operator">=</span>value<br></code></pre></td></tr></table></figure>
 
-<h3 id="410"><a href="#410" class="headerlink" title="410"></a>410</h3><p>建議自行跑一次<code>i</code>與<code>j</code> 的迴圈（如下圖）。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python">n = <span class="hljs-built_in">eval</span>(<span class="hljs-built_in">input</span>())<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, n + <span class="hljs-number">1</span>):<br>    <span class="hljs-comment"># 印出空白 (n - i) 個</span><br>    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n - i):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot; &quot;</span>, end=<span class="hljs-string">&quot;&quot;</span>)<br>    <span class="hljs-comment"># 印出 * (2 * i - 1) 個</span><br>    <span class="hljs-keyword">for</span> k <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span> * i - <span class="hljs-number">1</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;*&quot;</span>, end=<span class="hljs-string">&quot;&quot;</span>)<br>    <span class="hljs-comment"># 換行</span><br>    <span class="hljs-built_in">print</span>()<br></code></pre></td></tr></table></figure>
+<p>合併字典</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs armasm"><span class="hljs-symbol">d1.update</span>(<span class="hljs-built_in">d2</span>)#將<span class="hljs-built_in">d2</span>合併至<span class="hljs-built_in">d1</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="1b90d470-6cd6-80c8-9504-fecd63ee8b04.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs routeros">n = eval(input())<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(1, n + 1):<br>  <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27; &#x27;</span> * (n - i), <span class="hljs-attribute">end</span>=<span class="hljs-string">&#x27;&#x27;</span>)<br>  <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;*&#x27;</span> * (2 * i - 1), <span class="hljs-attribute">end</span>=<span class="hljs-string">&#x27;&#x27;</span>)<br>  <span class="hljs-built_in">print</span>()<br></code></pre></td></tr></table></figure>
+<h3 id="Python內建函數"><a href="#Python內建函數" class="headerlink" title="Python內建函數"></a>Python內建函數</h3><p>排序：<code>sorted</code> </p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">sorted</span><span class="hljs-params">(可排序物件)</span></span><br></code></pre></td></tr></table></figure>
+
+<h3 id="702-tuple操作"><a href="#702-tuple操作" class="headerlink" title="702 tuple操作"></a>702 tuple操作</h3><p>把它當作串列即可</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Create tuple1:&#x27;</span>)<br>tuple1,tuple2=[],[]<br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    <span class="hljs-attribute">n</span>=int(input())<br>    <span class="hljs-keyword">if</span> <span class="hljs-attribute">n</span>==-9999:<br>        break<br>    <span class="hljs-keyword">else</span>:<br>        tuple1.append(n)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Create tuple2:&#x27;</span>)<br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    <span class="hljs-attribute">n</span>=int(input())<br>    <span class="hljs-keyword">if</span> <span class="hljs-attribute">n</span>==-9999:<br>        break<br>    <span class="hljs-keyword">else</span>:<br>        tuple2.append(n)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Combined tuple before sorting:&#x27;</span>,tuple(tuple1+tuple2))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Combined list after sorting:&#x27;</span>,sorted(tuple1+tuple2))<br></code></pre></td></tr></table></figure>
+
+<h3 id="704set集合"><a href="#704set集合" class="headerlink" title="704set集合"></a>704set集合</h3><p>會創建<code>set</code>和新增元素即可</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-attribute">n</span>=set()<br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    <span class="hljs-attribute">num</span>=int(input())<br>    <span class="hljs-keyword">if</span> <span class="hljs-attribute">num</span>==-9999:<br>        break<br>    <span class="hljs-keyword">else</span>:<br>        n.<span class="hljs-built_in">add</span>(num)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Length:&#x27;</span>,len(n))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Max:&#x27;</span>,max(n))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Min:&#x27;</span>,min(n))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Sum:&#x27;</span>,sum(n))<br></code></pre></td></tr></table></figure>
+
+<h3 id="706全字母"><a href="#706全字母" class="headerlink" title="706全字母"></a>706全字母</h3><p>先將文字轉換成小寫，檢定的測資一定有「空白鍵」，所以只要計算長度是不是27就可以了(a~z 26個字母 加上 空格)</p>
+<figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs isbl"><span class="hljs-variable">n</span>=<span class="hljs-function"><span class="hljs-title">int</span>(<span class="hljs-title">input</span>())</span><br><span class="hljs-variable">for</span> <span class="hljs-variable">i</span> <span class="hljs-variable"><span class="hljs-keyword">in</span></span> <span class="hljs-function"><span class="hljs-title">range</span>(<span class="hljs-variable">n</span>):</span><br><span class="hljs-function">    <span class="hljs-variable">s</span>=<span class="hljs-title">set</span>(<span class="hljs-title">input</span>().lower())</span><br>    <span class="hljs-variable"><span class="hljs-keyword">if</span></span> <span class="hljs-function"><span class="hljs-title">len</span>(<span class="hljs-variable">s</span>)==<span class="hljs-number">27</span>:</span><br><span class="hljs-function">        <span class="hljs-title">print</span>(<span class="hljs-string">&#x27;True&#x27;</span>)  </span><br><span class="hljs-function">    <span class="hljs-variable"><span class="hljs-keyword">else</span></span>:</span><br><span class="hljs-function">        <span class="hljs-title">print</span>(<span class="hljs-string">&#x27;False&#x27;</span>)</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="708字典的合併與排序"><a href="#708字典的合併與排序" class="headerlink" title="708字典的合併與排序"></a>708字典的合併與排序</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs python">d1 = &#123;&#125;<br>d2 = &#123;&#125;<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Create dict1:&#x27;</span>)<br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>  n = <span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;Key: &#x27;</span>)<br>  <span class="hljs-keyword">if</span> n == <span class="hljs-string">&#x27;end&#x27;</span>:<br>    <span class="hljs-keyword">break</span><br>  k = <span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;Value: &#x27;</span>)<br>  d1[n] = k<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Create dict2:&#x27;</span>)<br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>  n = <span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;Key: &#x27;</span>)<br>  <span class="hljs-keyword">if</span> n == <span class="hljs-string">&#x27;end&#x27;</span>:<br>    <span class="hljs-keyword">break</span><br>  k = <span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;Value: &#x27;</span>)<br>  d2[n] = k<br>d1.update(d2)<br>ks = <span class="hljs-built_in">sorted</span>(d1)<br><span class="hljs-comment"># print(ks)</span><br><span class="hljs-keyword">for</span> 值 <span class="hljs-keyword">in</span> ks:<br>  <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;值&#125;</span>: <span class="hljs-subst">&#123;d1[值]&#125;</span>&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="710-字典內容存在"><a href="#710-字典內容存在" class="headerlink" title="710 字典內容存在"></a>710 字典內容存在</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python">d = &#123;&#125;<br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    key=<span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;Key: &#x27;</span> )<br>    <span class="hljs-keyword">if</span> key==<span class="hljs-string">&#x27;end&#x27;</span>:<br>        <span class="hljs-keyword">break</span><br>    value=<span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;Value: &#x27;</span>)<br>    d[key]=value<br><span class="hljs-comment"># print(d)</span><br><span class="hljs-comment"># print(d[&#x27;123-555&#x27;])</span><br>s=<span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;Search key: &#x27;</span>)<br><span class="hljs-keyword">if</span> s <span class="hljs-keyword">in</span> d:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-literal">True</span>)<br><span class="hljs-keyword">else</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-literal">False</span>)<br></code></pre></td></tr></table></figure>
 
 
                                                                                 
@@ -380,7 +394,7 @@
     
       <span class="category-chain">
         
-  <a href="../../../categories/tqc/" class="category-chain-item">TQC檢定</a>
+  <a href="../../../categories/programming/" class="category-chain-item">Python課程</a>
   
   
 
@@ -395,6 +409,8 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
+        <a href="../../../tags/python/" class="print-no-link">#python</a>
+      
         <a href="../../../tags/TQC%E6%AA%A2%E5%AE%9A/" class="print-no-link">#TQC檢定</a>
       
     </div>
@@ -407,8 +423,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>TQC題庫-第四大類_不定數迴圈_While</div>
-      <div>https://codinglu.tw/2025/03/tqc-question-bank-fourth-category-undetermined-number-loop-while-tqc-certification/</div>
+      <div>TQC-第七大類-Tuple、Set、Dictionary其他容器</div>
+      <div>https://codinglu.tw/2025/05/tqc-category-seven-tuple-set-dictionary-and-other-containers-python-tqc-certification/</div>
     </div>
     <div class="license-meta">
       
@@ -420,7 +436,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>發布於</div>
-          <div>2025年3月17日</div>
+          <div>2025年5月5日</div>
         </div>
       
       
@@ -462,9 +478,9 @@
                                                                                             <article class="post-prev col-6">
                                                                                                 
                                                                                                     
-                                                                                                        <a href="../../05/tqc-category-eight-string-python-tqc-certification/" title="TQC-第八大類-字串">
+                                                                                                        <a href="../tqc-category-six-list-in-series-python-tqc-certification/" title="TQC-第六大類-串列List">
                                                                                                             <i class="iconfont icon-arrowleft"></i>
-                                                                                                            <span class="hidden-mobile">TQC-第八大類-字串</span>
+                                                                                                            <span class="hidden-mobile">TQC-第六大類-串列List</span>
                                                                                                             <span class="visible-mobile">上一篇</span>
                                                                                                         </a>
                                                                                                         
@@ -472,8 +488,8 @@
                                                                                             <article class="post-next col-6">
                                                                                                 
                                                                                                     
-                                                                                                        <a href="../tqc-question-bank-fifth-category-functions-tqc-certification/" title="TQC題庫-第五大類_函式">
-                                                                                                            <span class="hidden-mobile">TQC題庫-第五大類_函式</span>
+                                                                                                        <a href="../tqc-category-eight-string-python-tqc-certification/" title="TQC-第八大類-字串">
+                                                                                                            <span class="hidden-mobile">TQC-第八大類-字串</span>
                                                                                                             <span class="visible-mobile">下一篇</span>
                                                                                                             <i class="iconfont icon-arrowright"></i>
                                                                                                         </a>

@@ -1,0 +1,27 @@
+{
+    "rewrites": [
+        {
+            "source": "/leetcode",
+            "destination": "/leetcode/index.html"
+        },
+        {
+            "source": "/leetcode/",
+            "destination": "/leetcode/index.html"
+        },
+        {
+            "source": "/leetcode/:path*",
+            "destination": "/leetcode/index.html"
+        }
+    ],
+    "headers": [
+        {
+            "source": "/leetcode/assets/(.*)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=31536000, immutable"
+                }
+            ]
+        }
+    ]
+}

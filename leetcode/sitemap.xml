@@ -2,61 +2,61 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://codinglu.tw/leetcode/#/</loc>
+    <loc>https://codinglu.tw/leetcode</loc>
     <lastmod>2026-02-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://codinglu.tw/leetcode/#/58-length-of-last-word</loc>
+    <loc>https://codinglu.tw/leetcode/58-length-of-last-word</loc>
     <lastmod>2026-02-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://codinglu.tw/leetcode/#/3047-find-largest-square</loc>
+    <loc>https://codinglu.tw/leetcode/3047-find-largest-square</loc>
     <lastmod>2026-02-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://codinglu.tw/leetcode/#/2943-maximize-area-of-square-hole-in-grid</loc>
+    <loc>https://codinglu.tw/leetcode/2943-maximize-area-of-square-hole-in-grid</loc>
     <lastmod>2026-02-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://codinglu.tw/leetcode/#/88-merge-sorted-array</loc>
+    <loc>https://codinglu.tw/leetcode/88-merge-sorted-array</loc>
     <lastmod>2026-02-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://codinglu.tw/leetcode/#/169-majority-element</loc>
+    <loc>https://codinglu.tw/leetcode/169-majority-element</loc>
     <lastmod>2026-02-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://codinglu.tw/leetcode/#/121-best-time-to-buy-and-sell-stock</loc>
+    <loc>https://codinglu.tw/leetcode/121-best-time-to-buy-and-sell-stock</loc>
     <lastmod>2026-02-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://codinglu.tw/leetcode/#/13-roman-to-integer</loc>
+    <loc>https://codinglu.tw/leetcode/13-roman-to-integer</loc>
     <lastmod>2026-02-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://codinglu.tw/leetcode/#/55-jump-game</loc>
+    <loc>https://codinglu.tw/leetcode/55-jump-game</loc>
     <lastmod>2026-02-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://codinglu.tw/leetcode/#/12-integer-to-roman</loc>
+    <loc>https://codinglu.tw/leetcode/12-integer-to-roman</loc>
     <lastmod>2026-02-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

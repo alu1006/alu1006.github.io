@@ -217,7 +217,7 @@ function HomePage() {
 // 主應用程式
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/leetcode">
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/12-integer-to-roman" element={<Problem12 />} />

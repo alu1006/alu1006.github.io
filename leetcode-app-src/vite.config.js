@@ -4,10 +4,9 @@ import tailwindcss from '@tailwindcss/vite'
 import { writeFileSync, readFileSync, existsSync, mkdirSync } from 'fs'
 import { resolve } from 'path'
 
-// 環境變數判斷部署目標
-const isVercel = process.env.VERCEL === '1'
-const basePath = isVercel ? '/' : '/leetcode/'
-const outputDir = isVercel ? 'dist' : '../source/leetcode'
+// 統一使用 /leetcode/ 路徑
+const basePath = '/leetcode/'
+const outputDir = '../source/leetcode'
 
 // 動態從 App.jsx 讀取題目列表
 function getProblemsFromAppJsx() {
@@ -31,7 +30,7 @@ function getProblemsFromAppJsx() {
 }
 
 // 生成 sitemap.xml 內容
-const siteUrl = isVercel ? 'https://leetcode.codinglu.tw' : 'https://codinglu.tw/leetcode'
+const siteUrl = 'https://codinglu.tw/leetcode'
 
 function generateSitemap() {
   const problemRoutes = getProblemsFromAppJsx()
@@ -67,7 +66,7 @@ export default defineConfig({
         writeFileSync(resolve(outDir, 'sitemap.xml'), generateSitemap())
         const routes = getProblemsFromAppJsx()
         console.log(`✅ sitemap.xml generated with ${routes.length} URLs`)
-        console.log(`📦 Deploy target: ${isVercel ? 'Vercel' : 'GitHub Pages'}`)
+        console.log(`📦 Deploy target: Vercel (codinglu.tw)`)
       }
     }
   ],

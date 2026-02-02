@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+/* 匹配 Hexo Fluid 主題 - 淺色模式 */
+:root {
+    /* Fluid 淺色主題色系 */
+    --fluid-body-bg: #eee;
+    --fluid-navbar-bg: #2f4154;
+    --fluid-board: #fff;
+    --fluid-text: #3c4858;
+    --fluid-sec-text: #718096;
+    --fluid-link: #0366d6;
+    --fluid-link-hover: #30a9de;
+    --fluid-line: #eaecef;
+    --fluid-heading: #1a202c;
+
+    /* 字體匹配 Fluid */
+    font-family: 'IBM Plex Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    letter-spacing: 0.02em;
+}
+
+/* 淺色模式滾動條 */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c4c6c9;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a6a6a6;
+}

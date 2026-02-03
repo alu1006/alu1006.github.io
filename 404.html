@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Page Not Found | 阿盧老師Coding嚕</title>
+    <script type="text/javascript">
+      // GitHub Pages SPA 路由處理 - 根目錄 404.html
+      // 檢查是否是 /leetcode/ 路徑，如果是則重定向
+      var l = window.location;
+      var path = l.pathname;
+      
+      if (path.startsWith('/leetcode/') && path !== '/leetcode/') {
+        // 對於 /leetcode/* 路徑，重定向到 leetcode/index.html 並保留路徑信息
+        var leetcodePath = path.substring('/leetcode/'.length);
+        l.replace(
+          l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+          '/leetcode/?/' + leetcodePath.replace(/&/g, '~and~') +
+          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+          l.hash
+        );
+      } else {
+        // 其他路徑，重定向到主頁
+        l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + '/');
+      }
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

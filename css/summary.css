@@ -1,0 +1,8 @@
+/* 自定义摘要样式 */
+.post-summary {
+  background-color: #f9f9f9; /* 背景颜色 */
+  border-left: 4px solid #d3d3d3; /* 左边框颜色 */
+  padding: 10px; /* 内边距 */
+  margin-bottom: 20px; /* 底部外边距 */
+  font-style: italic; /* 斜体 */
+}

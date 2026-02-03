@@ -1,0 +1,912 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="../../../img/fluid.png">
+  <link rel="icon" href="../../../img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="阿盧">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="話說在前以前一直都用Wordpress來紀錄，但功能實在太多了，有時想要一個簡潔的版面、程式碼的呈現設定等等都蠻麻煩的（抱頭）。 後來發現Notion後，編輯排版都用markdown來做，非常方便。加上現在Notion AI 在編輯上如虎添翼，連要打的字都變少了。 身為教師，還是希望自己的學能轉成教，能放上網路上就有機會幫助到人，又不用花自己太多時間的前提下，剛好看到了Hexo這個工具，跳進來使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="紀錄學習-使用Hexo架設部落格 (1) 使用Github Page從無到有">
+<meta property="og:url" content="https://codinglu.tw/2021/12/seo-friendly-url-name-for-blog-post-=-'how-to-set-up-hexo-blog-with-github-page-for-beginners-notion-hexo-blog'/index.html">
+<meta property="og:site_name" content="阿盧老師Coding嚕">
+<meta property="og:description" content="話說在前以前一直都用Wordpress來紀錄，但功能實在太多了，有時想要一個簡潔的版面、程式碼的呈現設定等等都蠻麻煩的（抱頭）。 後來發現Notion後，編輯排版都用markdown來做，非常方便。加上現在Notion AI 在編輯上如虎添翼，連要打的字都變少了。 身為教師，還是希望自己的學能轉成教，能放上網路上就有機會幫助到人，又不用花自己太多時間的前提下，剛好看到了Hexo這個工具，跳進來使用">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://codinglu.tw/img/default.webp">
+<meta property="article:published_time" content="2021-12-19T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-03-09T16:19:18.300Z">
+<meta property="article:author" content="阿盧">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="notion">
+<meta property="article:tag" content="blog">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://codinglu.tw/img/default.webp">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>紀錄學習-使用Hexo架設部落格 (1) 使用Github Page從無到有 - 阿盧老師Coding嚕</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="../../../css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="../../../css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="../../../css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"codinglu.tw","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"google":{"measurement_id":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="../../../js/utils.js" ></script>
+  <script  src="../../../js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="../../../index.html">
+      <strong>阿盧老師Coding嚕</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="../../../index.html" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首頁</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="../../../categories/programming/" target="_self">
+                <i class="iconfont icon-python"></i>
+                <span>Python課程</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="../../../categories/data-science/" target="_self">
+                <i class="iconfont icon-database-fill"></i>
+                <span>資料科學</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="../../../categories/deep-learning/" target="_self">
+                <i class="iconfont icon-brain-fill"></i>
+                <span>深度學習</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="../../../categories/tqc/" target="_self">
+                <i class="iconfont icon-certificate-fill"></i>
+                <span>TQC檢定</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="../../../categories/algorithm/" target="_self">
+                <i class="iconfont icon-tree-fill"></i>
+                <span>演算法與資料結構</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="../../../leetcode/" target="_self">
+                <i class="iconfont icon-code"></i>
+                <span>LeetCode教材</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="../../../about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>關於</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('../../../img/default.webp') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="紀錄學習-使用Hexo架設部落格 (1) 使用Github Page從無到有"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-12-20 00:00" pubdate>
+          2021年12月20日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          11 分鐘
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+    <div class="container-fluid nopadding-x">
+        <div class="row nomargin-x">
+            <div class="side-col d-none d-lg-block col-lg-2">
+                
+
+            </div>
+
+            <div class="col-lg-8 nopadding-x-md">
+                <div class="container nopadding-x-md" id="board-ctn">
+                    <div id="board">
+                        <article class="post-content mx-auto">
+                            <h1 id="seo-header">
+                                紀錄學習-使用Hexo架設部落格 (1) 使用Github Page從無到有
+                            </h1>
+                            <!-- 改動開始：顯示文章摘要 -->
+                            
+                                <div class="post-summary">
+                                    <p>
+                                        作者從繁瑣的Wordpress轉向利用Notion和Markdown編輯部落格，並發現Hexo這個工具相當便利。透過Hexo，作者輕鬆架設了靜態網站，還結合了Github Pages以及自動化流程工具CI/CD來減少工作量。此外，文章提供了詳細的教學步驟，讓讀者能快速跟進，並介紹了如何選擇和修改主題，使部落格訪客視覺上更愉悅。
+                                    </p>
+                                </div>
+                                
+                                    <!-- 改動結束 -->
+                                    
+                                            
+                                                                    <div class="markdown-body">
+                                                                        
+                                                                            <h2 id="話說在前"><a href="#話說在前" class="headerlink" title="話說在前"></a>話說在前</h2><p>以前一直都用Wordpress來紀錄，但功能實在太多了，有時想要一個簡潔的版面、程式碼的呈現設定等等都蠻麻煩的（抱頭）。</p>
+<p>後來發現Notion後，編輯排版都用markdown來做，非常方便。加上現在Notion AI 在編輯上如虎添翼，連要打的字都變少了。</p>
+<p>身為教師，還是希望自己的學能轉成教，能放上網路上就有機會幫助到人，又不用花自己太多時間的前提下，剛好看到了Hexo這個工具，跳進來使用看看。</p>
+<p>網路教學很多，幾個目標先在開始前做個文章主要總整：</p>
+<ul>
+<li><p>使用Github Page免費架站</p>
+</li>
+<li><p>使用客製化的網址</p>
+</li>
+<li><p>使用Google Ads和Google Analysis，做廣告獎勵與追蹤</p>
+</li>
+<li><p>使用Notion編輯，加速部落格文章管理與撰寫</p>
+</li>
+<li><p>利用Github action自動完成CI&#x2F;CD，減少不必要動作</p>
+</li>
+</ul>
+<h2 id="什麼是Hexo"><a href="#什麼是Hexo" class="headerlink" title="什麼是Hexo"></a>什麼是Hexo</h2><ul>
+<li><p>Hexo是一個快速、簡單且強大的靜態部落格框架</p>
+</li>
+<li><p>支援使用Markdown（或其他模板語言）來編寫內容</p>
+</li>
+<li><p>支援一鍵佈屬</p>
+</li>
+</ul>
+<p>基本流程如下： 設定開發環境→在本地端設定Hexo→設定基本內容→客製主題→上線</p>
+<h2 id="設定開發環境"><a href="#設定開發環境" class="headerlink" title="設定開發環境"></a>設定開發環境</h2><ol>
+<li><p>Node.js</p>
+</li>
+<li><p>Git</p>
+</li>
+<li><p>Visual Studio Code</p>
+</li>
+</ol>
+<h2 id="Hexo初始設定"><a href="#Hexo初始設定" class="headerlink" title="Hexo初始設定"></a>Hexo初始設定</h2><p>Node.js 是一個開源的 JavaScript 執行環境，它包含了 npm（Node Package Manager）這個套件管理工具。</p>
+<p>所以下載安裝Node.js完後可以使用 npm 來安裝和管理你的 JavaScript 套件了。</p>
+<ol>
+<li><p>在你的本地計算機上安裝Hexo，你可以通過運行以下命令安裝：</p>
+</li>
+<li><p>創建一個新的Hexo Blog，運行以下命令：</p>
+</li>
+</ol>
+<h2 id="設定基本內容"><a href="#設定基本內容" class="headerlink" title="設定基本內容"></a>設定基本內容</h2><p>先記錄一下初始化後的幾個後修改的，資料夾架構：</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs 1c">.<br>├── _config.yml<br>├── scaffolds<br>├── source<br><span class="hljs-string">|   ├── _posts</span><br><span class="hljs-string">|   └── .gitkeep</span><br>└── themes<br><br><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>_config.yml</code>: Hexo的主要配置文件，包含了部落格的設定信息，如標題、語言、主題等。</p>
+</li>
+<li><p><code>scaffolds</code>: 存放預設的文章範本，當你創建新文章時可以使用這些範本。</p>
+</li>
+<li><p><code>source</code>: 存放所有的文章內容，包括草稿(<code>_drafts</code>)和已發佈(<code>_posts</code>)的文章。</p>
+</li>
+<li><p><code>themes</code>: 存放部落格的主題文件，可以根據需求選擇不同的主題來美化部落格的外觀。</p>
+</li>
+</ul>
+<p>設定步驟</p>
+<ol>
+<li>打開 _config.yml (為最外層總網站的配置)，修改網站基本資訊</li>
+</ol>
+<figure class="highlight ldif"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs ldif"><span class="hljs-comment"># Site</span><br><span class="hljs-attribute">title</span>: 阿盧老師Coding嚕<br><span class="hljs-attribute">subtitle</span>: 程式、新興科技、教育<br><span class="hljs-attribute">description</span>: &#x27;&#x27; <span class="hljs-comment">#用於SEO</span><br><span class="hljs-attribute">keywords</span>: <span class="hljs-comment">#用於SEO</span><br><span class="hljs-attribute">author</span>: 阿盧<br><span class="hljs-attribute">language</span>: zh-TW<br><span class="hljs-attribute">timezone</span>: &#x27;Asia/Taipei&#x27;<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="挑選想要的主題-以Fluid為例（可以未來再處理）"><a href="#挑選想要的主題-以Fluid為例（可以未來再處理）" class="headerlink" title="挑選想要的主題-以Fluid為例（可以未來再處理）"></a>挑選想要的主題-以Fluid為例（可以未來再處理）</h2><p>主題(Themes)在官方，可從此處挑選： <a target="_blank" rel="noopener" href="https://hexo.io/themes/index.html">https://hexo.io/themes/index.html</a></p>
+<p>有人整理了比較紅的主題，比較多建置教學，也比較多中文教學</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/FoxerLee/awesome-hexo-themes">https://github.com/FoxerLee/awesome-hexo-themes</a></p>
+<p>挑選完後，我以fluid(<a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid)%E7%82%BA%E4%B8%BB%EF%BC%9A">https://github.com/fluid-dev/hexo-theme-fluid)為主：</a></p>
+<ol>
+<li>切進資料夾中的themes目錄</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> blog\\themes<br><br></code></pre></td></tr></table></figure>
+
+<ol>
+<li>透過clone的方式將主題複製到資料夾中</li>
+</ol>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">git <span class="hljs-keyword">clone</span> <span class="hljs-title">&lt;https</span>://github.com/fluid-dev/hexo-theme-fluid.git&gt;<br><br></code></pre></td></tr></table></figure>
+
+<aside> 💡 themes/fluid/_config.yml:設定主題相關，在剛開始不要和最外層的_config.yml搞混了
+
+</aside>
+
+<ol>
+<li>修改總站的_config.yml，對應到fluid這個主題</li>
+</ol>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs clean"># Extensions<br>## Plugins: &lt;https:<span class="hljs-comment">//hexo.io/plugins/&gt;</span><br>## Themes: &lt;https:<span class="hljs-comment">//hexo.io/themes/&gt;</span><br>theme: fluid<br><br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><p>修改themes&#x2F;fluid&#x2F;_config.yml，可參考用戶手冊： <a target="_blank" rel="noopener" href="https://fluid-dev.github.io/hexo-fluid-docs/guide/#%E5%85%B3%E4%BA%8E%E6%8C%87%E5%8D%97">https://fluid-dev.github.io/hexo-fluid-docs/guide/#关于指南</a></p>
+</li>
+<li><p>用以下指令確定，在本地端測試是否成功</p>
+</li>
+</ol>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs 1c">hexo clean <span class="hljs-comment">//清除快取</span><br>hexo g <span class="hljs-comment">//生成靜態檔案</span><br>hexo s <span class="hljs-comment">//啟動local端伺服器</span><br><br></code></pre></td></tr></table></figure>
+
+<h2 id="設定Github-Page並上線"><a href="#設定Github-Page並上線" class="headerlink" title="設定Github Page並上線"></a>設定Github Page並上線</h2><ol>
+<li><p>在 Github官網上建立一個新的 Repository，Repository 名稱為 <code>&lt;你的使用者名稱&gt;.github.io</code>，例如 <code>johnsmith.github.io</code>。</p>
+</li>
+<li><p>在本地端，進入 Hexo Blog 資料夾，修改 <code>_config.yml</code> 檔案。</p>
+</li>
+<li><p>安裝部署相關的套件，執行以下指令。</p>
+</li>
+<li><p>部署 Hexo Blog 到 GitHub Page，執行以下指令。</p>
+</li>
+<li><p>在瀏覽器中開啟 <code>&lt;你的使用者名稱&gt;.github.io</code>，你應該能夠看到你的 Hexo Blog 網站了。</p>
+</li>
+</ol>
+<p><img src="c14a94de-5189-4f30-91c5-2bc4b04bf478.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+<p><img src="60700493-7457-432a-880e-83fe1ad95aa5.webp" srcset="/img/loading.gif" lazyload alt="Image"></p>
+
+                                                                                
+                                                                    </div>
+                                                                    
+                                                                        <hr/>
+                                                                        <div>
+                                                                            <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="../../../categories/%E9%83%A8%E8%90%BD%E6%A0%BC%E5%BB%BA%E7%BD%AE/" class="category-chain-item">部落格建置</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="../../../tags/hexo/" class="print-no-link">#hexo</a>
+      
+        <a href="../../../tags/notion/" class="print-no-link">#notion</a>
+      
+        <a href="../../../tags/blog/" class="print-no-link">#blog</a>
+      
+    </div>
+  
+</div>
+
+
+                                                                                
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>紀錄學習-使用Hexo架設部落格 (1) 使用Github Page從無到有</div>
+      <div>https://codinglu.tw/2021/12/seo-friendly-url-name-for-blog-post-=-&#39;how-to-set-up-hexo-blog-with-github-page-for-beginners-notion-hexo-blog&#39;/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>阿盧</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>發布於</div>
+          <div>2021年12月20日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>許可協議</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商業性使用">
+                    <i class="iconfont icon-nc"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+                                                                                    <!-- 在這邊加入 -->
+                                                                                    <div class="post-views" style="margin: 20px 0; text-align: center; color: #888;">
+                                                                                        📌 本文瀏覽量：
+                                                                                        <span id="busuanzi_value_page_pv">0</span> 次
+                                                                                    </div>
+                                                                                    
+                                                                                        <div class="post-prevnext my-3">
+                                                                                            <article class="post-prev col-6">
+                                                                                                
+                                                                                                    
+                                                                                                        <a href="../../../2024/06/seo-friendly-url-name-for-blog-post-jilu-xuexi-shiyong-hexo-jiashe-boluoge-2-hexo-github-blog/" title="使用Hexo架設部落格 (2) 熱力圖發文貢獻日誌">
+                                                                                                            <i class="iconfont icon-arrowleft"></i>
+                                                                                                            <span class="hidden-mobile">使用Hexo架設部落格 (2) 熱力圖發文貢獻日誌</span>
+                                                                                                            <span class="visible-mobile">上一篇</span>
+                                                                                                        </a>
+                                                                                                        
+                                                                                            </article>
+                                                                                            <article class="post-next col-6">
+                                                                                                
+                                                                                                    
+                                                                                            </article>
+                                                                                        </div>
+                                                                                        
+                                                                        </div>
+
+                                                                        
+                        </article>
+                    </div>
+                </div>
+            </div>
+
+            <div class="side-col d-none d-lg-block col-lg-2">
+                
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目錄</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+            </div>
+        </div>
+    </div>
+
+    
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+        
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+    
+        <div class="footer-content">
+             <a href="mailto:luwei1006@gmail.com" target="_blank" rel="nofollow noopener"><span>Produced by ALU &copy; 2023</span></a>
+<a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+        </div>
+        
+            
+                <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        總訪問量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        總訪客數 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+                    
+
+                        
+</div>
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="../../../js/events.js" ></script>
+<script  src="../../../js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="../../../js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="../../../js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="../../../js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允許 JavaScript 運行的環境下瀏覽效果更佳</div>
+  </noscript>
+</body>
+</html>

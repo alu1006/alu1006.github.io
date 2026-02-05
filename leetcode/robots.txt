@@ -1,0 +1,9 @@
+# robots.txt for LeetCode Interactive Learning Platform
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://codinglu.tw/leetcode/sitemap.xml
+
+# Crawl delay (optional, helps prevent server overload)
+Crawl-delay: 1

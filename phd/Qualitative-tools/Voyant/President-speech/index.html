@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>臺灣總統就職演說互動分析</title>
+  <meta name="description" content="1996–2024 年臺灣總統就職演說原文、來源、互動詞頻圖、語境編碼與研究結論。">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23052e6b'/%3E%3Cpath d='M15 18h34v6H15zm0 11h27v6H15zm0 11h20v6H15z' fill='%23fff'/%3E%3Ccircle cx='48' cy='43' r='8' fill='%23f6c23e'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要內容</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="回到頁首">
+      <span class="brand-mark" aria-hidden="true">文</span>
+      <span><strong>總統就職演說</strong><small>互動文本分析 1996–2024</small></span>
+    </a>
+    <nav aria-label="主要導覽">
+      <a href="#visuals">互動圖</a><a href="#contexts">Context</a><a href="#conclusion">結論</a><a href="#speeches">演說原文</a>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="intro" id="top">
+      <div><p class="eyebrow">數位人文研究閱讀器</p><h1>臺灣總統就職演說的<br>詞語與語境變化</h1><p class="lede">閱讀八篇完整演說，探索中國與兩岸的用語，<br>以及經濟與國家如何隨時期改變。</p></div>
+      <dl class="intro-stats" aria-label="語料概覽"><div><dt>8</dt><dd>篇演說</dd></div><div><dt>28</dt><dd>年跨度</dd></div><div><dt id="context-total">—</dt><dd>筆語境編碼</dd></div></dl>
+    </section>
+    <section class="section section-tinted" id="visuals">
+      <div class="section-heading"><div><p class="section-no">01</p><h2>互動圖</h2></div><p>數值以 <a href="https://voyant.lincsproject.ca/" target="_blank" rel="noopener">Voyant Tools ↗</a> 處理；趨勢圖使用每萬詞相對頻率。</p></div>
+      <div class="segmented" id="group-tabs" aria-label="選擇分析主題"><button class="active" data-group="china">中國與兩岸</button><button data-group="economy">經濟與國家</button></div>
+      <div class="visual-shell"><div class="chart-tabs" id="chart-tabs" role="tablist" aria-label="選擇圖表"><button class="active" data-chart="trend">趨勢圖</button><button data-chart="bubble">氣泡線</button><button data-chart="cloud">詞頻圖</button><button data-chart="collocates">Collocates</button></div><div class="term-controls" id="term-controls"></div><div class="chart-area" id="chart-area" aria-live="polite"></div><p class="chart-note" id="chart-note"></p></div>
+    </section>
+    <section class="section" id="contexts">
+      <div class="section-heading"><div><p class="section-no">02</p><h2>Context 語境整理</h2></div><p>每筆資料保留完整句子、命中詞、主要編碼、次要編碼與官方來源。</p></div>
+      <div class="context-controls"><label><span>分析主題</span><select id="context-group"><option value="china">中國與兩岸</option><option value="economy">經濟與國家</option></select></label><label><span>年份</span><select id="context-year"><option value="">全部年份</option></select></label><label><span>編碼</span><select id="context-category"><option value="">全部編碼</option></select></label><label class="context-search"><span>搜尋句子</span><input id="context-search" type="search" placeholder="輸入關鍵詞"></label></div>
+      <div class="context-summary" id="context-summary" aria-live="polite"></div>
+      <p class="dataframe-note">DataFrame 檢視：每列是一個含搜尋詞的完整句子；可左右捲動查看編碼、判斷線索與來源。</p>
+      <div class="dataframe-wrap" id="context-table-wrap" tabindex="0" aria-label="上下文編碼資料表，可左右捲動">
+        <table class="dataframe" id="context-table">
+          <thead><tr><th scope="col">記錄 ID</th><th scope="col">年份</th><th scope="col">總統</th><th scope="col">命中詞</th><th scope="col" class="sentence-col">完整句子</th><th scope="col">主要編碼</th><th scope="col">次要編碼</th><th scope="col">判斷線索</th><th scope="col">官方原文</th><th scope="col">站內原文</th></tr></thead>
+          <tbody id="context-tbody"></tbody>
+        </table>
+      </div>
+      <button class="load-more" id="load-more" hidden>顯示更多</button>
+    </section>
+    <section class="section conclusion" id="conclusion">
+      <div class="section-heading inverted"><div><p class="section-no">03</p><h2>最後結論</h2></div><p>從逐句語境而非單一詞頻，整理三個時期的主要轉變。</p></div>
+      <div class="period-grid" id="period-grid"></div><div class="final-claim"><span>核心推論</span><p>2020 年後，經濟不再只是成長議題，也成為國家安全、供應鏈韌性與民主夥伴定位的一部分。</p></div>
+    </section>
+    <section class="resources" aria-labelledby="resources-title"><div><p class="eyebrow">研究資料</p><h2 id="resources-title">下載與方法</h2></div><div class="resource-links"><a href="downloads/總統就職演說_中國兩岸與經濟語境分析.xlsx" download>下載 Context 編碼 Excel</a><a href="downloads/總統就職演說_Voyant分析簡報.pptx" download>下載研究簡報</a><a href="data/site-data.json" download>下載網站分析資料 JSON</a></div><p class="method-note">方法限制：詞頻與搭配詞只能指出分布與鄰近關係，態度判斷仍須回到完整句子。相關性未納入，因語料只有八篇演說。</p></section>
+    <section class="section" id="speeches">
+      <div class="section-heading"><div><p class="section-no">04</p><h2>演說原文與官方來源</h2></div><p>選擇年份閱讀全文並搜尋字詞。<br>每篇都附有總統府官方來源。</p></div>
+      <div class="speech-years" id="speech-years" role="tablist" aria-label="選擇演說年份"></div>
+      <div class="speech-layout"><aside class="speech-meta" id="speech-meta"></aside><article class="reader-panel"><div class="reader-toolbar"><label class="search-field"><span>搜尋全文</span><input id="speech-search" type="search" placeholder="例如：兩岸、供應鏈、和平"></label><label class="select-field"><span>快速標示</span><select id="speech-highlight"><option value="">不標示</option></select></label></div><div class="reader-status" id="reader-status" aria-live="polite"></div><div class="speech-text" id="speech-text" tabindex="0"></div></article></div>
+    </section>
+  </main>
+  <footer><p>演說原文來源：中華民國總統府。分析與編碼供研究與教學使用。</p></footer>
+  <script src="assets/app.js" defer></script>
+</body>
+</html>

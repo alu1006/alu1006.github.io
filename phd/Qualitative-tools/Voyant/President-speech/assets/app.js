@@ -5,7 +5,7 @@ const rxEsc=v=>String(v).replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
 const fmt=(v,d=0)=>Number(v).toLocaleString('zh-TW',{minimumFractionDigits:d,maximumFractionDigits:d});
 
 async function init(){
-  try{state.data=await fetch('data/site-data.json').then(r=>{if(!r.ok)throw new Error('資料載入失敗');return r.json()})}
+  try{state.data=await fetch('/phd/Qualitative-tools/Voyant/President-speech/data/site-data.json').then(r=>{if(!r.ok)throw new Error('資料載入失敗');return r.json()})}
   catch(e){document.body.innerHTML=`<main class="empty"><p>${esc(e.message)}</p></main>`;return}
   $('#context-total').textContent=state.data.contexts.length;
   buildSpeechControls();renderSpeech();buildChartControls();renderChart();buildContextFilters();renderContexts();renderConclusions();bindEvents();
